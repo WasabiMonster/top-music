@@ -1,0 +1,25 @@
+{
+  "artistName": "Nas",
+  "id": "1528092359",
+  "releaseDate": "2020-08-21",
+  "name": "King's Disease",
+  "kind": "album",
+  "copyright": "℗ 2020 Mass Appeal",
+  "artistId": "35307",
+  "contentAdvisoryRating": "Explicit",
+  "artistUrl": "https://music.apple.com/us/artist/nas/35307?app=itunes",
+  "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Music124/v4/14/4a/8f/144a8f2c-c723-2413-291b-ba2fe2819456/20UMGIM71728.rgb.jpg/200x200bb.png",
+  "genres": [
+    {
+      "genreId": "18",
+      "name": "Hip-Hop/Rap",
+      "url": "https://itunes.apple.com/us/genre/id18"
+    },
+    {
+      "genreId": "34",
+      "name": "Music",
+      "url": "https://itunes.apple.com/us/genre/id34"
+    }
+  ],
+  "url": "https://music.apple.com/us/album/kings-disease/1528092359?app=itunes"
+}
