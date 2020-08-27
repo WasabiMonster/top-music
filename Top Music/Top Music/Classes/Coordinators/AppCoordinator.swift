@@ -11,13 +11,12 @@ import UIKit
 
 final class AppCoordinator: BaseCoordinator {
     let window: UIWindow
-    let navigationController = UINavigationController()
     
     init(window: UIWindow) {
         self.window = window
-        navigationController.navigationBar.isHidden = true        
-        
         super.init()
+        
+        navigationController.navigationBar.isHidden = true
     }
     
     override func start() {
