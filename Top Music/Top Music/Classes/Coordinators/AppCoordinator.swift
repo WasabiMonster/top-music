@@ -28,4 +28,8 @@ final class AppCoordinator: BaseCoordinator {
         guard window.rootViewController == nil else { return }
         
     }
+    
+    func showDetail() {
+        
+    }
 }
