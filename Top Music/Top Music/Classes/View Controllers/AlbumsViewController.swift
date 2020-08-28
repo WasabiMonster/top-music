@@ -8,11 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol AlbumsViewControllerDelegate: class {
+    func albumsViewController(_ controller: AlbumsViewController, didSelectAlbumAt index: Int)
+    // didReceiveError
+}
+
+final class AlbumsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
 
 

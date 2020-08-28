@@ -9,7 +9,6 @@
 import UIKit
 
 protocol Coordinator: AnyObject {
-    var navigationController: UINavigationController { get set }
     var parentCoordinator: Coordinator? { get set }
     
     func start()
@@ -19,9 +18,13 @@ protocol Coordinator: AnyObject {
 }
 
 class BaseCoordinator: Coordinator {
-    var navigationController = UINavigationController()
-    var childCoordinators = [Coordinator]()
+    private(set) var childCoordinators: [Coordinator] = []
+    var presenter: UINavigationController
     var parentCoordinator: Coordinator?
+    
+    init(presenter: UINavigationController) {
+        self.presenter = presenter
+    }
     
     func start() {
         fatalError("Start method should be implemented.")
@@ -43,4 +46,12 @@ class BaseCoordinator: Coordinator {
             self.childCoordinators.remove(at: index)
         }
     }
+}
+
+extension BaseCoordinator: Equatable {
+    
+    static func == (lhs: BaseCoordinator, rhs: BaseCoordinator) -> Bool {
+        return lhs === rhs
+    }
+    
 }

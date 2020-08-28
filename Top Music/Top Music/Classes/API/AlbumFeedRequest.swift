@@ -1,5 +1,5 @@
 //
-//  AppleITunesTopAlbumsRequest.swift
+//  AlbumFeedRequest.swift
 //  Top Music
 //
 //  Created by Patrick Wilson on 8/25/20.
@@ -17,7 +17,7 @@ struct AlbumFeedRequest: MusicServerRequest {
 struct AlbumFeedResponse: MusicServerResponse {
     let title: String
     let id: String
-    let results: [Album]
+    let results: [AlbumModel]?
     
     private enum CodingKeys: String, CodingKey {
         case feed
@@ -31,6 +31,6 @@ struct AlbumFeedResponse: MusicServerResponse {
         let feed = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .feed)
         title = try feed.decode(String.self, forKey: .title)
         id = try feed.decode(String.self, forKey: .id)
-        results = try feed.decode([Album].self, forKey: .results)
+        results = try feed.decode([AlbumModel].self, forKey: .results)
     }
 }

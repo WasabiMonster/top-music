@@ -10,25 +10,28 @@ import Foundation
 import UIKit
 
 final class AppCoordinator: BaseCoordinator {
-    let window: UIWindow
+    private let window: UIWindow
+    private let rootViewController: UINavigationController
     
     init(window: UIWindow) {
         self.window = window
-        super.init()
-        
-        navigationController.navigationBar.isHidden = true
+        rootViewController = UINavigationController()
+        rootViewController.navigationBar.isHidden = false
+        rootViewController.navigationBar.prefersLargeTitles = true
+        rootViewController.navigationBar.barStyle = .black
+        super.init(presenter: rootViewController)
     }
     
     override func start() {
+        window.rootViewController = rootViewController
         window.makeKeyAndVisible()
+        showHome()
     }
     
     func showHome() {
         guard window.rootViewController == nil else { return }
         
-    }
-    
-    func showDetail() {
-        
+        let albumsCoordinator = AlbumsCoordinator(presenter: rootViewController)
+        albumsCoordinator.start()
     }
 }
