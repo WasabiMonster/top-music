@@ -17,6 +17,7 @@ final class AlbumsViewController: UIViewController {
     
     private var coordinator: AlbumsCoordinator?
     private var viewModel: AlbumsViewModel
+    weak var albumsViewControllerDelegate: AlbumsViewControllerDelegate?
 
     init(coordinator: AlbumsCoordinator, viewModel: AlbumsViewModel) {
         self.coordinator = coordinator
