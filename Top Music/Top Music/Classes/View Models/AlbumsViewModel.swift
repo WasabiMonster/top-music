@@ -19,7 +19,7 @@ class AlbumsViewModel: NSObject, BaseViewModel {
     var albums: [AlbumModel] = []
     weak var tableView: UITableView?
     
-    private func fetchAlbums() {
+    func fetchAlbums() {
         let request = Requests.iTunes.topAlbums.init()
         apiManager.execute(request) { result in
             switch result {
@@ -31,6 +31,7 @@ class AlbumsViewModel: NSObject, BaseViewModel {
                 
                 self.albums = []
                 for album in albums {
+                    print("*082820* \(type(of: self)), \(#function) || here... \(album.artistName)")
                     //// let record = AlbumModel(from: <#T##Decoder#>)
                     self.albums.append(album)
                 }

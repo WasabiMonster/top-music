@@ -34,6 +34,7 @@ final class AlbumsViewController: UITableViewController {
         self.view.backgroundColor = UIColor.nikeFootball
         configureTableView()
         // viewModelClosures()
+        viewModel?.fetchAlbums()
     }
     
     var viewModel: AlbumsViewModel? {
@@ -46,7 +47,7 @@ final class AlbumsViewController: UITableViewController {
         }
     }
     
-    fileprivate func updateDisplay() {
+    private func updateDisplay() {
         if let viewModel = viewModel {
             // genreLabel.text = "temp genre"
             // releaseDateLabel.text = "01/01/1976"
@@ -56,7 +57,7 @@ final class AlbumsViewController: UITableViewController {
         }
     }
     
-    fileprivate func configureTableView() {
+    private func configureTableView() {
         self.tableView.estimatedRowHeight = UITableView.automaticDimension
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.allowsSelection = true
