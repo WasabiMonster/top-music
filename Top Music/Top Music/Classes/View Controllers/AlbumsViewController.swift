@@ -13,10 +13,9 @@ protocol AlbumsViewControllerDelegate: class {
     // didReceiveError
 }
 
-final class AlbumsViewController: UIViewController {
+final class AlbumsViewController: UITableViewController {
     
     private var coordinator: AlbumsCoordinator?
-    private var viewModel: AlbumsViewModel
     weak var albumsViewControllerDelegate: AlbumsViewControllerDelegate?
 
     init(coordinator: AlbumsCoordinator, viewModel: AlbumsViewModel) {
@@ -31,9 +30,49 @@ final class AlbumsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.view.backgroundColor = UIColor.nikeFootball
+        configureTableView()
+        // viewModelClosures()
     }
-
+    
+    var viewModel: AlbumsViewModel? {
+        willSet {
+            viewModel?.delegate = nil
+        }
+        didSet {
+            viewModel?.delegate = self
+            updateDisplay()
+        }
+    }
+    
+    fileprivate func updateDisplay() {
+        if let viewModel = viewModel {
+            // genreLabel.text = "temp genre"
+            // releaseDateLabel.text = "01/01/1976"
+        } else {
+            // genreLabel.text = ""
+            // releaseDateLabel.text = ""
+        }
+    }
+    
+    fileprivate func configureTableView() {
+        self.tableView.estimatedRowHeight = UITableView.automaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.allowsSelection = true
+        
+        self.tableView.register(AlbumCell.self, forCellReuseIdentifier: AlbumCell.reusableId)
+    }
 
 }
 
+extension AlbumsViewController: AlbumsViewModelDelegate {
+    func didGetError(_ error: Error) {
+        //
+    }
+    
+    func doneRequestingAlbums() {
+        self.tableView.reloadData()
+    }
+    
+}

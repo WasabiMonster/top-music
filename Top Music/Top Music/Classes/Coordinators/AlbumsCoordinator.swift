@@ -21,9 +21,9 @@ class AlbumsCoordinator: BaseCoordinator {
     }
         
     override func start() {
-        let albumsViewModel = AlbumsViewModel() // (coordinator: coordinator, networkManager: networkManager)
+        let albumsViewModel = AlbumsViewModel()
         let albumsViewController = AlbumsViewController(coordinator: self, viewModel: albumsViewModel)
-        albumsViewController.
+        albumsViewController.albumsViewControllerDelegate = self
         presenter.pushViewController(albumsViewController, animated: true)
         
     }

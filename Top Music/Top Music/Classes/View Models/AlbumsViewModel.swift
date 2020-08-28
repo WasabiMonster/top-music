@@ -15,7 +15,6 @@ protocol AlbumsViewModelDelegate: class {
 }
 
 class AlbumsViewModel: NSObject, BaseViewModel {
-    // var didTapBack: (() -> Void)?
     weak var delegate: AlbumsViewModelDelegate?
     var albums: [AlbumModel] = []
     weak var tableView: UITableView?
