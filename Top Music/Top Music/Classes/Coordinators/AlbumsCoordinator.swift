@@ -21,6 +21,11 @@ class AlbumsCoordinator: BaseCoordinator {
     }
         
     override func start() {
+        let albumsViewModel = AlbumsViewModel() // (coordinator: coordinator, networkManager: networkManager)
+        let albumsViewController = AlbumsViewController(coordinator: self, viewModel: albumsViewModel)
+        albumsViewController.
+        presenter.pushViewController(albumsViewController, animated: true)
+        
     }
     
     func showDetail(for index: Int) {

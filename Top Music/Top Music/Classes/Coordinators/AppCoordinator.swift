@@ -29,8 +29,7 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     func showHome() {
-        guard window.rootViewController == nil else { return }
-        
+        // guard window.rootViewController == nil else { return }
         let albumsCoordinator = AlbumsCoordinator(presenter: rootViewController)
         albumsCoordinator.start()
     }

@@ -14,7 +14,20 @@ protocol AlbumsViewControllerDelegate: class {
 }
 
 final class AlbumsViewController: UIViewController {
+    
+    private var coordinator: AlbumsCoordinator?
+    private var viewModel: AlbumsViewModel
 
+    init(coordinator: AlbumsCoordinator, viewModel: AlbumsViewModel) {
+        self.coordinator = coordinator
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
