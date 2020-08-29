@@ -18,9 +18,8 @@ final class AlbumsViewController: UITableViewController {
     private var coordinator: AlbumsCoordinator?
     weak var albumsViewControllerDelegate: AlbumsViewControllerDelegate?
 
-    init(coordinator: AlbumsCoordinator, viewModel: AlbumsViewModel) {
+    init(coordinator: AlbumsCoordinator) {
         self.coordinator = coordinator
-        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     

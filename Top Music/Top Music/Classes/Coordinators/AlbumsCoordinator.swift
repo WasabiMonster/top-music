@@ -21,11 +21,12 @@ class AlbumsCoordinator: BaseCoordinator {
     }
         
     override func start() {
-        let albumsViewModel = AlbumsViewModel()
-        let albumsViewController = AlbumsViewController(coordinator: self, viewModel: albumsViewModel)
+        // These can eventually be created using a Factory pattern for
+        // cleaner creation and lighter coordinators
+        let albumsViewController = AlbumsViewController(coordinator: self)
         albumsViewController.albumsViewControllerDelegate = self
+        albumsViewController.viewModel = AlbumsViewModel()
         presenter.pushViewController(albumsViewController, animated: true)
-        
     }
     
     func showDetail(for index: Int) {
