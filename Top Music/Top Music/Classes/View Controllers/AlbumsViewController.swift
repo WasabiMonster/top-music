@@ -76,8 +76,8 @@ extension AlbumsViewController: AlbumsViewModelDelegate {
     }
     
     func doneRequestingAlbums() {
-        print("*082820* \(type(of: self)), \(#function) || ")
-        self.title = "viewModel.test"
+        // self.activity
+        self.title = self.viewModel?.feedTitle
         self.tableView.reloadData()
     }
     

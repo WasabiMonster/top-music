@@ -45,6 +45,7 @@
 		8B7497AE24F75D0D003C7DAA /* UIColor+TopMusicAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497AD24F75D0D003C7DAA /* UIColor+TopMusicAdditions.swift */; };
 		8B7497B024F766FB003C7DAA /* TopMusicApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497AF24F766FB003C7DAA /* TopMusicApiManager.swift */; };
 		8B7497B424F8A96B003C7DAA /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497B324F8A96B003C7DAA /* AlbumDetailViewController.swift */; };
+		8B7497B724F9F17F003C7DAA /* AlbumsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497B624F9F17F003C7DAA /* AlbumsViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		8B7497AD24F75D0D003C7DAA /* UIColor+TopMusicAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+TopMusicAdditions.swift"; sourceTree = "<group>"; };
 		8B7497AF24F766FB003C7DAA /* TopMusicApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMusicApiManager.swift; sourceTree = "<group>"; };
 		8B7497B324F8A96B003C7DAA /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
+		8B7497B624F9F17F003C7DAA /* AlbumsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				8B74977F24F6E76F003C7DAA /* JSON */,
 				8B7497B524F9DC70003C7DAA /* Mocks */,
 				8B74974824F5904B003C7DAA /* Top_MusicTests.swift */,
+				8B7497B624F9F17F003C7DAA /* AlbumsViewModelTests.swift */,
 				8B74977124F5A7FE003C7DAA /* CoordinatorTests.swift */,
 				8B74974A24F5904B003C7DAA /* Info.plist */,
 			);
@@ -501,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B74977224F5A7FE003C7DAA /* CoordinatorTests.swift in Sources */,
+				8B7497B724F9F17F003C7DAA /* AlbumsViewModelTests.swift in Sources */,
 				8B74974924F5904B003C7DAA /* Top_MusicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

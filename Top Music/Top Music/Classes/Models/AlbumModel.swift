@@ -24,8 +24,3 @@ struct AlbumModel: Decodable {
     }
     
 }
-
-private extension AlbumModel {
-    
-    
-}

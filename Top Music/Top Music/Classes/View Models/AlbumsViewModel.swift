@@ -16,8 +16,17 @@ protocol AlbumsViewModelDelegate: class {
 
 class AlbumsViewModel: NSObject, BaseViewModel {
     weak var delegate: AlbumsViewModelDelegate?
-    var albums: [AlbumModel] = []
+    private var feedResponse: AlbumFeedResponse?
+    private var albums: [AlbumModel] = []  // AlbumViewModel
     weak var tableView: UITableView?
+    
+    var feedTitle: String {
+        return "\(feedResponse?.author.name ?? "") \(feedResponse?.title ?? "")"
+    }
+    
+    var numberOfAlbums: Int {
+        return albums.count
+    }
     
     func fetchAlbums() {
         let request = Requests.iTunes.topAlbums.init()
@@ -28,6 +37,7 @@ class AlbumsViewModel: NSObject, BaseViewModel {
                     self.delegate?.didGetError(ApiError.responseDecodingFailed)
                     return
                 }
+                self.feedResponse = response
                 self.albums = []
                 for album in albums {
                     self.albums.append(album)
@@ -89,6 +99,6 @@ extension AlbumsViewModel: UITableViewDataSource {
 extension AlbumsViewModel: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 76
     }
 }
