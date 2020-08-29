@@ -47,6 +47,7 @@
 		8B7497B424F8A96B003C7DAA /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497B324F8A96B003C7DAA /* AlbumDetailViewController.swift */; };
 		8B7497B724F9F17F003C7DAA /* AlbumsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497B624F9F17F003C7DAA /* AlbumsViewModelTests.swift */; };
 		8B7497BB24FA073C003C7DAA /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497BA24FA073C003C7DAA /* UIView+extensions.swift */; };
+		8B7497BD24FB1A6F003C7DAA /* UITableViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497BC24FB1A6F003C7DAA /* UITableViewController+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		8B7497B324F8A96B003C7DAA /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
 		8B7497B624F9F17F003C7DAA /* AlbumsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewModelTests.swift; sourceTree = "<group>"; };
 		8B7497BA24FA073C003C7DAA /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
+		8B7497BC24FB1A6F003C7DAA /* UITableViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +268,7 @@
 				8B7497A924F75B3A003C7DAA /* UIFont+TopMusicAdditions.swift */,
 				8B7497AB24F75BE8003C7DAA /* UILabel+TopMusicAdditions.swift */,
 				8B7497BA24FA073C003C7DAA /* UIView+extensions.swift */,
+				8B7497BC24FB1A6F003C7DAA /* UITableViewController+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				8B74976D24F59D57003C7DAA /* HTTPMethod.swift in Sources */,
 				8B74977424F5F0D3003C7DAA /* Requests.swift in Sources */,
 				8B74976B24F59C23003C7DAA /* BaseCoordinator.swift in Sources */,
+				8B7497BD24FB1A6F003C7DAA /* UITableViewController+extensions.swift in Sources */,
 				8B7497BB24FA073C003C7DAA /* UIView+extensions.swift in Sources */,
 				8B74979824F73D56003C7DAA /* AlbumsCoordinator.swift in Sources */,
 				8B74977824F63ACA003C7DAA /* AlbumFeedRequest.swift in Sources */,
