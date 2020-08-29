@@ -10,7 +10,6 @@ import UIKit
 
 protocol AlbumsViewControllerDelegate: class {
     func albumsViewController(_ controller: AlbumsViewController, didSelectAlbumAt index: Int)
-    // didReceiveError
 }
 
 final class AlbumsViewController: UITableViewController {
@@ -32,7 +31,6 @@ final class AlbumsViewController: UITableViewController {
         self.view.backgroundColor = UIColor.nikeFootball
         configureNavBar()
         configureTableView()
-        // viewModelClosures()
         viewModel?.fetchAlbums()
     }
     
