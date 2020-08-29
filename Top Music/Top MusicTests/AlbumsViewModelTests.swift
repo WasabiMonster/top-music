@@ -24,7 +24,7 @@ class AlbumsViewModelTests: XCTestCase {
     func testNumberOfItems() {
         let viewModel = AlbumsViewModel()
         
-        viewModel.model = AlbumModel()
+        viewModel.model = AlbumModel(from: <#Decoder#>)
         XCTAssertEqual(100, viewModel.numberOfAlbums)
     }
     

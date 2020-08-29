@@ -41,7 +41,19 @@ class AlbumCell: UITableViewCell {
     }
 
     private func configureLayout() {
-        //
+        self.addSubviews([artistLabel, albumLabel, artwork])
+        self.backgroundColor = UIColor.darkGray
+        
+        // Artist Label
+        NSLayoutConstraint.activate([
+            self.artistLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
+            self.artistLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10)
+            // self.artistLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 10),
+            // self.artistLabel.widthAnchor.constraint(equalTo: self.artworkView.heightAnchor)
+        ])
+        
+        print("*082820* \(type(of: self)), \(#function) |> \(artistLabel) \(self.contentView)")
+        
     }
     
     func populate(artist: String,
