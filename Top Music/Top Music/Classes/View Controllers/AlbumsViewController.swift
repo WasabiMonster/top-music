@@ -62,6 +62,10 @@ final class AlbumsViewController: UITableViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.allowsSelection = true
         
+        self.viewModel?.tableView = self.tableView
+        self.tableView.delegate = self.viewModel
+        self.tableView.dataSource = self.viewModel
+        
         self.tableView.register(AlbumCell.self, forCellReuseIdentifier: AlbumCell.reusableId)
     }
 
@@ -73,6 +77,8 @@ extension AlbumsViewController: AlbumsViewModelDelegate {
     }
     
     func doneRequestingAlbums() {
+        print("*082820* \(type(of: self)), \(#function) || ")
+        self.title = "viewModel.test"
         self.tableView.reloadData()
     }
     

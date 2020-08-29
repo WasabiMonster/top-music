@@ -172,6 +172,7 @@
 			children = (
 				8B74976324F59532003C7DAA /* Helpers */,
 				8B74977F24F6E76F003C7DAA /* JSON */,
+				8B7497B524F9DC70003C7DAA /* Mocks */,
 				8B74974824F5904B003C7DAA /* Top_MusicTests.swift */,
 				8B74977124F5A7FE003C7DAA /* CoordinatorTests.swift */,
 				8B74974A24F5904B003C7DAA /* Info.plist */,
@@ -320,6 +321,13 @@
 			children = (
 			);
 			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
+		8B7497B524F9DC70003C7DAA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

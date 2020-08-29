@@ -28,11 +28,8 @@ class AlbumsViewModel: NSObject, BaseViewModel {
                     self.delegate?.didGetError(ApiError.responseDecodingFailed)
                     return
                 }
-                
                 self.albums = []
                 for album in albums {
-                    print("*082820* \(type(of: self)), \(#function) || here... \(album.artistName)")
-                    //// let record = AlbumModel(from: <#T##Decoder#>)
                     self.albums.append(album)
                 }
                 self.delegate?.doneRequestingAlbums()
@@ -89,113 +86,9 @@ extension AlbumsViewModel: UITableViewDataSource {
     }
 }
 
-/* extension WorkoutHistoryViewModel {
-    func managePhotoRecordStateForCell(_ cell: WorkoutCell, photoDetails: WorkoutRecord, indexPath: IndexPath) {
-        switch photoDetails.status {
-        case .downloaded:
-            cell.stopActivityIndicator()
-        case .failed:
-            cell.stopActivityIndicator()
-            cell.textLabel?.text = "Failed to load"
-        case .start:
-            cell.startActivityIndicator()
-            startOperations(for: photoDetails, at: indexPath)
-        }
-    }
-    
-    func startOperations(for photoRecord: WorkoutRecord, at indexPath: IndexPath) {
-        guard let safeTableView = self.tableView else { return }
-        
-        if !safeTableView.isDragging && !safeTableView.isDecelerating {
-            switch photoRecord.status {
-            case .start:
-                startDownload(for: photoRecord, at: indexPath)
-            case .downloaded:
-                reloadRows(at: [indexPath])
-            default:
-                NSLog("do nothing")
-            }
-        }
-    }
-    
-    func startDownload(for photoRecord: WorkoutRecord, at indexPath: IndexPath) {
-        
-        guard PendingOperations.shared.downloadsInProgress[indexPath] == nil else { return }
-        
-        let downloader = ImageDownloader(photoRecord)
-        
-        downloader.completionBlock = {
-            
-            if downloader.isCancelled { return }
-            
-            DispatchQueue.main.async {
-                PendingOperations.shared.downloadsInProgress.removeValue(forKey: indexPath)
-                self.reloadRows(at: [indexPath])
-            }
-        }
-        
-        PendingOperations.shared.downloadsInProgress[indexPath] = downloader
-        PendingOperations.shared.addOperation(downloader)
-    }
-    
-    func reloadRows(at indexPath: [IndexPath]) {
-        DispatchQueue.main.async {
-            UIView.setAnimationsEnabled(false)
-            self.tableView?.beginUpdates()
-            self.tableView?.reloadRows(at: indexPath, with: .fade)
-            self.tableView?.endUpdates()
-            UIView.setAnimationsEnabled(true)
-        }
-    }
-    
-    func loadImagesForOnscreenCells() {
-        
-        if let pathsArray = self.tableView?.indexPathsForVisibleRows {
-            
-            let allPendingOperations = Set(PendingOperations.shared.downloadsInProgress.keys)
-            var toBeCancelled = allPendingOperations
-            let visiblePaths = Set(pathsArray)
-            
-            toBeCancelled.subtract(visiblePaths)
-            
-            var toBeStarted = visiblePaths
-            toBeStarted.subtract(allPendingOperations)
-            
-            for indexPath in toBeCancelled {
-                if let pendingDownload = PendingOperations.shared.downloadsInProgress[indexPath] {
-                    pendingDownload.cancel()
-                }
-                
-                PendingOperations.shared.downloadsInProgress.removeValue(forKey: indexPath)
-            }
-            
-            for indexPath in toBeStarted {
-                let recordToProcess = self.workouts[indexPath.row]
-                startOperations(for: recordToProcess, at: indexPath)
-            }
-        }
-    }
-}
-
 extension AlbumsViewModel: UITableViewDelegate {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        PendingOperations.shared.suspendAllOperations()
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            loadImagesForOnscreenCells()
-            PendingOperations.shared.resumeAllOperations()
-        }
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        loadImagesForOnscreenCells()
-        PendingOperations.shared.resumeAllOperations()
-    }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 }
-*/
