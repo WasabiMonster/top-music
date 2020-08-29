@@ -50,25 +50,6 @@ class AlbumsViewModel: NSObject, BaseViewModel {
         }
     }
     
-    func errorMessage(withError error: Error) -> String {
-        // Perform UI updates on main thread
-        guard let networkError = error as? ApiError else {
-            return error.localizedDescription
-        }
-        
-        var errorMessage = ""
-        /* switch networkError {
-        case .malformedURL:
-            errorMessage = "malformed url"
-        case .failedRequest:
-            errorMessage = "failed request"
-        case .receivedInvalidData:
-            errorMessage = "received data is not readable"
-        case .failedToStoreCredentials:
-            errorMessage = "credentials could not be saved"
-        } */
-        return errorMessage
-    }
 }
 
 extension AlbumsViewModel: UITableViewDataSource {
@@ -87,8 +68,6 @@ extension AlbumsViewModel: UITableViewDataSource {
                           // artwork: album.artworkUrl
                           )
             
-            // managePhotoRecordStateForCell(cell, photoDetails: item, indexPath: indexPath)
-            
             return cell
         }
         
@@ -101,4 +80,9 @@ extension AlbumsViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 76
     }
+
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("*082820* \(type(of: self)), \(#function) |> \(indexPath)")
+    }
+    
 }
