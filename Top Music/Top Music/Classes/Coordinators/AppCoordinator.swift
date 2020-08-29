@@ -18,7 +18,6 @@ final class AppCoordinator: BaseCoordinator {
         rootViewController = UINavigationController()
         rootViewController.navigationBar.isHidden = false
         rootViewController.navigationBar.prefersLargeTitles = true
-        rootViewController.navigationBar.barStyle = .black
         super.init(presenter: rootViewController)
     }
     

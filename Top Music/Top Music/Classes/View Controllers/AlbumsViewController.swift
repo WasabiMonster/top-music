@@ -29,13 +29,13 @@ final class AlbumsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor.nikeFootball
+        configureNavBar()
         configureTableView()
         // viewModelClosures()
         viewModel?.fetchAlbums()
     }
-    
+        
     var viewModel: AlbumsViewModel? {
         willSet {
             viewModel?.delegate = nil
@@ -54,6 +54,10 @@ final class AlbumsViewController: UITableViewController {
             // genreLabel.text = ""
             // releaseDateLabel.text = ""
         }
+    }
+    
+    private func configureNavBar() {
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 28)]
     }
     
     private func configureTableView() {
