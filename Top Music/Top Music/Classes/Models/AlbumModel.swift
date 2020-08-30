@@ -3,10 +3,11 @@
 //  Top Music
 //
 //  Created by Patrick Wilson on 8/26/20.
-//  Copyright © 2020 Etechitronica. All rights reserved.
+//  Copyright © 2020 Etechitronica LLC. All rights reserved.
 //
 
 import Foundation
+import UIKit
 
 struct AlbumModel: Decodable {
     let name: String
@@ -17,6 +18,8 @@ struct AlbumModel: Decodable {
     let copyright: String
     let genres:[GenreModel]
     let url: String
+    var image: UIImage = UIImage()  // UIImage(named: "Placeholder") ??
+    var imageStatus: AlbumImageStatus = .start
     
     enum CodingKeys: String, CodingKey {
         case name

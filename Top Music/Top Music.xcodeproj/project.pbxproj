@@ -54,6 +54,10 @@
 		8B7497C624FB5EC2003C7DAA /* Geomanist-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7497C224FB5EC2003C7DAA /* Geomanist-Medium.otf */; };
 		8B7497C824FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497C724FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift */; };
 		8B7497CA24FB7EA8003C7DAA /* DateFormatter+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497C924FB7EA8003C7DAA /* DateFormatter+extensions.swift */; };
+		8B7497CD24FBA1FD003C7DAA /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497CC24FBA1FD003C7DAA /* Cache.swift */; };
+		8B7497D024FBA227003C7DAA /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497CF24FBA227003C7DAA /* PendingOperations.swift */; };
+		8B7497D224FBA26B003C7DAA /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497D124FBA26B003C7DAA /* ImageDownloader.swift */; };
+		8B7497D424FBA589003C7DAA /* AlbumImageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497D324FBA589003C7DAA /* AlbumImageStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +131,10 @@
 		8B7497C224FB5EC2003C7DAA /* Geomanist-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Medium.otf"; sourceTree = "<group>"; };
 		8B7497C724FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+TopMusicAdditions.swift"; sourceTree = "<group>"; };
 		8B7497C924FB7EA8003C7DAA /* DateFormatter+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+extensions.swift"; sourceTree = "<group>"; };
+		8B7497CC24FBA1FD003C7DAA /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		8B7497CF24FBA227003C7DAA /* PendingOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
+		8B7497D124FBA26B003C7DAA /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		8B7497D324FBA589003C7DAA /* AlbumImageStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumImageStatus.swift; path = "Top Music/Classes/Enums/AlbumImageStatus.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +238,7 @@
 		8B74976224F59503003C7DAA /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				8B7497D324FBA589003C7DAA /* AlbumImageStatus.swift */,
 				8B74976C24F59D57003C7DAA /* HTTPMethod.swift */,
 			);
 			path = Enums;
@@ -343,6 +352,8 @@
 		8B74979D24F74D43003C7DAA /* ImageDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				8B7497CB24FBA1E9003C7DAA /* Cache */,
+				8B7497CE24FBA210003C7DAA /* Operations */,
 			);
 			path = ImageDownloader;
 			sourceTree = "<group>";
@@ -363,6 +374,23 @@
 				8B7497C124FB5EC2003C7DAA /* Geomanist-Regular.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8B7497CB24FBA1E9003C7DAA /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				8B7497CC24FBA1FD003C7DAA /* Cache.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		8B7497CE24FBA210003C7DAA /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				8B7497D124FBA26B003C7DAA /* ImageDownloader.swift */,
+				8B7497CF24FBA227003C7DAA /* PendingOperations.swift */,
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,6 +533,7 @@
 				8B74977024F59F8A003C7DAA /* AppCoordinator.swift in Sources */,
 				8B7497AC24F75BE8003C7DAA /* UILabel+TopMusicAdditions.swift in Sources */,
 				8B74977E24F6414F003C7DAA /* Environment.swift in Sources */,
+				8B7497D024FBA227003C7DAA /* PendingOperations.swift in Sources */,
 				8B74979F24F74E5E003C7DAA /* AlbumsViewModel.swift in Sources */,
 				8B7497A124F74E6F003C7DAA /* AlbumDetailViewModel.swift in Sources */,
 				8B74973624F59048003C7DAA /* AlbumsViewController.swift in Sources */,
@@ -514,6 +543,7 @@
 				8B74973224F59048003C7DAA /* AppDelegate.swift in Sources */,
 				8B74973424F59048003C7DAA /* SceneDelegate.swift in Sources */,
 				8B74979324F703B9003C7DAA /* EmptyServerResponse.swift in Sources */,
+				8B7497D424FBA589003C7DAA /* AlbumImageStatus.swift in Sources */,
 				8B7497CA24FB7EA8003C7DAA /* DateFormatter+extensions.swift in Sources */,
 				8B74978924F6F420003C7DAA /* AlbumModel.swift in Sources */,
 				8B7497AE24F75D0D003C7DAA /* UIColor+TopMusicAdditions.swift in Sources */,
@@ -523,6 +553,7 @@
 				8B7497B424F8A96B003C7DAA /* AlbumDetailViewController.swift in Sources */,
 				8B74977C24F640CF003C7DAA /* URLSessionProtocol.swift in Sources */,
 				8B74978524F6E9E8003C7DAA /* ApiError.swift in Sources */,
+				8B7497CD24FBA1FD003C7DAA /* Cache.swift in Sources */,
 				8B74979524F71E8D003C7DAA /* Codable+extensions.swift in Sources */,
 				8B74978B24F6F42A003C7DAA /* GenreModel.swift in Sources */,
 				8B74978324F6E86D003C7DAA /* ParameterEncoding.swift in Sources */,
@@ -531,6 +562,7 @@
 				8B74976D24F59D57003C7DAA /* HTTPMethod.swift in Sources */,
 				8B74977424F5F0D3003C7DAA /* Requests.swift in Sources */,
 				8B74976B24F59C23003C7DAA /* BaseCoordinator.swift in Sources */,
+				8B7497D224FBA26B003C7DAA /* ImageDownloader.swift in Sources */,
 				8B7497BD24FB1A6F003C7DAA /* UITableViewController+extensions.swift in Sources */,
 				8B7497BB24FA073C003C7DAA /* UIView+extensions.swift in Sources */,
 				8B74979824F73D56003C7DAA /* AlbumsCoordinator.swift in Sources */,

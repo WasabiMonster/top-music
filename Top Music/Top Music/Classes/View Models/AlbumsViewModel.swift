@@ -3,7 +3,7 @@
 //  Top Music
 //
 //  Created by Patrick Wilson on 8/26/20.
-//  Copyright © 2020 Etechitronica. All rights reserved.
+//  Copyright © 2020 Etechitronica LLC. All rights reserved.
 //
 
 import Foundation
@@ -68,13 +68,115 @@ extension AlbumsViewModel: UITableViewDataSource {
             let album = albums[indexPath.row]
             cell.populate(artist: album.artistName,
                           album: album.name,
-                          artwork: nil
-                          // artwork: album.artworkUrl
+                          artwork: album.image
                           )
+            
+            manageAlbumImageStateForCell(cell, albumDetails: album, indexPath: indexPath)
             
             return cell
         }
         
         return UITableViewCell()
     }
+}
+
+extension AlbumsViewModel: UITableViewDelegate {
+    func manageAlbumImageStateForCell(_ cell: AlbumCell, albumDetails: AlbumModel, indexPath: IndexPath) {
+        switch albumDetails.imageStatus {
+        case .downloaded:
+            cell.stopActivityIndicator()
+        case .failed:
+            cell.stopActivityIndicator()
+            // cell.textLabel?.text = "Failed to load"
+        case .start:
+            cell.startActivityIndicator()
+            startOperations(for: albumDetails, at: indexPath)
+        }
+    }
+    
+    func startOperations(for albumModel: AlbumModel, at indexPath: IndexPath) {
+        guard let tableView = self.tableView else { return }
+        
+        if !tableView.isDragging && !tableView.isDecelerating {
+            switch albumModel.imageStatus {
+            case .start:
+                startDownload(for: albumModel, at: indexPath)
+            case .downloaded:
+                reloadRows(at: [indexPath])
+            default:
+                NSLog("do nothing")
+            }
+        }
+    }
+    
+    func startDownload(for albumModel: AlbumModel, at indexPath: IndexPath) {
+        guard PendingOperations.shared.downloadsInProgress[indexPath] == nil else { return }
+        
+        let downloader = ImageDownloader(albumModel)
+        downloader.completionBlock = {
+            if downloader.isCancelled { return }
+            
+            DispatchQueue.main.async {
+                PendingOperations.shared.downloadsInProgress.removeValue(forKey: indexPath)
+                self.reloadRows(at: [indexPath])
+            }
+        }
+        
+        PendingOperations.shared.downloadsInProgress[indexPath] = downloader
+        PendingOperations.shared.addOperation(downloader)
+    }
+    
+    func reloadRows(at indexPath: [IndexPath]) {
+        DispatchQueue.main.async {
+            UIView.setAnimationsEnabled(false)
+            self.tableView?.beginUpdates()
+            self.tableView?.reloadRows(at: indexPath, with: .fade)
+            self.tableView?.endUpdates()
+            UIView.setAnimationsEnabled(true)
+        }
+    }
+    
+    func loadImagesForOnscreenCells() {
+        if let pathsArray = self.tableView?.indexPathsForVisibleRows {
+            
+            let allPendingOperations = Set(PendingOperations.shared.downloadsInProgress.keys)
+            var toBeCancelled = allPendingOperations
+            let visiblePaths = Set(pathsArray)
+            
+            toBeCancelled.subtract(visiblePaths)
+            
+            var toBeStarted = visiblePaths
+            toBeStarted.subtract(allPendingOperations)
+            
+            for indexPath in toBeCancelled {
+                if let pendingDownload = PendingOperations.shared.downloadsInProgress[indexPath] {
+                    pendingDownload.cancel()
+                }
+                
+                PendingOperations.shared.downloadsInProgress.removeValue(forKey: indexPath)
+            }
+            
+            for indexPath in toBeStarted {
+                let recordToProcess = self.albums[indexPath.row]
+                startOperations(for: recordToProcess, at: indexPath)
+            }
+        }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        PendingOperations.shared.suspendAllOperations()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            loadImagesForOnscreenCells()
+            PendingOperations.shared.resumeAllOperations()
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        loadImagesForOnscreenCells()
+        PendingOperations.shared.resumeAllOperations()
+    }
+    
 }
