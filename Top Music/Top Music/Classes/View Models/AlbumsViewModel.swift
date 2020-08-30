@@ -17,7 +17,7 @@ protocol AlbumsViewModelDelegate: class {
 class AlbumsViewModel: NSObject, BaseViewModel {
     weak var delegate: AlbumsViewModelDelegate?
     private var feedResponse: AlbumFeedResponse?
-    private var albums: [AlbumModel] = []  // AlbumViewModel
+    private var albums: [AlbumModel] = []
     weak var tableView: UITableView?
     
     var feedTitle: String {

@@ -11,7 +11,6 @@ import UIKit
 
 class AlbumsCoordinator: BaseCoordinator {
     var albumDetailCoordinator: AlbumDetailCoordinator?
-    // var window: UIWindow
     
     private var albumsViewController: AlbumsViewController?
     
@@ -28,12 +27,7 @@ class AlbumsCoordinator: BaseCoordinator {
         albumsViewController.viewModel = AlbumsViewModel()
         presenter.pushViewController(albumsViewController, animated: true)
     }
-    
-    func showDetail(for index: Int) {
-        self.removeChildCoordinators()
         
-    }
-    
 }
 
 extension AlbumsCoordinator: AlbumsViewControllerDelegate {

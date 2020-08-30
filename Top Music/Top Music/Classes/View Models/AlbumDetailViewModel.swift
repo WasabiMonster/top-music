@@ -30,4 +30,9 @@ class AlbumDetailViewModel: NSObject, BaseViewModel {
         }
     }
     
+    var genreText: String {
+        // return detail?.genres.joined(separator: ", ") ?? ""
+        return detail?.genres.map{$0.name}.joined(separator: ", ") ?? ""
+    }
+    
 }

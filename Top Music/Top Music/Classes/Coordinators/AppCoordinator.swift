@@ -12,6 +12,8 @@ import UIKit
 final class AppCoordinator: BaseCoordinator {
     private let window: UIWindow
     private let rootViewController: UINavigationController
+    var albumDetailCoordinator: AlbumDetailCoordinator?
+
     
     init(window: UIWindow) {
         self.window = window
@@ -28,8 +30,15 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     func showHome() {
-        // guard window.rootViewController == nil else { return }
+        self.removeChildCoordinators()
+        
         let albumsCoordinator = AlbumsCoordinator(presenter: rootViewController)
         albumsCoordinator.start()
     }
+    
+    func showDetail(at index: Int) {
+        self.removeChildCoordinators()
+        
+    }
+    
 }

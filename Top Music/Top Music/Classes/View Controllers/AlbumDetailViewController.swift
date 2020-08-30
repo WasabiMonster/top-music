@@ -22,23 +22,23 @@ final class AlbumDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // stackview
         updateDisplay()
     }
     
     var viewModel: AlbumDetailViewModel? {
         willSet {
-            // viewModel?.viewDelegate = nil
+            viewModel?.delegate = nil
         }
         didSet {
-            // viewModel?.viewDelegate = self
+            viewModel?.delegate = self
             updateDisplay()
         }
     }
     
     fileprivate func updateDisplay() {
         if let viewModel = viewModel {
-            genreLabel.text = "temp genre"
+            genreLabel.text = viewModel.genreText
             releaseDateLabel.text = "01/01/1976"
         } else {
             genreLabel.text = ""
@@ -48,4 +48,14 @@ final class AlbumDetailViewController: UIViewController {
     
 }
 
-// stack view
+extension AlbumDetailViewController: AlbumDetailViewModelDelegate {
+
+    func didGetError(_ error: Error) {
+        //
+    }
+
+    func detailDidChange(viewModel: AlbumDetailViewModel) {
+        //
+    }
+        
+}

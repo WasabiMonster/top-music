@@ -9,7 +9,14 @@
 import Foundation
 
 struct GenreModel: Codable {
+    let genreId: String
+    let name: String
+    let url: String
     
-    
+    enum CodingKeys: String, CodingKey {
+        case genreId
+        case name
+        case url
+    }
     
 }

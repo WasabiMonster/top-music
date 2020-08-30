@@ -51,11 +51,9 @@ final class AlbumsViewController: UITableViewController {
     
     private func updateDisplay() {
         if let viewModel = viewModel {
-            // genreLabel.text = "temp genre"
-            // releaseDateLabel.text = "01/01/1976"
+            self.title = viewModel.feedTitle
         } else {
-            // genreLabel.text = ""
-            // releaseDateLabel.text = ""
+            // empty
         }
     }
     
@@ -84,7 +82,6 @@ extension AlbumsViewController: AlbumsViewModelDelegate {
     
     func doneRequestingAlbums() {
         // self.activity
-        self.title = self.viewModel?.feedTitle
         self.tableView.reloadData()
     }
     
