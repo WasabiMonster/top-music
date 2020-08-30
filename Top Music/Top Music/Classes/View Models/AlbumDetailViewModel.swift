@@ -52,6 +52,8 @@ class AlbumDetailViewModel: NSObject, BaseViewModel {
         return detail?.copyright ?? ""
     }
     
-    
+    var iTunesUrl: String {
+        return detail?.url ?? "http://www.apple.com"
+    }
     
 }

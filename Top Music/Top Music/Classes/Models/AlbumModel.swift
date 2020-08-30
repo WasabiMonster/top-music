@@ -16,6 +16,7 @@ struct AlbumModel: Decodable {
     let releaseDate: Date?
     let copyright: String
     let genres:[GenreModel]
+    let url: String
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -25,6 +26,7 @@ struct AlbumModel: Decodable {
         case releaseDate
         case copyright
         case genres
+        case url
     }
     
     init(from decoder: Decoder) throws {
@@ -42,6 +44,7 @@ struct AlbumModel: Decodable {
         }
         copyright = try container.decode(String.self, forKey: .copyright)
         genres = try container.decode([GenreModel].self, forKey: .genres)
+        url = try container.decode(String.self, forKey: .url)
     }
     
 }

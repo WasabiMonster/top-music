@@ -46,7 +46,7 @@ class AlbumCell: UITableViewCell {
         
         // Artwork Image
         artworkImage.backgroundColor = UIColor.nikeFootball
-        artworkImage.layer.cornerRadius = 6
+        artworkImage.layer.cornerRadius = 2
         NSLayoutConstraint.activate([
             artworkImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
             artworkImage.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),

@@ -30,7 +30,16 @@ class AlbumDetailCoordinator: BaseCoordinator {
 extension AlbumDetailCoordinator: AlbumDetailViewControllerDelegate {
 
     func albumDetailViewController(_ controller: AlbumDetailViewController, didSelectExternalLink url: String) {
-        print("*082920* TODO: goto external link: \(url)")
+        if let url = URL(string: "itms://apple.com/app/id839686104")  {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                print("*082920* TODO: goto external link: \(url)")
+            } else {
+                print("*083020* \(type(of: self)), \(#function) || nope")
+                // UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+            // itms-apps://itunes.apple.com/app/id  1512216102
+        }
     }
     
 }

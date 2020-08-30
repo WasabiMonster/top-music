@@ -32,6 +32,7 @@ final class AlbumDetailViewController: UIViewController {
         self.view.backgroundColor = UIColor.middleDark
 
         configureLayout()
+        configureActions()
         updateDisplay()
     }
     
@@ -100,7 +101,15 @@ final class AlbumDetailViewController: UIViewController {
             ctaButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -marginPadding),
             ctaButton.heightAnchor.constraint(equalToConstant: 50.0)
         ])
-        
+    }
+    
+    func configureActions() {
+        ctaButton.addTarget(self, action: #selector(openExternalLink), for: .touchUpInside)
+    }
+    
+    @objc func openExternalLink() {
+        guard let link = viewModel?.iTunesUrl else { return }
+        self.albumDetailViewControllerDelegate?.albumDetailViewController(self, didSelectExternalLink: link)
     }
     
 }
