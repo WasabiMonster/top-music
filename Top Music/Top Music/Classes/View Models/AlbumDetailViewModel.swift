@@ -39,7 +39,13 @@ class AlbumDetailViewModel: NSObject, BaseViewModel {
     }
 
     var releaseDateText: String {
-        return detail?.releaseDate ?? ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        if let date = detail?.releaseDate {
+            return "Released: \(dateFormatter.string(from: date))"
+        }
+        return ""
     }
     
     var copyrightText: String {

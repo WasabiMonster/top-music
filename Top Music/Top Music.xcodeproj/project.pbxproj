@@ -53,6 +53,7 @@
 		8B7497C524FB5EC2003C7DAA /* Geomanist-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7497C124FB5EC2003C7DAA /* Geomanist-Regular.otf */; };
 		8B7497C624FB5EC2003C7DAA /* Geomanist-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7497C224FB5EC2003C7DAA /* Geomanist-Medium.otf */; };
 		8B7497C824FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497C724FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift */; };
+		8B7497CA24FB7EA8003C7DAA /* DateFormatter+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497C924FB7EA8003C7DAA /* DateFormatter+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		8B7497C124FB5EC2003C7DAA /* Geomanist-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Regular.otf"; sourceTree = "<group>"; };
 		8B7497C224FB5EC2003C7DAA /* Geomanist-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Medium.otf"; sourceTree = "<group>"; };
 		8B7497C724FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+TopMusicAdditions.swift"; sourceTree = "<group>"; };
+		8B7497C924FB7EA8003C7DAA /* DateFormatter+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 				8B7497AB24F75BE8003C7DAA /* UILabel+TopMusicAdditions.swift */,
 				8B7497BC24FB1A6F003C7DAA /* UITableViewController+extensions.swift */,
 				8B7497BA24FA073C003C7DAA /* UIView+extensions.swift */,
+				8B7497C924FB7EA8003C7DAA /* DateFormatter+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				8B74973224F59048003C7DAA /* AppDelegate.swift in Sources */,
 				8B74973424F59048003C7DAA /* SceneDelegate.swift in Sources */,
 				8B74979324F703B9003C7DAA /* EmptyServerResponse.swift in Sources */,
+				8B7497CA24FB7EA8003C7DAA /* DateFormatter+extensions.swift in Sources */,
 				8B74978924F6F420003C7DAA /* AlbumModel.swift in Sources */,
 				8B7497AE24F75D0D003C7DAA /* UIColor+TopMusicAdditions.swift in Sources */,
 				8B7497B024F766FB003C7DAA /* TopMusicApiManager.swift in Sources */,
