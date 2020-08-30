@@ -39,9 +39,9 @@ extension UILabel {
         label.textColor = color
         label.textAlignment = .left
         label.layer.shadowColor = UIColor.white.cgColor
-        label.layer.shadowRadius = 0.25
-        label.layer.shadowOpacity = 2.0
-        label.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        label.layer.shadowRadius = 0.5
+        label.layer.shadowOpacity = 1.0
+        label.layer.shadowOffset = CGSize(width: 0.25, height: 0.25)
 
         return label
     }
