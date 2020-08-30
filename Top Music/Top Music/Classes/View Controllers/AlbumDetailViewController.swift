@@ -16,13 +16,13 @@ final class AlbumDetailViewController: UIViewController {
     
     weak var albumDetailViewControllerDelegate: AlbumDetailViewControllerDelegate?
     
-    private var stackView: UIStackView?
-    private let albumLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 18.0), color: .oregonDucksGreen)
-    private let artistLabel:UILabel = UILabel.wrapping(font: .customBold(size: 16.0), color: .offWhite)
-    private var artwork: UIImageView = UIImageView()
+    private var textStackView: UIStackView?
+    private let albumLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 28.0), color: .oregonDucksGreen)
+    private let artistLabel:UILabel = UILabel.wrapping(font: .customBold(size: 22.0), color: .offWhite)
+    private var artworkImage: UIImageView = UIImageView()
     private let genreLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .gray)
-    private let releaseDateLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 14.0), color: .oregonDucksGreen)
-    private let copyrightLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 6.0), color: .lightGray)
+    private let releaseDateLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 14.0), color: .lightGray)
+    private let copyrightLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 60.0), color: .lightGray)
     private var ctaButton: UIButton = UIButton()
 
     override func viewDidLoad() {
@@ -57,21 +57,28 @@ final class AlbumDetailViewController: UIViewController {
     }
     
     private func configureLayout() {
-        let stackVW = UIStackView(arrangedSubviews: [
+        let textStackVW = UIStackView(arrangedSubviews: [
             albumLabel,
             artistLabel,
-            artwork,
             genreLabel,
             releaseDateLabel,
             copyrightLabel
         ])
-        stackVW.spacing = 5
-        stackVW.alignment = .leading
-        stackVW.axis = .vertical
-        self.stackView = stackVW
+        textStackVW.spacing = 5
+        textStackVW.alignment = .leading
+        textStackVW.axis = .vertical
+        self.textStackView = textStackVW
 
-        self.view.addSubviews([stackVW, ctaButton])
+        self.view.addSubviews([artworkImage, textStackVW, ctaButton])
         
+        // Artwork
+        artworkImage.backgroundColor = UIColor.nikeFootball
+        artworkImage.layer.cornerRadius = 6
+        // artworkImage.layer.masksToBounds = true
+        NSLayoutConstraint.activate([
+            artworkImage.widthAnchor.constraint(equalToConstant: 250),
+            artworkImage.heightAnchor.constraint(equalTo: artworkImage.widthAnchor)
+        ])
     }
     
 }

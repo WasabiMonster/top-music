@@ -48,6 +48,10 @@
 		8B7497B724F9F17F003C7DAA /* AlbumsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497B624F9F17F003C7DAA /* AlbumsViewModelTests.swift */; };
 		8B7497BB24FA073C003C7DAA /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497BA24FA073C003C7DAA /* UIView+extensions.swift */; };
 		8B7497BD24FB1A6F003C7DAA /* UITableViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497BC24FB1A6F003C7DAA /* UITableViewController+extensions.swift */; };
+		8B7497C324FB5EC2003C7DAA /* Geomanist-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7497BF24FB5EC2003C7DAA /* Geomanist-Book.otf */; };
+		8B7497C424FB5EC2003C7DAA /* Geomanist-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7497C024FB5EC2003C7DAA /* Geomanist-Bold.otf */; };
+		8B7497C524FB5EC2003C7DAA /* Geomanist-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7497C124FB5EC2003C7DAA /* Geomanist-Regular.otf */; };
+		8B7497C624FB5EC2003C7DAA /* Geomanist-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7497C224FB5EC2003C7DAA /* Geomanist-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +119,10 @@
 		8B7497B624F9F17F003C7DAA /* AlbumsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewModelTests.swift; sourceTree = "<group>"; };
 		8B7497BA24FA073C003C7DAA /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
 		8B7497BC24FB1A6F003C7DAA /* UITableViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+extensions.swift"; sourceTree = "<group>"; };
+		8B7497BF24FB5EC2003C7DAA /* Geomanist-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Book.otf"; sourceTree = "<group>"; };
+		8B7497C024FB5EC2003C7DAA /* Geomanist-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Bold.otf"; sourceTree = "<group>"; };
+		8B7497C124FB5EC2003C7DAA /* Geomanist-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Regular.otf"; sourceTree = "<group>"; };
+		8B7497C224FB5EC2003C7DAA /* Geomanist-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				8B74973024F59048003C7DAA /* Top Music */,
+				8B7497BE24FB5EA0003C7DAA /* Fonts */,
 				8B74974724F5904B003C7DAA /* Top MusicTests */,
 				8B74975224F5904B003C7DAA /* Top MusicUITests */,
 				8B74972F24F59048003C7DAA /* Products */,
@@ -339,6 +348,17 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		8B7497BE24FB5EA0003C7DAA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8B7497C024FB5EC2003C7DAA /* Geomanist-Bold.otf */,
+				8B7497BF24FB5EC2003C7DAA /* Geomanist-Book.otf */,
+				8B7497C224FB5EC2003C7DAA /* Geomanist-Medium.otf */,
+				8B7497C124FB5EC2003C7DAA /* Geomanist-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -445,6 +465,10 @@
 			files = (
 				8B74973E24F5904B003C7DAA /* LaunchScreen.storyboard in Resources */,
 				8B74973B24F5904B003C7DAA /* Assets.xcassets in Resources */,
+				8B7497C424FB5EC2003C7DAA /* Geomanist-Bold.otf in Resources */,
+				8B7497C324FB5EC2003C7DAA /* Geomanist-Book.otf in Resources */,
+				8B7497C624FB5EC2003C7DAA /* Geomanist-Medium.otf in Resources */,
+				8B7497C524FB5EC2003C7DAA /* Geomanist-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
