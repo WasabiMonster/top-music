@@ -11,9 +11,9 @@ import UIKit
 
 class AlbumCell: UITableViewCell {
     public static let reusableId: String = "AlbumCell"
-    private let albumLabel:UILabel = UILabel.ducksStyle(font: .customMedium(size: 14.0), color: .oregonDucksGreen)
+    private let albumLabel:UILabel = UILabel.ducksStyle(font: .customMedium(size: 20.0), color: .oregonDucksGreen, wraps: false)
     private let artistLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .offWhite)
-    private var artwork: UIImageView = UIImageView()
+    private var artworkImage: UIImageView = UIImageView()
         
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -41,13 +41,31 @@ class AlbumCell: UITableViewCell {
     }
 
     private func configureLayout() {
-        self.addSubviews([artistLabel, albumLabel, artwork])
-        self.backgroundColor = UIColor.darkGray
+        self.addSubviews([artistLabel, albumLabel, artworkImage])
+        self.backgroundColor = UIColor.almostBlack
+        
+        // Artwork Image
+        artworkImage.backgroundColor = UIColor.nikeFootball
+        artworkImage.layer.cornerRadius = 6
+        NSLayoutConstraint.activate([
+            artworkImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
+            artworkImage.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
+            artworkImage.widthAnchor.constraint(equalToConstant: 42),
+            artworkImage.heightAnchor.constraint(equalTo: artworkImage.widthAnchor)
+        ])
+        
+        // Album Label
+        NSLayoutConstraint.activate([
+            albumLabel.leadingAnchor.constraint(equalTo: artworkImage.trailingAnchor, constant: 14),
+            albumLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            albumLabel.topAnchor.constraint(equalTo: artworkImage.topAnchor)
+        ])
         
         // Artist Label
         NSLayoutConstraint.activate([
-            self.artistLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-            self.artistLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10)
+            artistLabel.leadingAnchor.constraint(equalTo: albumLabel.leadingAnchor),
+            artistLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            artistLabel.topAnchor.constraint(equalTo: albumLabel.bottomAnchor, constant: 2)
         ])
                 
     }
@@ -57,7 +75,7 @@ class AlbumCell: UITableViewCell {
                   artwork: UIImage?) {
         self.artistLabel.text = artist
         self.albumLabel.text = album
-        self.artwork.image = artwork
+        self.artworkImage.image = artwork
     }
     
     override func prepareForReuse() {

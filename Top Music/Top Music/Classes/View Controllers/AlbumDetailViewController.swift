@@ -80,14 +80,14 @@ final class AlbumDetailViewController: UIViewController {
         NSLayoutConstraint.activate([
             artworkImage.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             artworkImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            artworkImage.widthAnchor.constraint(equalToConstant: 250),
+            artworkImage.widthAnchor.constraint(equalToConstant: 212),
             artworkImage.heightAnchor.constraint(equalTo: artworkImage.widthAnchor)
         ])
         
         // Text Stack
         textStackVW.setCustomSpacing(4, after: self.albumLabel)
         NSLayoutConstraint.activate([
-            textStackVW.topAnchor.constraint(equalTo: artworkImage.bottomAnchor, constant: 34),
+            textStackVW.topAnchor.constraint(equalTo: artworkImage.bottomAnchor, constant: 34.0),
             textStackVW.widthAnchor.constraint(equalTo: self.view.widthAnchor),
             textStackVW.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: marginPadding),
             textStackVW.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -marginPadding)
@@ -98,7 +98,7 @@ final class AlbumDetailViewController: UIViewController {
             ctaButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: marginPadding),
             ctaButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -marginPadding),
             ctaButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -marginPadding),
-            ctaButton.heightAnchor.constraint(equalToConstant: 50)
+            ctaButton.heightAnchor.constraint(equalToConstant: 50.0)
         ])
         
     }

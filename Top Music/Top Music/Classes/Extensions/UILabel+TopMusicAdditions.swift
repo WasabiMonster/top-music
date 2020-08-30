@@ -29,17 +29,19 @@ extension UILabel {
         return label
     }
     
-    static func ducksStyle(font: UIFont, color: UIColor) -> UILabel {
+    static func ducksStyle(font: UIFont, color: UIColor, wraps: Bool = true) -> UILabel {
         let label = UILabel()
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
+        if wraps {
+            label.numberOfLines = 0
+        }
+        label.lineBreakMode = .byTruncatingTail
         label.font = font
         label.textColor = color
         label.textAlignment = .left
         label.layer.shadowColor = UIColor.white.cgColor
-        label.layer.shadowRadius = 0.75
-        label.layer.shadowOpacity = 1.0
-        label.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        label.layer.shadowRadius = 0.25
+        label.layer.shadowOpacity = 2.0
+        label.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
 
         return label
     }
