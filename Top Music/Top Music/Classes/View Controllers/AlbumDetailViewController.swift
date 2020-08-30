@@ -89,7 +89,8 @@ final class AlbumDetailViewController: UIViewController {
         NSLayoutConstraint.activate([
             textStackVW.topAnchor.constraint(equalTo: artworkImage.bottomAnchor, constant: 34),
             textStackVW.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            textStackVW.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: marginPadding)
+            textStackVW.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: marginPadding),
+            textStackVW.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -marginPadding)
         ])
         
         // CTA Button
