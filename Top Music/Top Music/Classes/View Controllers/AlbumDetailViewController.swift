@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AlbumDetailViewControllerDelegate: class {
-    func albumDetailViewController(_ controller: AlbumDetailViewController, didSelectExternalLink url: String)
+    func albumDetailViewController(_ controller: AlbumDetailViewController, didSelectExternalLink url: String, id: String)
 }
 
 final class AlbumDetailViewController: UIViewController {
@@ -109,7 +109,7 @@ final class AlbumDetailViewController: UIViewController {
     
     @objc func openExternalLink() {
         guard let link = viewModel?.iTunesUrl else { return }
-        self.albumDetailViewControllerDelegate?.albumDetailViewController(self, didSelectExternalLink: link)
+        self.albumDetailViewControllerDelegate?.albumDetailViewController(self, didSelectExternalLink: link, id: viewModel?.id ?? "")
     }
     
 }

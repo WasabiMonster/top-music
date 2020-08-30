@@ -29,16 +29,17 @@ class AlbumDetailCoordinator: BaseCoordinator {
 
 extension AlbumDetailCoordinator: AlbumDetailViewControllerDelegate {
 
-    func albumDetailViewController(_ controller: AlbumDetailViewController, didSelectExternalLink url: String) {
-        if let url = URL(string: "itms://apple.com/app/id839686104")  {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                print("*082920* TODO: goto external link: \(url)")
+    func albumDetailViewController(_ controller: AlbumDetailViewController, didSelectExternalLink url: String, id: String) {
+        if let appUrl = URL(string: "itms://music.apple.com/us/album/id/\(id)")  {
+            if UIApplication.shared.canOpenURL(appUrl) {
+                UIApplication.shared.open(appUrl, options: [:], completionHandler: nil)
             } else {
-                print("*083020* \(type(of: self)), \(#function) || nope")
-                // UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                let webUrlString = "https://music.apple.com/us/album/id/\(id)"
+                print("Cannot open Music app. Attempting \(webUrlString) in browser.")
+                if let webUrl = URL(string: webUrlString) {
+                    UIApplication.shared.open(webUrl, options: [:], completionHandler: nil)
+                }
             }
-            // itms-apps://itunes.apple.com/app/id  1512216102
         }
     }
     

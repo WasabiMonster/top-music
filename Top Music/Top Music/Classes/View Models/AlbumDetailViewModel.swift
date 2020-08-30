@@ -22,6 +22,10 @@ class AlbumDetailViewModel: NSObject, BaseViewModel {
         }
     }
     
+    var id: String {
+        return detail?.id ?? ""
+    }
+    
     var albumText: String {
         return detail?.name ?? ""
     }
