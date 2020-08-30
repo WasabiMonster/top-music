@@ -11,8 +11,8 @@ import UIKit
 
 class AlbumCell: UITableViewCell {
     public static let reusableId: String = "AlbumCell"
+    private let albumLabel:UILabel = UILabel.ducksStyle(font: .customMedium(size: 14.0), color: .oregonDucksGreen)
     private let artistLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .offWhite)
-    private let albumLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 14.0), color: .oregonDucksGreen)
     private var artwork: UIImageView = UIImageView()
         
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

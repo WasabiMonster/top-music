@@ -17,7 +17,7 @@ final class AlbumDetailViewController: UIViewController {
     weak var albumDetailViewControllerDelegate: AlbumDetailViewControllerDelegate?
     
     private var textStackView: UIStackView?
-    private let albumLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 28.0), color: .oregonDucksGreen)
+    private let albumLabel:UILabel = UILabel.ducksStyle(font: .customMedium(size: 28.0), color: .oregonDucksGreen)
     private let artistLabel:UILabel = UILabel.wrapping(font: .customBold(size: 22.0), color: .offWhite)
     private var artworkImage: UIImageView = UIImageView()
     private let genreLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .gray)
@@ -85,7 +85,7 @@ final class AlbumDetailViewController: UIViewController {
         ])
         
         // Text Stack
-        textStackVW.setCustomSpacing(0, after: self.albumLabel)
+        textStackVW.setCustomSpacing(4, after: self.albumLabel)
         NSLayoutConstraint.activate([
             textStackVW.topAnchor.constraint(equalTo: artworkImage.bottomAnchor, constant: 34),
             textStackVW.widthAnchor.constraint(equalTo: self.view.widthAnchor),
