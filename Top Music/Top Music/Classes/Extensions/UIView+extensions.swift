@@ -10,10 +10,10 @@ import UIKit
 
 extension UIView {
     
-    func addSubviews(_ svArr:[UIView]) {
+    func addSubviews(_ svArr:[UIView], manualConstraints: Bool = true) {
         for vw in svArr {
             self.addSubview(vw)
-            vw.translatesAutoresizingMaskIntoConstraints = false
+            vw.translatesAutoresizingMaskIntoConstraints = !manualConstraints
         }
     }
     

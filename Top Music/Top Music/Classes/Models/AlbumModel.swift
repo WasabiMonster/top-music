@@ -13,14 +13,18 @@ struct AlbumModel: Decodable {
     let artistName: String
     let id: String
     let artworkUrl: String
+    let releaseDate: String
+    let copyright: String
     let genres:[GenreModel]
     
     enum CodingKeys: String, CodingKey {
         case name
         case artistName
         case id
-        case genres
         case artworkUrl = "artworkUrl100"
+        case releaseDate
+        case copyright
+        case genres
     }
     
 }

@@ -9,24 +9,24 @@
 import UIKit
 
 protocol AlbumDetailViewControllerDelegate: class {
-    // didSelect external link...
-    // func albumdetailViewController(_ controller: AlbumDetailViewController, didSelectAlbumAt index: Int)
-    // didReceiveError
+    func albumDetailViewController(_ controller: AlbumDetailViewController, didSelectExternalLink url: String)
 }
 
 final class AlbumDetailViewController: UIViewController {
     
     weak var albumDetailViewControllerDelegate: AlbumDetailViewControllerDelegate?
     
+    private let stackView = UIStackView()
     private let genreLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .offWhite)
     private let releaseDateLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 14.0), color: .oregonDucksGreen)
     private var artwork: UIImageView = UIImageView()
+    private var ctaButton: UIButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.almostBlack
 
-        // stackview
+        configureLayout()
         updateDisplay()
     }
     
@@ -43,11 +43,16 @@ final class AlbumDetailViewController: UIViewController {
     fileprivate func updateDisplay() {
         if let viewModel = viewModel {
             genreLabel.text = viewModel.genreText
-            releaseDateLabel.text = "01/01/1976"
+            releaseDateLabel.text = viewModel.copyrightText
         } else {
             genreLabel.text = ""
             releaseDateLabel.text = ""
         }
+    }
+    
+    private func configureLayout() {
+        self.view.addSubviews([stackView, genreLabel, releaseDateLabel, artwork, ctaButton])
+        
     }
     
 }

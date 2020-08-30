@@ -18,21 +18,24 @@ class AlbumDetailViewModel: NSObject, BaseViewModel {
     
     fileprivate(set) var detail: AlbumModel? {
         didSet {
-            // viewDelegate?.detailDidChange(viewModel: self)
+            delegate?.detailDidChange(viewModel: self)
         }
     }
     
-    var model: AlbumModel? {
+    /* var model: AlbumModel? {
         didSet {
             /* model?.detail({ (item) in
                 self.detail = item
             }) */
         }
-    }
+    } */
     
     var genreText: String {
-        // return detail?.genres.joined(separator: ", ") ?? ""
         return detail?.genres.map{$0.name}.joined(separator: ", ") ?? ""
+    }
+    
+    var copyrightText: String {
+        return detail?.copyright ?? ""
     }
     
 }
