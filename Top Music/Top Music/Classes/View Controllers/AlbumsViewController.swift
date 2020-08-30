@@ -64,6 +64,10 @@ final class AlbumsViewController: UITableViewController {
         albumsViewControllerDelegate?.albumsViewController(self, didSelectAlbumAt: indexPath.row)
     }
     
+    public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
+    }
+    
 }
 
 extension AlbumsViewController: AlbumsViewModelDelegate {
