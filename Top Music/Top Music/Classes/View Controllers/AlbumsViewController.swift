@@ -15,10 +15,10 @@ protocol AlbumsViewControllerDelegate: class {
 final class AlbumsViewController: UITableViewController {
     
     weak var albumsViewControllerDelegate: AlbumsViewControllerDelegate?
+    weak var tableViewDelegate: AlbumsTableViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
         self.view.backgroundColor = UIColor.nikeFootball
         configureTableView()
         viewModel?.fetchAlbums()
@@ -32,9 +32,11 @@ final class AlbumsViewController: UITableViewController {
     var viewModel: AlbumsViewModel? {
         willSet {
             viewModel?.delegate = nil
+            self.tableViewDelegate = nil
         }
         didSet {
             viewModel?.delegate = self
+            self.tableViewDelegate = viewModel
         }
     }
         
@@ -43,8 +45,7 @@ final class AlbumsViewController: UITableViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.allowsSelection = true
         
-        self.viewModel?.tableView = self.tableView
-        //// self.tableView.delegate = self.viewModel
+        self.tableView.delegate = self
         self.tableView.dataSource = self.viewModel
         self.tableView.prefetchDataSource = self.viewModel
         
@@ -52,11 +53,11 @@ final class AlbumsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        viewModel?.tableViewDelegate?.albumsTableView(tableView, willDisplay: cell, forRowAt: indexPath)
+        tableViewDelegate?.albumsTableView(tableView, willDisplay: cell, forRowAt: indexPath)
     }
 
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        viewModel?.tableViewDelegate?.albumsTableView(tableView, didEndDisplaying: cell, forRowAt: indexPath)
+        tableViewDelegate?.albumsTableView(tableView, didEndDisplaying: cell, forRowAt: indexPath)
     }
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -21,13 +21,11 @@ protocol AlbumsTableViewDelegate: class {
 
 class AlbumsViewModel: NSObject, BaseViewModel {
     weak var delegate: AlbumsViewModelDelegate?
-    weak var tableViewDelegate: AlbumsTableViewDelegate?
     private var feedResponse: AlbumFeedResponse?
     private var albums: [AlbumModel] = []
     fileprivate lazy var imageStore = ImageLoader()
     fileprivate lazy var loadingQueue = OperationQueue()
     fileprivate lazy var loadingOperations = [IndexPath: ImageLoadOperation]()
-    weak var tableView: UITableView?
     
     var feedTitle: String {
         return "\(feedResponse?.author.name ?? "") \(feedResponse?.title ?? "")"
