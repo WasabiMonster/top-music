@@ -86,7 +86,7 @@ extension AlbumsViewModel: AlbumsTableViewDelegate {
                 imageLoader.loadingCompleteHandler = updateCellClosure
             }
         } else {
-            // Create a dataloader for this index path
+            // Create an imageloader for this index path
             if let imageLoader = imageStore.loadImage(at: indexPath.row) {
                 // Begin loading operation with a completion handler
                 imageLoader.loadingCompleteHandler = updateCellClosure
@@ -133,17 +133,17 @@ extension AlbumsViewModel: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             if let _ = loadingOperations[indexPath] { return }
-            if let dataLoader = imageStore.loadImage(at: indexPath.row) {
-                loadingQueue.addOperation(dataLoader)
-                loadingOperations[indexPath] = dataLoader
+            if let imageLoader = imageStore.loadImage(at: indexPath.row) {
+                loadingQueue.addOperation(imageLoader)
+                loadingOperations[indexPath] = imageLoader
             }
         }
     }
     
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
        for indexPath in indexPaths {
-           if let dataLoader = loadingOperations[indexPath] {
-               dataLoader.cancel()
+           if let imageLoader = loadingOperations[indexPath] {
+               imageLoader.cancel()
                loadingOperations.removeValue(forKey: indexPath)
            }
        }
@@ -164,90 +164,4 @@ extension AlbumsViewModel: UITableViewDataSourcePrefetching {
             startOperations(for: albumDetails, at: indexPath)
         }
     }
-    
-    func startOperations(for albumModel: AlbumModel, at indexPath: IndexPath) {
-        guard let tableView = self.tableView else { return }
-        
-        if !tableView.isDragging && !tableView.isDecelerating {
-            switch albumModel.imageStatus {
-            case .start:
-                startDownload(for: albumModel, at: indexPath)
-            case .downloaded:
-                reloadRows(at: [indexPath])
-            default:
-                NSLog("do nothing")
-            }
-        }
-    }
-    
-    func startDownload(for albumModel: AlbumModel, at indexPath: IndexPath) {
-        guard PendingOperations.shared.downloadsInProgress[indexPath] == nil else { return }
-        
-        let downloader = ImageDownloader(albumModel)
-        downloader.completionBlock = {
-            if downloader.isCancelled { return }
-            
-            DispatchQueue.main.async {
-                PendingOperations.shared.downloadsInProgress.removeValue(forKey: indexPath)
-                self.reloadRows(at: [indexPath])
-            }
-        }
-        
-        PendingOperations.shared.downloadsInProgress[indexPath] = downloader
-        PendingOperations.shared.addOperation(downloader)
-    }
-    
-    func reloadRows(at indexPath: [IndexPath]) {
-        DispatchQueue.main.async {
-            UIView.setAnimationsEnabled(false)
-            self.tableView?.beginUpdates()
-            self.tableView?.reloadRows(at: indexPath, with: .fade)
-            self.tableView?.endUpdates()
-            UIView.setAnimationsEnabled(true)
-        }
-    }
-    
-    func loadImagesForOnscreenCells() {
-        if let pathsArray = self.tableView?.indexPathsForVisibleRows {
-            
-            let allPendingOperations = Set(PendingOperations.shared.downloadsInProgress.keys)
-            var toBeCancelled = allPendingOperations
-            let visiblePaths = Set(pathsArray)
-            
-            toBeCancelled.subtract(visiblePaths)
-            
-            var toBeStarted = visiblePaths
-            toBeStarted.subtract(allPendingOperations)
-            
-            for indexPath in toBeCancelled {
-                if let pendingDownload = PendingOperations.shared.downloadsInProgress[indexPath] {
-                    pendingDownload.cancel()
-                }
-                
-                PendingOperations.shared.downloadsInProgress.removeValue(forKey: indexPath)
-            }
-            
-            for indexPath in toBeStarted {
-                let recordToProcess = self.albums[indexPath.row]
-                startOperations(for: recordToProcess, at: indexPath)
-            }
-        }
-    }
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        PendingOperations.shared.suspendAllOperations()
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            loadImagesForOnscreenCells()
-            PendingOperations.shared.resumeAllOperations()
-        }
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        loadImagesForOnscreenCells()
-        PendingOperations.shared.resumeAllOperations()
-    }
-    
 } */

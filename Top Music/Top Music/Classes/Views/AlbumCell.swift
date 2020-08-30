@@ -97,7 +97,7 @@ class AlbumCell: UITableViewCell {
     override func prepareForReuse() {
         artistLabel.text = ""
         albumLabel.text = ""
-        imageView?.image = nil
+        // imageView?.image = nil
         // artwork = nil
         // artworkImage.cancelImageLoad()
         super.prepareForReuse()
