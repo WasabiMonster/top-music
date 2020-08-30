@@ -12,9 +12,9 @@ protocol Coordinator: AnyObject {
     var parentCoordinator: Coordinator? { get set }
     
     func start()
-    func start(coordinator: Coordinator)
-    func didFinish(coordinator: Coordinator)
-    func removeChildCoordinators()
+    // func start(coordinator: Coordinator)
+    // func didFinish(coordinator: Coordinator)
+    // func removeChildCoordinators()
 }
 
 class BaseCoordinator: Coordinator {
@@ -30,7 +30,7 @@ class BaseCoordinator: Coordinator {
         fatalError("Start method should be implemented.")
     }
     
-    func start(coordinator: Coordinator) {
+    /* func start(coordinator: Coordinator) {
         self.childCoordinators += [coordinator]
         coordinator.parentCoordinator = self
         coordinator.start()
@@ -45,7 +45,7 @@ class BaseCoordinator: Coordinator {
         if let index = self.childCoordinators.firstIndex(where: { $0 === coordinator }) {
             self.childCoordinators.remove(at: index)
         }
-    }
+    } */
 }
 
 extension BaseCoordinator: Equatable {

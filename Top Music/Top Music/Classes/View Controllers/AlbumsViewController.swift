@@ -62,17 +62,13 @@ final class AlbumsViewController: UITableViewController {
         
         self.tableView.register(AlbumCell.self, forCellReuseIdentifier: AlbumCell.reusableId)
     }
-
-}
-
-extension AlbumsViewController {
-
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 76
     }
 
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        albumsViewControllerDelegate?.albumsViewController(self, didSelectAlbumAt: indexPath.row)        
+        albumsViewControllerDelegate?.albumsViewController(self, didSelectAlbumAt: indexPath.row)
     }
     
 }

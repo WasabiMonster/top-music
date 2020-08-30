@@ -52,7 +52,7 @@ class AlbumCell: UITableViewCell {
             // self.artistLabel.widthAnchor.constraint(equalTo: self.artworkView.heightAnchor)
         ])
         
-        print("*082820* \(type(of: self)), \(#function) |> \(artistLabel) \(self.contentView)")
+        // print("*082820* \(type(of: self)), \(#function) |> \(artistLabel) \(self.contentView)")
         
     }
     

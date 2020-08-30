@@ -12,6 +12,7 @@ import UIKit
 final class AppCoordinator: BaseCoordinator {
     private let window: UIWindow
     private let rootViewController: UINavigationController
+    private var albumsCoordinator: AlbumsCoordinator?
     
     init(window: UIWindow) {
         self.window = window
@@ -24,14 +25,12 @@ final class AppCoordinator: BaseCoordinator {
     override func start() {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
+        albumsCoordinator = AlbumsCoordinator(presenter: rootViewController)
         showHome()
     }
     
     func showHome() {
-        self.removeChildCoordinators()
-        
-        let albumsCoordinator = AlbumsCoordinator(presenter: rootViewController)
-        albumsCoordinator.start()
+        albumsCoordinator?.start()
     }
     
 }
