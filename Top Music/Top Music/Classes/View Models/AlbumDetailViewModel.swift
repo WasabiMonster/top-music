@@ -16,26 +16,36 @@ protocol AlbumDetailViewModelDelegate: class {
 class AlbumDetailViewModel: NSObject, BaseViewModel {
     weak var delegate: AlbumDetailViewModelDelegate?
     
-    fileprivate(set) var detail: AlbumModel? {
+    var detail: AlbumModel? {
         didSet {
             delegate?.detailDidChange(viewModel: self)
         }
     }
     
-    /* var model: AlbumModel? {
-        didSet {
-            /* model?.detail({ (item) in
-                self.detail = item
-            }) */
-        }
-    } */
+    var albumText: String {
+        return detail?.name ?? ""
+    }
+    
+    var artistText: String {
+        return detail?.artistName ?? ""
+    }
+    
+    var artworkUrl: String {
+        return detail?.artworkUrl ?? ""
+    }
     
     var genreText: String {
         return detail?.genres.map{$0.name}.joined(separator: ", ") ?? ""
+    }
+
+    var releaseDateText: String {
+        return detail?.releaseDate ?? ""
     }
     
     var copyrightText: String {
         return detail?.copyright ?? ""
     }
+    
+    
     
 }

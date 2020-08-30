@@ -16,10 +16,13 @@ final class AlbumDetailViewController: UIViewController {
     
     weak var albumDetailViewControllerDelegate: AlbumDetailViewControllerDelegate?
     
-    private let stackView = UIStackView()
-    private let genreLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .offWhite)
-    private let releaseDateLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 14.0), color: .oregonDucksGreen)
+    private var stackView: UIStackView?
+    private let albumLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 18.0), color: .oregonDucksGreen)
+    private let artistLabel:UILabel = UILabel.wrapping(font: .customBold(size: 16.0), color: .offWhite)
     private var artwork: UIImageView = UIImageView()
+    private let genreLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .gray)
+    private let releaseDateLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 14.0), color: .oregonDucksGreen)
+    private let copyrightLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 6.0), color: .lightGray)
     private var ctaButton: UIButton = UIButton()
 
     override func viewDidLoad() {
@@ -42,8 +45,11 @@ final class AlbumDetailViewController: UIViewController {
     
     fileprivate func updateDisplay() {
         if let viewModel = viewModel {
+            albumLabel.text = viewModel.albumText
+            artistLabel.text = viewModel.artistText
             genreLabel.text = viewModel.genreText
-            releaseDateLabel.text = viewModel.copyrightText
+            releaseDateLabel.text = viewModel.releaseDateText
+            copyrightLabel.text = viewModel.copyrightText
         } else {
             genreLabel.text = ""
             releaseDateLabel.text = ""
@@ -51,7 +57,20 @@ final class AlbumDetailViewController: UIViewController {
     }
     
     private func configureLayout() {
-        self.view.addSubviews([stackView, genreLabel, releaseDateLabel, artwork, ctaButton])
+        let stackVW = UIStackView(arrangedSubviews: [
+            albumLabel,
+            artistLabel,
+            artwork,
+            genreLabel,
+            releaseDateLabel,
+            copyrightLabel
+        ])
+        stackVW.spacing = 5
+        stackVW.alignment = .leading
+        stackVW.axis = .vertical
+        self.stackView = stackVW
+
+        self.view.addSubviews([stackVW, ctaButton])
         
     }
     
@@ -64,7 +83,7 @@ extension AlbumDetailViewController: AlbumDetailViewModelDelegate {
     }
 
     func detailDidChange(viewModel: AlbumDetailViewModel) {
-        //
+        updateDisplay()
     }
         
 }
