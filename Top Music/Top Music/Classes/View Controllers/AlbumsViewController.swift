@@ -19,7 +19,6 @@ final class AlbumsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.nikeFootball
-        configureNavBar()
         configureTableView()
         viewModel?.fetchAlbums()
     }
@@ -45,10 +44,6 @@ final class AlbumsViewController: UITableViewController {
         } else {
             // empty
         }
-    }
-    
-    private func configureNavBar() {
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 28)]
     }
     
     private func configureTableView() {

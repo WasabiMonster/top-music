@@ -17,9 +17,15 @@ final class AppCoordinator: BaseCoordinator {
     init(window: UIWindow) {
         self.window = window
         rootViewController = UINavigationController()
+        super.init(presenter: rootViewController)
+        configureNavBar()
+    }
+    
+    private func configureNavBar() {
         rootViewController.navigationBar.isHidden = false
         rootViewController.navigationBar.prefersLargeTitles = true
-        super.init(presenter: rootViewController)
+        rootViewController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 28)]
+        rootViewController.navigationBar.tintColor = UIColor.groovyPink
     }
     
     override func start() {
