@@ -22,7 +22,7 @@ final class AlbumDetailViewController: UIViewController {
     private var artworkImage: UIImageView = UIImageView()
     private let genreLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .gray)
     private let releaseDateLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 14.0), color: .lightGray)
-    private let copyrightLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 8.0), color: .lightGray)
+    private let copyrightLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 12.0), color: .lightGray)
     private var ctaButton: UIButton = UIButton()
 
     override func viewDidLoad() {
@@ -74,13 +74,20 @@ final class AlbumDetailViewController: UIViewController {
         // Artwork
         artworkImage.backgroundColor = UIColor.nikeFootball
         artworkImage.layer.cornerRadius = 6
-        // artworkImage.layer.masksToBounds = true
+        artworkImage.layer.masksToBounds = true
         NSLayoutConstraint.activate([
             artworkImage.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             artworkImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             artworkImage.widthAnchor.constraint(equalToConstant: 250),
             artworkImage.heightAnchor.constraint(equalTo: artworkImage.widthAnchor)
         ])
+        
+        // Text Stack
+        NSLayoutConstraint.activate([
+            textStackVW.topAnchor.constraint(equalTo: artworkImage.bottomAnchor, constant: 40),
+            textStackVW.widthAnchor.constraint(equalTo: self.view.widthAnchor)
+        ])
+        
     }
     
 }
