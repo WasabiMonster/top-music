@@ -54,6 +54,7 @@ class AlbumsViewModel: NSObject, BaseViewModel {
                     self.albums.append(album)
                 }
                 self.delegate?.doneRequestingAlbums()
+                self.imageStore.imagesData = self.albums
             case .failure:
                 // silent fail
                 break
