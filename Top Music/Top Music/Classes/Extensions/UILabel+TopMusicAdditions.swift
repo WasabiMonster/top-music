@@ -17,7 +17,7 @@ extension UILabel {
     label.lineBreakMode = .byWordWrapping
     label.font = font
     label.textColor = color
-    label.textAlignment = .center
+    label.textAlignment = .left
     return label
   }
   

@@ -22,7 +22,7 @@ final class AlbumDetailViewController: UIViewController {
     private var artworkImage: UIImageView = UIImageView()
     private let genreLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .gray)
     private let releaseDateLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 14.0), color: .lightGray)
-    private let copyrightLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 12.0), color: .lightGray)
+    private let copyrightLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 11.0), color: .lightGray)
     private var ctaButton: UIButton = UIButton.callToAction(text: "VIEW IN ITUNES")
     
     let marginPadding: CGFloat = 20
@@ -66,7 +66,7 @@ final class AlbumDetailViewController: UIViewController {
             releaseDateLabel,
             copyrightLabel
         ])
-        textStackVW.spacing = 5
+        textStackVW.spacing = 8
         textStackVW.alignment = .leading
         textStackVW.axis = .vertical
         self.textStackView = textStackVW
@@ -85,6 +85,7 @@ final class AlbumDetailViewController: UIViewController {
         ])
         
         // Text Stack
+        textStackVW.setCustomSpacing(0, after: self.albumLabel)
         NSLayoutConstraint.activate([
             textStackVW.topAnchor.constraint(equalTo: artworkImage.bottomAnchor, constant: 34),
             textStackVW.widthAnchor.constraint(equalTo: self.view.widthAnchor),
