@@ -16,11 +16,11 @@ extension UIColor {
     }
         
     static var oregonDucksGreen: UIColor {
-        return UIColor(red: 251/255, green: 224/255, blue: 33/255, alpha: 1.0)
+        return UIColor(red: 0/255, green: 79/255, blue: 57/255, alpha: 1.0)
     }
     
     static var oregonDucksYellow: UIColor {
-        return UIColor(red: 0/255, green: 79/255, blue: 57/255, alpha: 1.0)
+        return UIColor(red: 251/255, green: 224/255, blue: 33/255, alpha: 1.0)
     }
     
     static var groovyPink: UIColor {

@@ -17,7 +17,7 @@ final class AlbumDetailViewController: UIViewController {
     weak var albumDetailViewControllerDelegate: AlbumDetailViewControllerDelegate?
     
     private var textStackView: UIStackView?
-    private let albumLabel:UILabel = UILabel.ducksStyle(font: .customMedium(size: 28.0), color: .oregonDucksGreen)
+    private let albumLabel:UILabel = UILabel.ducksStyle(font: .customMedium(size: 28.0), color: .oregonDucksYellow)
     private let artistLabel:UILabel = UILabel.wrapping(font: .customBold(size: 22.0), color: .offWhite)
     private var artworkImage: UIImageView = UIImageView()
     private let genreLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .gray)
@@ -75,7 +75,7 @@ final class AlbumDetailViewController: UIViewController {
         self.view.addSubviews([artworkImage, textStackVW, ctaButton])
         
         // Artwork
-        artworkImage.backgroundColor = UIColor.nikeFootball
+        artworkImage.backgroundColor = UIColor.oregonDucksGreen
         artworkImage.layer.cornerRadius = 6
         artworkImage.layer.masksToBounds = true
         NSLayoutConstraint.activate([

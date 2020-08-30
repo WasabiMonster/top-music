@@ -11,7 +11,7 @@ import UIKit
 
 class AlbumCell: UITableViewCell {
     public static let reusableId: String = "AlbumCell"
-    private let albumLabel:UILabel = UILabel.ducksStyle(font: .customMedium(size: 20.0), color: .oregonDucksGreen, wraps: false)
+    private let albumLabel:UILabel = UILabel.ducksStyle(font: .customMedium(size: 20.0), color: .oregonDucksYellow, wraps: false)
     private let artistLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .offWhite)
     private var artworkImage: UIImageView = UIImageView()
         
@@ -45,7 +45,7 @@ class AlbumCell: UITableViewCell {
         self.backgroundColor = UIColor.almostBlack
         
         // Artwork Image
-        artworkImage.backgroundColor = UIColor.nikeFootball
+        artworkImage.backgroundColor = UIColor.oregonDucksGreen
         artworkImage.layer.cornerRadius = 2
         NSLayoutConstraint.activate([
             artworkImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
