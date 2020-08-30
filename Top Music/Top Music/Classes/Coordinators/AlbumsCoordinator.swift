@@ -31,7 +31,7 @@ class AlbumsCoordinator: BaseCoordinator {
     
     func showDetail(at index: Int) {
         let detailViewModel = AlbumDetailViewModel()
-        /// detailViewModel.model = AlbumModel(from: <#Decoder#>)
+        detailViewModel.model = albumsViewController?.viewModel?.album(at: index)
         let albumDC = AlbumDetailCoordinator(presenter: presenter, viewModel: detailViewModel)
         self.albumDetailCoordinator = albumDC
         albumDC.start()

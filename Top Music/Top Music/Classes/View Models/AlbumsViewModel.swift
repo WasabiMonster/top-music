@@ -28,6 +28,10 @@ class AlbumsViewModel: NSObject, BaseViewModel {
         return albums.count
     }
     
+    func album(at index: Int) -> AlbumModel {
+        return albums[index]
+    }
+    
     func fetchAlbums() {
         let request = Requests.iTunes.topAlbums.init()
         apiManager.execute(request) { result in

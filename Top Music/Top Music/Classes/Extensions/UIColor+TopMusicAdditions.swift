@@ -15,8 +15,8 @@ extension UIColor {
         return UIColor(white: 247.0/255.0, alpha: 1.0)
     }
     
-    static var offBlackSlightlyTransparent: UIColor {
-        return UIColor(white: 8.0/255.0, alpha: 0.85)
+    static var almostBlack: UIColor {
+        return UIColor(white: 8.0/255.0, alpha: 1.0)
     }
     
     static var nikeFootball: UIColor {

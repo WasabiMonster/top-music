@@ -24,6 +24,8 @@ final class AlbumDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.almostBlack
+
         // stackview
         updateDisplay()
     }
