@@ -58,6 +58,9 @@
 		8B7497D024FBA227003C7DAA /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497CF24FBA227003C7DAA /* PendingOperations.swift */; };
 		8B7497D224FBA26B003C7DAA /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497D124FBA26B003C7DAA /* ImageDownloader.swift */; };
 		8B7497D424FBA589003C7DAA /* AlbumImageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497D324FBA589003C7DAA /* AlbumImageStatus.swift */; };
+		8B7497D824FC3474003C7DAA /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497D724FC3474003C7DAA /* UIViewController+extensions.swift */; };
+		8B7497DB24FC3746003C7DAA /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497DA24FC3746003C7DAA /* ImageLoader.swift */; };
+		8B7497DD24FC386B003C7DAA /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497DC24FC386B003C7DAA /* String+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +138,9 @@
 		8B7497CF24FBA227003C7DAA /* PendingOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
 		8B7497D124FBA26B003C7DAA /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		8B7497D324FBA589003C7DAA /* AlbumImageStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumImageStatus.swift; path = "Top Music/Classes/Enums/AlbumImageStatus.swift"; sourceTree = SOURCE_ROOT; };
+		8B7497D724FC3474003C7DAA /* UIViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
+		8B7497DA24FC3746003C7DAA /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		8B7497DC24FC386B003C7DAA /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +260,7 @@
 		8B74976424F59539003C7DAA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8B7497D924FC3733003C7DAA /* ImageLoading */,
 				8B74978824F6F420003C7DAA /* AlbumModel.swift */,
 				8B74977D24F6414F003C7DAA /* Environment.swift */,
 				8B74978A24F6F42A003C7DAA /* GenreModel.swift */,
@@ -287,12 +294,14 @@
 			children = (
 				8B74979424F71E8D003C7DAA /* Codable+extensions.swift */,
 				8B7497C924FB7EA8003C7DAA /* DateFormatter+extensions.swift */,
+				8B7497DC24FC386B003C7DAA /* String+extensions.swift */,
 				8B7497C724FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift */,
 				8B7497AD24F75D0D003C7DAA /* UIColor+TopMusicAdditions.swift */,
 				8B7497A924F75B3A003C7DAA /* UIFont+TopMusicAdditions.swift */,
 				8B7497AB24F75BE8003C7DAA /* UILabel+TopMusicAdditions.swift */,
 				8B7497BC24FB1A6F003C7DAA /* UITableViewController+extensions.swift */,
 				8B7497BA24FA073C003C7DAA /* UIView+extensions.swift */,
+				8B7497D724FC3474003C7DAA /* UIViewController+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -391,6 +400,14 @@
 				8B7497CF24FBA227003C7DAA /* PendingOperations.swift */,
 			);
 			path = Operations;
+			sourceTree = "<group>";
+		};
+		8B7497D924FC3733003C7DAA /* ImageLoading */ = {
+			isa = PBXGroup;
+			children = (
+				8B7497DA24FC3746003C7DAA /* ImageLoader.swift */,
+			);
+			path = ImageLoading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -543,14 +560,17 @@
 				8B74973224F59048003C7DAA /* AppDelegate.swift in Sources */,
 				8B74973424F59048003C7DAA /* SceneDelegate.swift in Sources */,
 				8B74979324F703B9003C7DAA /* EmptyServerResponse.swift in Sources */,
+				8B7497DD24FC386B003C7DAA /* String+extensions.swift in Sources */,
 				8B7497D424FBA589003C7DAA /* AlbumImageStatus.swift in Sources */,
 				8B7497CA24FB7EA8003C7DAA /* DateFormatter+extensions.swift in Sources */,
 				8B74978924F6F420003C7DAA /* AlbumModel.swift in Sources */,
 				8B7497AE24F75D0D003C7DAA /* UIColor+TopMusicAdditions.swift in Sources */,
 				8B7497B024F766FB003C7DAA /* TopMusicApiManager.swift in Sources */,
 				8B7497AA24F75B3A003C7DAA /* UIFont+TopMusicAdditions.swift in Sources */,
+				8B7497D824FC3474003C7DAA /* UIViewController+extensions.swift in Sources */,
 				8B7497A624F75850003C7DAA /* AlbumCell.swift in Sources */,
 				8B7497B424F8A96B003C7DAA /* AlbumDetailViewController.swift in Sources */,
+				8B7497DB24FC3746003C7DAA /* ImageLoader.swift in Sources */,
 				8B74977C24F640CF003C7DAA /* URLSessionProtocol.swift in Sources */,
 				8B74978524F6E9E8003C7DAA /* ApiError.swift in Sources */,
 				8B7497CD24FBA1FD003C7DAA /* Cache.swift in Sources */,

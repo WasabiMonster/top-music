@@ -78,11 +78,28 @@ class AlbumCell: UITableViewCell {
         self.artworkImage.image = artwork
     }
     
+    func updateImage(_ image: UIImage?) {
+        DispatchQueue.main.async { [unowned self] in
+            self.displayImage(image)
+        }
+    }
+    
+    private func displayImage(_ image: UIImage?) {
+        if let image = image {
+            artworkImage.image = image
+            stopActivityIndicator()
+        } else {
+            startActivityIndicator()
+            artworkImage.image = .none
+        }
+    }
+    
     override func prepareForReuse() {
         artistLabel.text = ""
         albumLabel.text = ""
         imageView?.image = nil
         // artwork = nil
+        // artworkImage.cancelImageLoad()
         super.prepareForReuse()
     }
     

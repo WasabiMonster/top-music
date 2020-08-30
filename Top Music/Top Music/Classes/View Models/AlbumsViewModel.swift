@@ -18,6 +18,9 @@ class AlbumsViewModel: NSObject, BaseViewModel {
     weak var delegate: AlbumsViewModelDelegate?
     private var feedResponse: AlbumFeedResponse?
     private var albums: [AlbumModel] = []
+    fileprivate lazy var imageStore = ImageLoader()
+    fileprivate lazy var loadingQueue = OperationQueue()
+    fileprivate lazy var loadingOperations = [IndexPath : ImageLoadOperation]()
     weak var tableView: UITableView?
     
     var feedTitle: String {
@@ -71,7 +74,7 @@ extension AlbumsViewModel: UITableViewDataSource {
                           artwork: album.image
                           )
             
-            manageAlbumImageStateForCell(cell, albumDetails: album, indexPath: indexPath)
+            cell.updateImage(.none)
             
             return cell
         }
@@ -80,7 +83,30 @@ extension AlbumsViewModel: UITableViewDataSource {
     }
 }
 
-extension AlbumsViewModel: UITableViewDelegate {
+extension AlbumsViewModel: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if let _ = loadingOperations[indexPath] { return }
+            if let dataLoader = imageStore.loadImage(at: indexPath.row) {
+                loadingQueue.addOperation(dataLoader)
+                loadingOperations[indexPath] = dataLoader
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+       for indexPath in indexPaths {
+           if let dataLoader = loadingOperations[indexPath] {
+               dataLoader.cancel()
+               loadingOperations.removeValue(forKey: indexPath)
+           }
+       }
+    }
+    
+}
+
+/* extension AlbumsViewModel: UITableViewDelegate {
     func manageAlbumImageStateForCell(_ cell: AlbumCell, albumDetails: AlbumModel, indexPath: IndexPath) {
         switch albumDetails.imageStatus {
         case .downloaded:
@@ -179,4 +205,4 @@ extension AlbumsViewModel: UITableViewDelegate {
         PendingOperations.shared.resumeAllOperations()
     }
     
-}
+} */

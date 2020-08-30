@@ -18,7 +18,7 @@ final class AlbumsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = viewModel
+        //// self.tableView.delegate = viewModel
         self.view.backgroundColor = UIColor.nikeFootball
         configureTableView()
         viewModel?.fetchAlbums()
@@ -53,8 +53,9 @@ final class AlbumsViewController: UITableViewController {
         self.tableView.allowsSelection = true
         
         self.viewModel?.tableView = self.tableView
-        self.tableView.delegate = self
+        // self.tableView.delegate = self
         self.tableView.dataSource = self.viewModel
+        self.tableView.prefetchDataSource = self.viewModel
         
         self.tableView.register(AlbumCell.self, forCellReuseIdentifier: AlbumCell.reusableId)
     }
