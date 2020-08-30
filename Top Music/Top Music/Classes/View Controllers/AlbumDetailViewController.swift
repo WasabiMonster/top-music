@@ -89,7 +89,7 @@ final class AlbumDetailViewController: UIViewController {
         textStackVW.setCustomSpacing(4, after: self.albumLabel)
         NSLayoutConstraint.activate([
             textStackVW.topAnchor.constraint(equalTo: artworkImage.bottomAnchor, constant: 34.0),
-            textStackVW.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            // textStackVW.widthAnchor.constraint(equalTo: self.view.widthAnchor),
             textStackVW.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: marginPadding),
             textStackVW.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -marginPadding)
         ])
