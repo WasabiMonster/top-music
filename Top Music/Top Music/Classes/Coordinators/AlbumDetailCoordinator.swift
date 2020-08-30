@@ -10,10 +10,27 @@ import Foundation
 import UIKit
 
 class AlbumDetailCoordinator: BaseCoordinator {
-        
+    
+    private var viewModel: AlbumDetailViewModel
+    
     init(presenter: UINavigationController, viewModel: AlbumDetailViewModel) {
+        self.viewModel = viewModel
         super.init(presenter: presenter)
-        self.presenter = presenter
+    }
+        
+    override func start() {
+        let albumDetailViewController = AlbumDetailViewController()
+        albumDetailViewController.albumDetailViewControllerDelegate = self
+        albumDetailViewController.viewModel = self.viewModel
+        presenter.pushViewController(albumDetailViewController, animated: true)
+    }
+    
+}
+
+extension AlbumDetailCoordinator: AlbumDetailViewControllerDelegate {
+
+    func albumDetailViewController(_ controller: AlbumDetailViewController, didSelectExternalLink url: String) {
+        print("*082920* TODO: goto external link: \(url)")
     }
     
 }

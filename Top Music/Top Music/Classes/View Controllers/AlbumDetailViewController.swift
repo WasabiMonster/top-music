@@ -16,6 +16,8 @@ protocol AlbumDetailViewControllerDelegate: class {
 
 final class AlbumDetailViewController: UIViewController {
     
+    weak var albumDetailViewControllerDelegate: AlbumDetailViewControllerDelegate?
+    
     private let genreLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .offWhite)
     private let releaseDateLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 14.0), color: .oregonDucksGreen)
     private var artwork: UIImageView = UIImageView()

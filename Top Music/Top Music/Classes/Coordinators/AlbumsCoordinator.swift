@@ -10,10 +10,7 @@ import Foundation
 import UIKit
 
 class AlbumsCoordinator: BaseCoordinator {
-    var albumDetailCoordinator: AlbumDetailCoordinator?
-    
-    private var albumsViewController: AlbumsViewController?
-    
+
     override init(presenter: UINavigationController) {
         super.init(presenter: presenter)
         
@@ -22,10 +19,19 @@ class AlbumsCoordinator: BaseCoordinator {
     override func start() {
         // These can eventually be created using a Factory pattern for
         // cleaner creation and lighter coordinators
-        let albumsViewController = AlbumsViewController(coordinator: self)
+        let albumsViewController = AlbumsViewController()
         albumsViewController.albumsViewControllerDelegate = self
         albumsViewController.viewModel = AlbumsViewModel()
         presenter.pushViewController(albumsViewController, animated: true)
+    }
+    
+    func showDetail(at index: Int) {
+        self.removeChildCoordinators()
+        
+        let detailViewModel = AlbumDetailViewModel()
+        /// detailViewModel.model = AlbumModel(from: <#Decoder#>)
+        let albumDetailCoordinator = AlbumDetailCoordinator(presenter: presenter, viewModel: detailViewModel)
+        albumDetailCoordinator.start()
     }
         
 }
@@ -33,28 +39,7 @@ class AlbumsCoordinator: BaseCoordinator {
 extension AlbumsCoordinator: AlbumsViewControllerDelegate {
 
     func albumsViewController(_ controller: AlbumsViewController, didSelectAlbumAt index: Int) {
-        let tempViewModel = AlbumDetailViewModel()
-        let albumDetailCoordinator = AlbumDetailCoordinator(presenter: presenter, viewModel: tempViewModel)
-        //// albumDetailCoordinator.delegate = self
-        self.albumDetailCoordinator = albumDetailCoordinator
-        albumDetailCoordinator.start()
+        showDetail(at: index)
     }
     
 }
-
-/* extension AlbumsCoordinator: AlbumDetailCoordinatorDelegate {
-    
-    func albumDetailCoordinatorDidFinish(detailCoordinator: AlbumDetailCoordinator) {
-        self.albumDetailCoordinator = nil
-        window.rootViewController = albumsViewController
-    }
-    
-} */
-
-/* extension AlbumsCoordinator: AlbumsViewModelCoordinatorDelegate {
-    func albumsViewModelDidSelectData(_ viewModel: AlbumsViewModel, data: DataItem) {
-        albumDetailCoordinator = AlbumDetailCoordinator(dataItem: data)
-        albumDetailCoordinator?.delegate = self
-        albumDetailCoordinator?.start()
-    }
-} */

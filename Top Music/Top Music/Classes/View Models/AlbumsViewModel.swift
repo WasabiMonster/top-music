@@ -74,15 +74,3 @@ extension AlbumsViewModel: UITableViewDataSource {
         return UITableViewCell()
     }
 }
-
-extension AlbumsViewModel: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 76
-    }
-
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("*082820* \(type(of: self)), \(#function) |> \(indexPath)")
-    }
-    
-}
