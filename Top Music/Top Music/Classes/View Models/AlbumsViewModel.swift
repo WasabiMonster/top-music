@@ -14,13 +14,19 @@ protocol AlbumsViewModelDelegate: class {
     func doneRequestingAlbums()
 }
 
+protocol AlbumsTableViewDelegate: class {
+    func albumsTableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    func albumsTableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
+}
+
 class AlbumsViewModel: NSObject, BaseViewModel {
     weak var delegate: AlbumsViewModelDelegate?
+    weak var tableViewDelegate: AlbumsTableViewDelegate?
     private var feedResponse: AlbumFeedResponse?
     private var albums: [AlbumModel] = []
     fileprivate lazy var imageStore = ImageLoader()
     fileprivate lazy var loadingQueue = OperationQueue()
-    fileprivate lazy var loadingOperations = [IndexPath : ImageLoadOperation]()
+    fileprivate lazy var loadingOperations = [IndexPath: ImageLoadOperation]()
     weak var tableView: UITableView?
     
     var feedTitle: String {
@@ -59,7 +65,49 @@ class AlbumsViewModel: NSObject, BaseViewModel {
     
 }
 
+extension AlbumsViewModel: AlbumsTableViewDelegate {
+    
+    func albumsTableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? AlbumCell else { return }
+        
+        // Closure describing how to update the cell once the image has loaded
+        let updateCellClosure: (UIImage?) -> () = { [unowned self] (image) in
+            cell.updateImage(image)
+            self.loadingOperations.removeValue(forKey: indexPath)
+        }
+        
+        // Check for existing image loader
+        if let imageLoader = loadingOperations[indexPath] {
+            // Check if it's been loaded yet
+            if let image = imageLoader.image {
+                cell.updateImage(image)
+                loadingOperations.removeValue(forKey: indexPath)
+            } else {
+                // Image not loaded yet. Set completion handler for when it arrives
+                imageLoader.loadingCompleteHandler = updateCellClosure
+            }
+        } else {
+            // Create a dataloader for this index path
+            if let imageLoader = imageStore.loadImage(at: indexPath.row) {
+                // Begin loading operation with a completion handler
+                imageLoader.loadingCompleteHandler = updateCellClosure
+                loadingQueue.addOperation(imageLoader)
+                loadingOperations[indexPath] = imageLoader
+            }
+        }
+    }
+    
+    func albumsTableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // If there's an image loader for this index path we don't need it any more. Cancel and dispose
+        if let imageLoader = loadingOperations[indexPath] {
+            imageLoader.cancel()
+            loadingOperations.removeValue(forKey: indexPath)
+        }
+    }
+}
+
 extension AlbumsViewModel: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return albums.count
     }
@@ -74,13 +122,11 @@ extension AlbumsViewModel: UITableViewDataSource {
                           artwork: album.image
                           )
             
-            cell.updateImage(.none)
-            
             return cell
         }
-        
         return UITableViewCell()
     }
+        
 }
 
 extension AlbumsViewModel: UITableViewDataSourcePrefetching {

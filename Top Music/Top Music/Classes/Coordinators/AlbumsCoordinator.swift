@@ -23,8 +23,8 @@ class AlbumsCoordinator: BaseCoordinator {
         // These can eventually be created using a Factory pattern for
         // cleaner creation and lighter coordinators
         let albumsVC = AlbumsViewController()
-        albumsVC.albumsViewControllerDelegate = self
         albumsVC.viewModel = AlbumsViewModel()
+        albumsVC.albumsViewControllerDelegate = self
         self.albumsViewController = albumsVC
         presenter.pushViewController(albumsVC, animated: true)
     }

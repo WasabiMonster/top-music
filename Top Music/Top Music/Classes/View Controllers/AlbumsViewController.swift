@@ -18,7 +18,7 @@ final class AlbumsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //// self.tableView.delegate = viewModel
+        self.tableView.delegate = self
         self.view.backgroundColor = UIColor.nikeFootball
         configureTableView()
         viewModel?.fetchAlbums()
@@ -35,35 +35,30 @@ final class AlbumsViewController: UITableViewController {
         }
         didSet {
             viewModel?.delegate = self
-            updateDisplay()
         }
     }
-    
-    private func updateDisplay() {
-        if let viewModel = viewModel {
-            //
-        } else {
-            // empty
-        }
-    }
-    
+        
     private func configureTableView() {
         self.tableView.estimatedRowHeight = UITableView.automaticDimension
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.allowsSelection = true
         
         self.viewModel?.tableView = self.tableView
-        // self.tableView.delegate = self
+        //// self.tableView.delegate = self.viewModel
         self.tableView.dataSource = self.viewModel
         self.tableView.prefetchDataSource = self.viewModel
         
         self.tableView.register(AlbumCell.self, forCellReuseIdentifier: AlbumCell.reusableId)
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 76
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel?.tableViewDelegate?.albumsTableView(tableView, willDisplay: cell, forRowAt: indexPath)
     }
 
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel?.tableViewDelegate?.albumsTableView(tableView, didEndDisplaying: cell, forRowAt: indexPath)
+    }
+    
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         albumsViewControllerDelegate?.albumsViewController(self, didSelectAlbumAt: indexPath.row)
     }
@@ -80,5 +75,5 @@ extension AlbumsViewController: AlbumsViewModelDelegate {
         self.title = viewModel?.feedTitle
         self.tableView.reloadData()
     }
-    
+        
 }
