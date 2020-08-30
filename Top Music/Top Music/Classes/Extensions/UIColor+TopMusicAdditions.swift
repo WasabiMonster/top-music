@@ -11,14 +11,6 @@ import UIKit
 
 extension UIColor {
     
-    static var offWhite: UIColor {
-        return UIColor(white: 247.0/255.0, alpha: 1.0)
-    }
-    
-    static var almostBlack: UIColor {
-        return UIColor(white: 8.0/255.0, alpha: 1.0)
-    }
-    
     static var nikeFootball: UIColor {
         return UIColor(red: 80/255, green: 72/255, blue: 71/255, alpha: 1.0)
     }
@@ -31,4 +23,16 @@ extension UIColor {
         return UIColor(red: 251/255, green: 35/255, blue: 95/255, alpha: 1.0)
     }
     
+    static var offWhite: UIColor {
+        return UIColor(white: 247.0/255.0, alpha: 1.0)
+    }
+    
+    static var middleDark: UIColor {
+        return UIColor(red: 10/255, green: 12/255, blue: 12/255, alpha: 1.0)
+    }
+    
+    static var almostBlack: UIColor {
+        return UIColor(white: 8.0/255.0, alpha: 1.0)
+    }
+        
 }

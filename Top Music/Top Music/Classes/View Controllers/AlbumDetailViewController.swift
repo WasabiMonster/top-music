@@ -23,11 +23,13 @@ final class AlbumDetailViewController: UIViewController {
     private let genreLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .gray)
     private let releaseDateLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 14.0), color: .lightGray)
     private let copyrightLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 12.0), color: .lightGray)
-    private var ctaButton: UIButton = UIButton()
+    private var ctaButton: UIButton = UIButton.callToAction(text: "VIEW IN ITUNES")
+    
+    let marginPadding: CGFloat = 20
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.almostBlack
+        self.view.backgroundColor = UIColor.middleDark
 
         configureLayout()
         updateDisplay()
@@ -84,8 +86,17 @@ final class AlbumDetailViewController: UIViewController {
         
         // Text Stack
         NSLayoutConstraint.activate([
-            textStackVW.topAnchor.constraint(equalTo: artworkImage.bottomAnchor, constant: 40),
-            textStackVW.widthAnchor.constraint(equalTo: self.view.widthAnchor)
+            textStackVW.topAnchor.constraint(equalTo: artworkImage.bottomAnchor, constant: 34),
+            textStackVW.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            textStackVW.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: marginPadding)
+        ])
+        
+        // CTA Button
+        NSLayoutConstraint.activate([
+            ctaButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: marginPadding),
+            ctaButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -marginPadding),
+            ctaButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -marginPadding),
+            ctaButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
     }

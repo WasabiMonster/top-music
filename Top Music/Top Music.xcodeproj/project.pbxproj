@@ -52,6 +52,7 @@
 		8B7497C424FB5EC2003C7DAA /* Geomanist-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7497C024FB5EC2003C7DAA /* Geomanist-Bold.otf */; };
 		8B7497C524FB5EC2003C7DAA /* Geomanist-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7497C124FB5EC2003C7DAA /* Geomanist-Regular.otf */; };
 		8B7497C624FB5EC2003C7DAA /* Geomanist-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7497C224FB5EC2003C7DAA /* Geomanist-Medium.otf */; };
+		8B7497C824FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497C724FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		8B7497C024FB5EC2003C7DAA /* Geomanist-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Bold.otf"; sourceTree = "<group>"; };
 		8B7497C124FB5EC2003C7DAA /* Geomanist-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Regular.otf"; sourceTree = "<group>"; };
 		8B7497C224FB5EC2003C7DAA /* Geomanist-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Medium.otf"; sourceTree = "<group>"; };
+		8B7497C724FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+TopMusicAdditions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,11 +275,12 @@
 			isa = PBXGroup;
 			children = (
 				8B74979424F71E8D003C7DAA /* Codable+extensions.swift */,
+				8B7497C724FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift */,
 				8B7497AD24F75D0D003C7DAA /* UIColor+TopMusicAdditions.swift */,
 				8B7497A924F75B3A003C7DAA /* UIFont+TopMusicAdditions.swift */,
 				8B7497AB24F75BE8003C7DAA /* UILabel+TopMusicAdditions.swift */,
-				8B7497BA24FA073C003C7DAA /* UIView+extensions.swift */,
 				8B7497BC24FB1A6F003C7DAA /* UITableViewController+extensions.swift */,
+				8B7497BA24FA073C003C7DAA /* UIView+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				8B7497BB24FA073C003C7DAA /* UIView+extensions.swift in Sources */,
 				8B74979824F73D56003C7DAA /* AlbumsCoordinator.swift in Sources */,
 				8B74977824F63ACA003C7DAA /* AlbumFeedRequest.swift in Sources */,
+				8B7497C824FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
