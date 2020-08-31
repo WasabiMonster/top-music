@@ -23,6 +23,7 @@ final class AlbumsViewController: UITableViewController {
         self.view.backgroundColor = UIColor.nikeFootball
         configureTableView()
         viewModel?.fetchAlbums()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +52,8 @@ final class AlbumsViewController: UITableViewController {
         self.tableView.prefetchDataSource = self.viewModel
         
         self.tableView.register(AlbumCell.self, forCellReuseIdentifier: AlbumCell.reusableId)
+        
+        self.tableView.showActivityIndicator()
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -77,7 +80,7 @@ extension AlbumsViewController: AlbumsViewModelDelegate {
     }
     
     func doneRequestingAlbums() {
-        // self.activity
+        self.tableView.hideActivityIndicator()
         self.title = viewModel?.feedTitle
         self.tableView.reloadData()
     }

@@ -22,7 +22,7 @@ protocol AlbumsTableViewDelegate: class {
 final class AlbumsViewModel: NSObject {
     weak var delegate: AlbumsViewModelDelegate?
     private var feedResponse: AlbumFeedResponse?
-    private var albums: [AlbumModel] = []
+    internal var albums: [AlbumModel] = []
     fileprivate lazy var imageStore = ImageLoader()
     fileprivate lazy var loadingQueue = OperationQueue()
     fileprivate lazy var loadingOperations = [IndexPath: ImageLoadOperation]()
@@ -62,7 +62,6 @@ final class AlbumsViewModel: NSObject {
             }
         }
     }
-    
 }
 
 extension AlbumsViewModel: AlbumsTableViewDelegate {

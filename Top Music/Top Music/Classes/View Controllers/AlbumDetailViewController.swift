@@ -19,7 +19,7 @@ final class AlbumDetailViewController: UIViewController {
     private var textStackView: UIStackView?
     private let albumLabel:UILabel = UILabel.ducksStyle(font: .customMedium(size: 28.0), color: .oregonDucksYellow)
     private let artistLabel:UILabel = UILabel.wrapping(font: .customBold(size: 22.0), color: .offWhite)
-    private var artworkImage: UIImageView = UIImageView()
+    private var artworkImage: ActivityImageView = ActivityImageView()
     private let genreLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .gray)
     private let releaseDateLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 14.0), color: .lightGray)
     private let copyrightLabel:UILabel = UILabel.wrapping(font: .customMedium(size: 11.0), color: .lightGray)
@@ -47,6 +47,7 @@ final class AlbumDetailViewController: UIViewController {
     }
     
     fileprivate func updateDisplay() {
+        self.artworkImage.showActivityIndicator()
         if let viewModel = viewModel {
             albumLabel.text = viewModel.albumText
             artistLabel.text = viewModel.artistText
@@ -60,6 +61,7 @@ final class AlbumDetailViewController: UIViewController {
                 ImageCache.shared.fetchImageFrom(URL: url) { (image) in
                     DispatchQueue.main.async {
                         if let image = image {
+                            self.artworkImage.hideActivityIndicator()
                             self.artworkImage.image = image
                         } else {
                             // todo: display failed image
