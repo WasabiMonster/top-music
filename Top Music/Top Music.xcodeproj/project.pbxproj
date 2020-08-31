@@ -12,7 +12,6 @@
 		8B74973624F59048003C7DAA /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74973524F59048003C7DAA /* AlbumsViewController.swift */; };
 		8B74973B24F5904B003C7DAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B74973A24F5904B003C7DAA /* Assets.xcassets */; };
 		8B74973E24F5904B003C7DAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B74973C24F5904B003C7DAA /* LaunchScreen.storyboard */; };
-		8B74974924F5904B003C7DAA /* Top_MusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74974824F5904B003C7DAA /* Top_MusicTests.swift */; };
 		8B74975424F5904B003C7DAA /* Top_MusicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74975324F5904B003C7DAA /* Top_MusicUITests.swift */; };
 		8B74976B24F59C23003C7DAA /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74976A24F59C23003C7DAA /* BaseCoordinator.swift */; };
 		8B74976D24F59D57003C7DAA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74976C24F59D57003C7DAA /* HTTPMethod.swift */; };
@@ -59,6 +58,10 @@
 		8B7497D824FC3474003C7DAA /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497D724FC3474003C7DAA /* UIViewController+extensions.swift */; };
 		8B7497DB24FC3746003C7DAA /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497DA24FC3746003C7DAA /* ImageLoader.swift */; };
 		8B7497DD24FC386B003C7DAA /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497DC24FC386B003C7DAA /* String+extensions.swift */; };
+		8B7497DF24FC888D003C7DAA /* MockApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497DE24FC888D003C7DAA /* MockApiManager.swift */; };
+		8B7497E124FC88D0003C7DAA /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497E024FC88D0003C7DAA /* MockURLSession.swift */; };
+		8B7497E324FC8901003C7DAA /* XCTestCaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497E224FC8901003C7DAA /* XCTestCaseExtensions.swift */; };
+		8B7497E524FC8B11003C7DAA /* AlbumFeedRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497E424FC8B11003C7DAA /* AlbumFeedRequestTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +90,6 @@
 		8B74973D24F5904B003C7DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B74973F24F5904B003C7DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B74974424F5904B003C7DAA /* Top MusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Top MusicTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B74974824F5904B003C7DAA /* Top_MusicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top_MusicTests.swift; sourceTree = "<group>"; };
 		8B74974A24F5904B003C7DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B74974F24F5904B003C7DAA /* Top MusicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Top MusicUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B74975324F5904B003C7DAA /* Top_MusicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top_MusicUITests.swift; sourceTree = "<group>"; };
@@ -137,6 +139,10 @@
 		8B7497D724FC3474003C7DAA /* UIViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
 		8B7497DA24FC3746003C7DAA /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		8B7497DC24FC386B003C7DAA /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
+		8B7497DE24FC888D003C7DAA /* MockApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiManager.swift; sourceTree = "<group>"; };
+		8B7497E024FC88D0003C7DAA /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		8B7497E224FC8901003C7DAA /* XCTestCaseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtensions.swift; sourceTree = "<group>"; };
+		8B7497E424FC8B11003C7DAA /* AlbumFeedRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumFeedRequestTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,7 +208,7 @@
 				8B74976324F59532003C7DAA /* Helpers */,
 				8B74977F24F6E76F003C7DAA /* JSON */,
 				8B7497B524F9DC70003C7DAA /* Mocks */,
-				8B74974824F5904B003C7DAA /* Top_MusicTests.swift */,
+				8B7497E424FC8B11003C7DAA /* AlbumFeedRequestTests.swift */,
 				8B7497B624F9F17F003C7DAA /* AlbumsViewModelTests.swift */,
 				8B74977124F5A7FE003C7DAA /* CoordinatorTests.swift */,
 				8B74974A24F5904B003C7DAA /* Info.plist */,
@@ -227,7 +233,6 @@
 				8B74976224F59503003C7DAA /* Enums */,
 				8B74976724F598D6003C7DAA /* Extensions */,
 				8B74976424F59539003C7DAA /* Models */,
-				8B74979C24F74D23003C7DAA /* Util */,
 				8B74976824F598DD003C7DAA /* Views */,
 				8B74976924F59B01003C7DAA /* View Controllers */,
 				8B74976624F598AE003C7DAA /* View Models */,
@@ -249,6 +254,9 @@
 		8B74976324F59532003C7DAA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8B7497DE24FC888D003C7DAA /* MockApiManager.swift */,
+				8B7497E024FC88D0003C7DAA /* MockURLSession.swift */,
+				8B7497E224FC8901003C7DAA /* XCTestCaseExtensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -345,23 +353,6 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		8B74979C24F74D23003C7DAA /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				8B74979D24F74D43003C7DAA /* ImageDownloader */,
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
-		8B74979D24F74D43003C7DAA /* ImageDownloader */ = {
-			isa = PBXGroup;
-			children = (
-				8B7497CB24FBA1E9003C7DAA /* Cache */,
-				8B7497CE24FBA210003C7DAA /* Operations */,
-			);
-			path = ImageDownloader;
-			sourceTree = "<group>";
-		};
 		8B7497B524F9DC70003C7DAA /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,26 +371,12 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		8B7497CB24FBA1E9003C7DAA /* Cache */ = {
-			isa = PBXGroup;
-			children = (
-				8B7497CC24FBA1FD003C7DAA /* Cache.swift */,
-			);
-			path = Cache;
-			sourceTree = "<group>";
-		};
-		8B7497CE24FBA210003C7DAA /* Operations */ = {
-			isa = PBXGroup;
-			children = (
-				8B7497CF24FBA227003C7DAA /* PendingOperations.swift */,
-			);
-			path = Operations;
-			sourceTree = "<group>";
-		};
 		8B7497D924FC3733003C7DAA /* ImageLoading */ = {
 			isa = PBXGroup;
 			children = (
+				8B7497CC24FBA1FD003C7DAA /* Cache.swift */,
 				8B7497DA24FC3746003C7DAA /* ImageLoader.swift */,
+				8B7497CF24FBA227003C7DAA /* PendingOperations.swift */,
 			);
 			path = ImageLoading;
 			sourceTree = "<group>";
@@ -587,9 +564,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B7497E324FC8901003C7DAA /* XCTestCaseExtensions.swift in Sources */,
 				8B74977224F5A7FE003C7DAA /* CoordinatorTests.swift in Sources */,
 				8B7497B724F9F17F003C7DAA /* AlbumsViewModelTests.swift in Sources */,
-				8B74974924F5904B003C7DAA /* Top_MusicTests.swift in Sources */,
+				8B7497DF24FC888D003C7DAA /* MockApiManager.swift in Sources */,
+				8B7497E524FC8B11003C7DAA /* AlbumFeedRequestTests.swift in Sources */,
+				8B7497E124FC88D0003C7DAA /* MockURLSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

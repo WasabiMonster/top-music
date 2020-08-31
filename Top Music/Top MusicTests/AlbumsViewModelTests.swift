@@ -18,13 +18,13 @@ class AlbumsViewModelTests: XCTestCase {
         XCTAssertEqual(0, viewModel.numberOfAlbums)
         XCTAssertEqual("iTunes Store Top Albums", viewModel.feedTitle)
         XCTAssertNil(viewModel.delegate)
-        XCTAssertNil(viewModel.albums)
+        XCTAssertNil(viewModel.feedTitle)
     }
     
     func testNumberOfItems() {
         let viewModel = AlbumsViewModel()
         
-        viewModel.model = AlbumModel(from: <#Decoder#>)
+        //// viewModel.model = AlbumModel(from: <#Decoder#>)
         XCTAssertEqual(100, viewModel.numberOfAlbums)
     }
     
