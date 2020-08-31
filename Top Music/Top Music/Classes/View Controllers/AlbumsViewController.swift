@@ -45,6 +45,7 @@ final class AlbumsViewController: UITableViewController {
     private func configureTableView() {
         self.tableView.estimatedRowHeight = UITableView.automaticDimension
         self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.backgroundColor = self.view.backgroundColor
         self.tableView.allowsSelection = true
         
         self.tableView.delegate = self

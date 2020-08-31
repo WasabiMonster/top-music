@@ -13,32 +13,49 @@ class AlbumsViewModelTests: XCTestCase {
     var mockURLSession: MockURLSession!
     var mockApiManager: ApiManager!
 
-    var currentExpectaion: XCTestExpectation?
+    var currentExpectation: XCTestExpectation?
     var viewModel: AlbumsViewModel!
-    var data: Data?
+    var data: Data!
+    
+    var feed: AlbumFeedResponse!
+    var results: [AlbumModel]!
     
     override func setUpWithError() throws {
         self.mockURLSession = MockURLSession()
         self.mockApiManager = MockApiManager(urlSession: self.mockURLSession)
 
-        viewModel = AlbumsViewModel()
-        viewModel.fetchAlbums(manager: mockApiManager)
+        data = loadTestData(fromFile: "feed", fileExtension: ".json")
+        let response = try data.decoded(ofType: AlbumFeedResponse.self)
+        results = response?.results
         
-        let feed: AlbumFeed = self.bundle.decode(AlbumFeed.self, from: "AlbumFeed.json")
-        self.modelController = AlbumListModelController(albumFeed: feed)
+        viewModel = AlbumsViewModel()
     }
     
     func testDefaults() {
         XCTAssertEqual(0, viewModel.numberOfAlbums)
         XCTAssertEqual(" ", viewModel.feedTitle)
         XCTAssertNil(viewModel.delegate)
-        XCTAssertEqual(" ", viewModel.feedTitle)
     }
     
     func testNumberOfItems() {
-        let viewModel = AlbumsViewModel()
+        viewModel.albums = results
         
         XCTAssertEqual(100, viewModel.numberOfAlbums)
+    }
+    
+    func testProperties() {
+        viewModel.albums = results
+        let response = try? data.decoded(ofType: AlbumFeedResponse.self)
+        viewModel.feedResponse = response
+        
+        XCTAssertEqual("iTunes Store Top Albums", viewModel.feedTitle)
+    }
+    
+    func testRetrieveAlbumAtIndex() {
+        viewModel.albums = results
+        let album = viewModel.album(at: 1)
+        
+        XCTAssertEqual("https://music.apple.com/us/album/imploding-the-mirage/1502453888?app=itunes", album.url)
     }
     
 }

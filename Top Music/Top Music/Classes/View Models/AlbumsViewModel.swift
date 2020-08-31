@@ -21,7 +21,7 @@ protocol AlbumsTableViewDelegate: class {
 
 final class AlbumsViewModel: NSObject {
     weak var delegate: AlbumsViewModelDelegate?
-    private var feedResponse: AlbumFeedResponse?
+    internal var feedResponse: AlbumFeedResponse?
     internal var albums: [AlbumModel] = []
     fileprivate lazy var imageStore = ImageLoader()
     fileprivate lazy var loadingQueue = OperationQueue()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Convience top-level global for easier access to the shared api manager
+// Convenience top-level global for easier access to the shared api manager
 let apiManager = TopMusicApiManager.shared
 
 // The app uses the shared singleton, tests can create mock versions of this to simulate network requests

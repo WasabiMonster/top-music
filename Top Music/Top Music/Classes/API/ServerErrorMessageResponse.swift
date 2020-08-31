@@ -16,13 +16,3 @@ struct ServerErrorMessageResponse {
         return !message.isEmpty
     }
 }
-
-/* extension ServerErrorMessageResponse: MusicServerResponse {
-    enum CodingKeys: String, CodingKey {
-        case message = "server_error_message"
-    }
-
-    init(from decoder: Decoder) throws {
-        message = try decoder.decode(CodingKeys.message)
-    }
-} */
