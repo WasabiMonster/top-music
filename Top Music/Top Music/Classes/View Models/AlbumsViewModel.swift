@@ -116,11 +116,8 @@ extension AlbumsViewModel: UITableViewDataSource {
             cell.addActivityIndicator()
             
             let album = albums[indexPath.row]
-            cell.populate(artist: album.artistName,
-                          album: album.name,
-                          artwork: album.image
-                          )
-            
+            cell.populate(artist: album.artistName, album: album.name)
+            cell.updateImage(.none)
             return cell
         }
         return UITableViewCell()

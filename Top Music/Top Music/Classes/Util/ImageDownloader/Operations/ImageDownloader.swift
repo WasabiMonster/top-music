@@ -6,7 +6,7 @@
 //  Copyright © 2020 Etechitronica LLC. All rights reserved.
 //
 
-import UIKit
+/* import UIKit
 
 public class ImageDownloader: Operation {
     internal var model: AlbumModel
@@ -31,4 +31,5 @@ public class ImageDownloader: Operation {
         
     }
     
-}
+} */
+ 

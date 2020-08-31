@@ -70,12 +70,9 @@ class AlbumCell: UITableViewCell {
                 
     }
     
-    func populate(artist: String,
-                  album: String,
-                  artwork: UIImage?) {
+    func populate(artist: String, album: String) {
         self.artistLabel.text = artist
         self.albumLabel.text = album
-        self.artworkImage.image = artwork
     }
     
     func updateImage(_ image: UIImage?) {

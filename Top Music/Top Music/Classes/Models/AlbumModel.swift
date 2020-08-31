@@ -18,8 +18,7 @@ struct AlbumModel: Decodable {
     let copyright: String
     let genres:[GenreModel]
     let url: String
-    var image: UIImage = UIImage()  // UIImage(named: "Placeholder") ??
-    var imageStatus: AlbumImageStatus = .start
+    var imageLoadStatus: AlbumImageStatus = .start
     
     enum CodingKeys: String, CodingKey {
         case name
