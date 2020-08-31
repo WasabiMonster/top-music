@@ -3,7 +3,7 @@
 //  Top Music
 //
 //  Created by Patrick Wilson on 8/31/20.
-//  Copyright © 2020 Etechitronica. All rights reserved.
+//  Copyright © 2020 Etechitronica LLC. All rights reserved.
 //
 
 import UIKit

@@ -9,15 +9,11 @@
 import UIKit
 
 protocol Coordinator: AnyObject {
-    var parentCoordinator: Coordinator? { get set }
-    
     func start()
 }
 
 class BaseCoordinator: Coordinator {
-    private(set) var childCoordinators: [Coordinator] = []
     var presenter: UINavigationController
-    var parentCoordinator: Coordinator?
     
     init(presenter: UINavigationController) {
         self.presenter = presenter
@@ -26,7 +22,7 @@ class BaseCoordinator: Coordinator {
     func start() {
         fatalError("Start method should be implemented.")
     }
-    }
+}
 
 extension BaseCoordinator: Equatable {
     

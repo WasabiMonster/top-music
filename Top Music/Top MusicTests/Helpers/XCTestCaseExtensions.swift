@@ -3,7 +3,7 @@
 //  Top MusicTests
 //
 //  Created by Patrick Wilson on 8/30/20.
-//  Copyright © 2020 Etechitronica. All rights reserved.
+//  Copyright © 2020 Etechitronica LLC. All rights reserved.
 //
 
 import XCTest
