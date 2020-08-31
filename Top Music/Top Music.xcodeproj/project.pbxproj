@@ -56,7 +56,6 @@
 		8B7497CA24FB7EA8003C7DAA /* DateFormatter+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497C924FB7EA8003C7DAA /* DateFormatter+extensions.swift */; };
 		8B7497CD24FBA1FD003C7DAA /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497CC24FBA1FD003C7DAA /* Cache.swift */; };
 		8B7497D024FBA227003C7DAA /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497CF24FBA227003C7DAA /* PendingOperations.swift */; };
-		8B7497D224FBA26B003C7DAA /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497D124FBA26B003C7DAA /* ImageDownloader.swift */; };
 		8B7497D424FBA589003C7DAA /* AlbumImageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497D324FBA589003C7DAA /* AlbumImageStatus.swift */; };
 		8B7497D824FC3474003C7DAA /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497D724FC3474003C7DAA /* UIViewController+extensions.swift */; };
 		8B7497DB24FC3746003C7DAA /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497DA24FC3746003C7DAA /* ImageLoader.swift */; };
@@ -136,7 +135,6 @@
 		8B7497C924FB7EA8003C7DAA /* DateFormatter+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+extensions.swift"; sourceTree = "<group>"; };
 		8B7497CC24FBA1FD003C7DAA /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		8B7497CF24FBA227003C7DAA /* PendingOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
-		8B7497D124FBA26B003C7DAA /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		8B7497D324FBA589003C7DAA /* AlbumImageStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumImageStatus.swift; path = "Top Music/Classes/Enums/AlbumImageStatus.swift"; sourceTree = SOURCE_ROOT; };
 		8B7497D724FC3474003C7DAA /* UIViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
 		8B7497DA24FC3746003C7DAA /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -396,7 +394,6 @@
 		8B7497CE24FBA210003C7DAA /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				8B7497D124FBA26B003C7DAA /* ImageDownloader.swift */,
 				8B7497CF24FBA227003C7DAA /* PendingOperations.swift */,
 			);
 			path = Operations;
@@ -582,7 +579,6 @@
 				8B74976D24F59D57003C7DAA /* HTTPMethod.swift in Sources */,
 				8B74977424F5F0D3003C7DAA /* Requests.swift in Sources */,
 				8B74976B24F59C23003C7DAA /* BaseCoordinator.swift in Sources */,
-				8B7497D224FBA26B003C7DAA /* ImageDownloader.swift in Sources */,
 				8B7497BD24FB1A6F003C7DAA /* UITableViewController+extensions.swift in Sources */,
 				8B7497BB24FA073C003C7DAA /* UIView+extensions.swift in Sources */,
 				8B74979824F73D56003C7DAA /* AlbumsCoordinator.swift in Sources */,

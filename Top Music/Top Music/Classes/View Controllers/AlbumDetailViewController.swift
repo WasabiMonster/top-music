@@ -53,10 +53,23 @@ final class AlbumDetailViewController: UIViewController {
             genreLabel.text = viewModel.genreText
             releaseDateLabel.text = viewModel.releaseDateText
             copyrightLabel.text = viewModel.copyrightText
+            
+            guard let url = viewModel.artworkUrl.toURL else { return }
+            
+            Cache.shared.fetchImageFrom(URL: url) { (image) in
+                if let image = image {
+                    DispatchQueue.main.async {
+                        self.artworkImage.image = image
+                    }
+                } else {
+                    // todo: display failed image
+                }
+            }
         } else {
             genreLabel.text = ""
             releaseDateLabel.text = ""
         }
+        
     }
     
     private func configureLayout() {
@@ -81,7 +94,7 @@ final class AlbumDetailViewController: UIViewController {
         NSLayoutConstraint.activate([
             artworkImage.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             artworkImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            artworkImage.widthAnchor.constraint(equalToConstant: 212),
+            artworkImage.widthAnchor.constraint(equalToConstant: 200),
             artworkImage.heightAnchor.constraint(equalTo: artworkImage.widthAnchor)
         ])
         

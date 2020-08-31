@@ -37,7 +37,9 @@ class ImageLoadOperation: Operation {
         Cache.shared.fetchImageFrom(URL: url) { (image) in
             if self.isCancelled { return }
             if let image = image {
-                self.image = image
+                DispatchQueue.main.async {
+                    self.image = image
+                }
                 // self.model.image = image
                 self.model.imageLoadStatus = .downloaded
                 self.loadingCompleteHandler?(self.image)
@@ -60,7 +62,7 @@ class ImageLoadOperation: Operation {
     }
 }
 
-func downloadImageFrom(_ url: URL, completeHandler: @escaping (UIImage?) -> ()) {
+/* func downloadImageFrom(_ url: URL, completeHandler: @escaping (UIImage?) -> ()) {
     URLSession.shared.dataTask(with: url) { data, response, error in
         guard
             let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
@@ -70,5 +72,4 @@ func downloadImageFrom(_ url: URL, completeHandler: @escaping (UIImage?) -> ()) 
             else { return }
         completeHandler(_image)
         }.resume()
-}
-
+} */
