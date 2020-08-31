@@ -45,4 +45,8 @@ extension AlbumsCoordinator: AlbumsViewControllerDelegate {
         showDetail(at: index)
     }
     
+    func albumsViewController(_ viewController: AlbumsViewController, didReceiveError error: Error) {
+        albumsViewController?.presentErrorAlert(error)
+    }
+    
 }

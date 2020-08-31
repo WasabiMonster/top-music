@@ -10,6 +10,7 @@ import UIKit
 
 protocol AlbumsViewControllerDelegate: class {
     func albumsViewController(_ controller: AlbumsViewController, didSelectAlbumAt index: Int)
+    func albumsViewController(_ viewController: AlbumsViewController, didReceiveError error: Error)
 }
 
 final class AlbumsViewController: UITableViewController {
@@ -72,7 +73,7 @@ final class AlbumsViewController: UITableViewController {
 
 extension AlbumsViewController: AlbumsViewModelDelegate {
     func didGetError(_ error: Error) {
-        //
+        self.albumsViewControllerDelegate?.albumsViewController(self, didReceiveError: error)
     }
     
     func doneRequestingAlbums() {

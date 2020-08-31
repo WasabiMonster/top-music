@@ -56,8 +56,8 @@ final class AlbumsViewModel: NSObject {
                 }
                 self.imageStore.imagesData = self.albums
                 self.delegate?.doneRequestingAlbums()
-            case .failure:
-                // silent fail
+            case .failure(let error):
+                self.delegate?.didGetError(error)
                 break
             }
         }
@@ -155,18 +155,3 @@ extension AlbumsViewModel: UITableViewDataSourcePrefetching {
     }
     
 }
-
-/* extension AlbumsViewModel: UITableViewDelegate {
-    func manageAlbumImageStateForCell(_ cell: AlbumCell, albumDetails: AlbumModel, indexPath: IndexPath) {
-        switch albumDetails.imageStatus {
-        case .downloaded:
-            cell.stopActivityIndicator()
-        case .failed:
-            cell.stopActivityIndicator()
-            // cell.textLabel?.text = "Failed to load"
-        case .start:
-            cell.startActivityIndicator()
-            startOperations(for: albumDetails, at: indexPath)
-        }
-    }
-} */
