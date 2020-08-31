@@ -39,9 +39,7 @@ class ImageLoadOperation: Operation {
                 guard let self = self else { return }
                 if self.isCancelled { return }
                 if let image = image {
-                    DispatchQueue.main.async {
-                        self.image = image
-                    }
+                    self.image = image
                     self.model.imageLoadStatus = .downloaded
                     self.loadingCompleteHandler?(self.image)
                 } else {
