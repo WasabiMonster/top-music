@@ -93,3 +93,7 @@ iOSInjectionProject/
 .DS_Store
 
 Top Music/.DS_Store
+
+# AppCode config files
+.idea/
+
