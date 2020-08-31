@@ -63,6 +63,7 @@ final class AlbumDetailViewController: UIViewController {
                         if let image = image {
                             self.artworkImage.hideActivityIndicator()
                             self.artworkImage.image = image
+                            self.artworkImage.fadeInFromOut()
                         } else {
                             // todo: display failed image
                         }
