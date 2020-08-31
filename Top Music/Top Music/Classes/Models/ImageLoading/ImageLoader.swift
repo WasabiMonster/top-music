@@ -33,17 +33,20 @@ class ImageLoadOperation: Operation {
     override func main() {
         if isCancelled { return }
         guard let url = model.artworkUrl.toURL else { return }
-        
-        Cache.shared.fetchImageFrom(URL: url) { (image) in
-            if self.isCancelled { return }
-            if let image = image {
-                DispatchQueue.main.async {
-                    self.image = image
+    
+        DispatchQueue.main.async() { [weak self] in
+            Cache.shared.fetchImageFrom(URL: url) { (image) in
+                guard let self = self else { return }
+                if self.isCancelled { return }
+                if let image = image {
+                    DispatchQueue.main.async {
+                        self.image = image
+                    }
+                    self.model.imageLoadStatus = .downloaded
+                    self.loadingCompleteHandler?(self.image)
+                } else {
+                    self.model.imageLoadStatus = .failed
                 }
-                self.model.imageLoadStatus = .downloaded
-                self.loadingCompleteHandler?(self.image)
-            } else {
-                self.model.imageLoadStatus = .failed
             }
         }
     }

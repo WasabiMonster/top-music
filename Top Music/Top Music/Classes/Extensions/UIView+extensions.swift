@@ -17,4 +17,11 @@ extension UIView {
         }
     }
     
+    func fadeInFromOut() {
+        self.alpha = 0
+        UIView.animate(withDuration: 0.35, delay: 0.3, options: .curveEaseOut, animations: {() -> Void in
+            self.alpha = 1.0
+        }, completion: nil)
+    }
+    
 }

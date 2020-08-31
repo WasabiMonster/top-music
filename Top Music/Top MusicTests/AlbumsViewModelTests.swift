@@ -10,15 +10,29 @@ import XCTest
 @testable import Top_Music
 
 class AlbumsViewModelTests: XCTestCase {
-    
+    var mockURLSession: MockURLSession!
+    var mockApiManager: ApiManager!
+
     var currentExpectaion: XCTestExpectation?
+    var viewModel: AlbumsViewModel!
+    var data: Data?
+    
+    override func setUpWithError() throws {
+        self.mockURLSession = MockURLSession()
+        self.mockApiManager = MockApiManager(urlSession: self.mockURLSession)
+
+        viewModel = AlbumsViewModel()
+        viewModel.fetchAlbums(manager: mockApiManager)
+        
+        let feed: AlbumFeed = self.bundle.decode(AlbumFeed.self, from: "AlbumFeed.json")
+        self.modelController = AlbumListModelController(albumFeed: feed)
+    }
     
     func testDefaults() {
-        let viewModel = AlbumsViewModel()
         XCTAssertEqual(0, viewModel.numberOfAlbums)
-        XCTAssertEqual("iTunes Store Top Albums", viewModel.feedTitle)
+        XCTAssertEqual(" ", viewModel.feedTitle)
         XCTAssertNil(viewModel.delegate)
-        XCTAssertNil(viewModel.feedTitle)
+        XCTAssertEqual(" ", viewModel.feedTitle)
     }
     
     func testNumberOfItems() {

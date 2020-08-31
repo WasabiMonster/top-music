@@ -62,6 +62,7 @@
 		8B7497E124FC88D0003C7DAA /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497E024FC88D0003C7DAA /* MockURLSession.swift */; };
 		8B7497E324FC8901003C7DAA /* XCTestCaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497E224FC8901003C7DAA /* XCTestCaseExtensions.swift */; };
 		8B7497E524FC8B11003C7DAA /* AlbumFeedRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497E424FC8B11003C7DAA /* AlbumFeedRequestTests.swift */; };
+		8B7497E724FCB239003C7DAA /* AlbumDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497E624FCB239003C7DAA /* AlbumDetailViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,7 @@
 		8B7497E024FC88D0003C7DAA /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		8B7497E224FC8901003C7DAA /* XCTestCaseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtensions.swift; sourceTree = "<group>"; };
 		8B7497E424FC8B11003C7DAA /* AlbumFeedRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumFeedRequestTests.swift; sourceTree = "<group>"; };
+		8B7497E624FCB239003C7DAA /* AlbumDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 				8B74977F24F6E76F003C7DAA /* JSON */,
 				8B7497B524F9DC70003C7DAA /* Mocks */,
 				8B7497E424FC8B11003C7DAA /* AlbumFeedRequestTests.swift */,
+				8B7497E624FCB239003C7DAA /* AlbumDetailViewModelTests.swift */,
 				8B7497B624F9F17F003C7DAA /* AlbumsViewModelTests.swift */,
 				8B74977124F5A7FE003C7DAA /* CoordinatorTests.swift */,
 				8B74974A24F5904B003C7DAA /* Info.plist */,
@@ -570,6 +573,7 @@
 				8B7497DF24FC888D003C7DAA /* MockApiManager.swift in Sources */,
 				8B7497E524FC8B11003C7DAA /* AlbumFeedRequestTests.swift in Sources */,
 				8B7497E124FC88D0003C7DAA /* MockURLSession.swift in Sources */,
+				8B7497E724FCB239003C7DAA /* AlbumDetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

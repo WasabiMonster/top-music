@@ -12,8 +12,9 @@ import UIKit
 class AlbumCell: UITableViewCell {
     public static let reusableId: String = "AlbumCell"
     private let albumLabel:UILabel = UILabel.ducksStyle(font: .customMedium(size: 20.0), color: .oregonDucksYellow, wraps: false)
-    private let artistLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .offWhite)
+    let artistLabel:UILabel = UILabel.wrapping(font: .customBold(size: 14.0), color: .offWhite)
     private var artworkImage: UIImageView = UIImageView()
+    var index:Int?
         
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -75,9 +76,14 @@ class AlbumCell: UITableViewCell {
         self.albumLabel.text = album
     }
     
-    func updateImage(_ image: UIImage?) {
+    func updateImage(_ image: UIImage?, forIndex: Int, shouldFade: Bool) {
+        // Sanity check to avoid updating incorrect cells with wrong image
+        if forIndex != self.index { return }
         DispatchQueue.main.async { [unowned self] in
             self.displayImage(image)
+            if shouldFade {
+                self.artworkImage.fadeInFromOut()
+            }
         }
     }
     
@@ -94,9 +100,7 @@ class AlbumCell: UITableViewCell {
     override func prepareForReuse() {
         artistLabel.text = ""
         albumLabel.text = ""
-        // imageView?.image = nil
-        // artwork = nil
-        // artworkImage.cancelImageLoad()
+        artworkImage.image = nil
         super.prepareForReuse()
     }
     

@@ -19,7 +19,7 @@ protocol AlbumsTableViewDelegate: class {
     func albumsTableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
 }
 
-class AlbumsViewModel: NSObject {
+final class AlbumsViewModel: NSObject {
     weak var delegate: AlbumsViewModelDelegate?
     private var feedResponse: AlbumFeedResponse?
     private var albums: [AlbumModel] = []
@@ -53,8 +53,8 @@ class AlbumsViewModel: NSObject {
                 for album in albums {
                     self.albums.append(album)
                 }
-                self.delegate?.doneRequestingAlbums()
                 self.imageStore.imagesData = self.albums
+                self.delegate?.doneRequestingAlbums()
             case .failure:
                 // silent fail
                 break
@@ -71,7 +71,7 @@ extension AlbumsViewModel: AlbumsTableViewDelegate {
         
         // Closure describing how to update the cell once the image has loaded
         let updateCellClosure: (UIImage?) -> () = { [unowned self] (image) in
-            cell.updateImage(image)
+            cell.updateImage(image, forIndex: indexPath[1], shouldFade: false)
             self.loadingOperations.removeValue(forKey: indexPath)
         }
         
@@ -79,7 +79,7 @@ extension AlbumsViewModel: AlbumsTableViewDelegate {
         if let imageLoader = loadingOperations[indexPath] {
             // Check if it's been loaded yet
             if let image = imageLoader.image {
-                cell.updateImage(image)
+                cell.updateImage(image, forIndex: indexPath[1], shouldFade: true)
                 loadingOperations.removeValue(forKey: indexPath)
             } else {
                 // Image not loaded yet. Set completion handler for when it arrives
@@ -116,8 +116,9 @@ extension AlbumsViewModel: UITableViewDataSource {
             cell.addActivityIndicator()
             
             let album = albums[indexPath.row]
+            cell.index = indexPath[1]
             cell.populate(artist: album.artistName, album: album.name)
-            cell.updateImage(.none)
+            cell.updateImage(.none, forIndex: indexPath[1], shouldFade: false)
             return cell
         }
         return UITableViewCell()

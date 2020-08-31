@@ -3,7 +3,7 @@
 //  Top MusicTests
 //
 //  Created by Patrick Wilson on 8/30/20.
-//  Copyright © 2020 Etechitronica. All rights reserved.
+//  Copyright © 2020 Etechitronica LLC. All rights reserved.
 //
 
 import XCTest
@@ -20,13 +20,11 @@ class AlbumFeedRequestTests: XCTestCase {
     }
     
     func testMakeFeedRequest() {
-        
         self.mockURLSession.nextData = loadTestData(fromFile: "feed", fileExtension: ".json")
         
         let expectation = XCTestExpectation(description: "Receive response")
         
         mockApiManager.execute(Requests.iTunes.topAlbums.init()) { result in
-            
             guard let url = self.mockURLSession.lastURLRequest?.url
                 else { XCTFail("missing url"); return }
             
