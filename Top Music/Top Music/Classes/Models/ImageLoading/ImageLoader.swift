@@ -40,36 +40,11 @@ class ImageLoadOperation: Operation {
                 DispatchQueue.main.async {
                     self.image = image
                 }
-                // self.model.image = image
                 self.model.imageLoadStatus = .downloaded
                 self.loadingCompleteHandler?(self.image)
             } else {
                 self.model.imageLoadStatus = .failed
-                // self.model.image = UIImage(named: "Failed") ?? UIImage()
             }
         }
-
-        /* downloadImageFrom(url) { (image) in
-            // print("*083020* \(type(of: self)), \(#function) |> \(url.absoluteString)")
-        
-            DispatchQueue.main.async() { [weak self] in
-                guard let self = self else { return }
-                if self.isCancelled { return }
-                self.image = image
-                self.loadingCompleteHandler?(self.image)
-            }
-        } */
     }
 }
-
-/* func downloadImageFrom(_ url: URL, completeHandler: @escaping (UIImage?) -> ()) {
-    URLSession.shared.dataTask(with: url) { data, response, error in
-        guard
-            let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-            let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-            let data = data, error == nil,
-            let _image = UIImage(data: data)
-            else { return }
-        completeHandler(_image)
-        }.resume()
-} */

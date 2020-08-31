@@ -13,7 +13,7 @@ protocol AlbumDetailViewModelDelegate: class {
     func detailDidChange(viewModel: AlbumDetailViewModel)
 }
 
-class AlbumDetailViewModel: NSObject, BaseViewModel {
+class AlbumDetailViewModel: NSObject {
     weak var delegate: AlbumDetailViewModelDelegate?
     
     var detail: AlbumModel? {

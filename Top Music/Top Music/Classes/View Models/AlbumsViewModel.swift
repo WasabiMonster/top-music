@@ -19,7 +19,7 @@ protocol AlbumsTableViewDelegate: class {
     func albumsTableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
 }
 
-class AlbumsViewModel: NSObject, BaseViewModel {
+class AlbumsViewModel: NSObject {
     weak var delegate: AlbumsViewModelDelegate?
     private var feedResponse: AlbumFeedResponse?
     private var albums: [AlbumModel] = []
