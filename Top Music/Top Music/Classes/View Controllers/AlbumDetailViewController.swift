@@ -55,14 +55,16 @@ final class AlbumDetailViewController: UIViewController {
             copyrightLabel.text = viewModel.copyrightText
             
             guard let url = viewModel.artworkUrl.toURL else { return }
-            
-            Cache.shared.fetchImageFrom(URL: url) { (image) in
-                if let image = image {
+    
+            DispatchQueue.main.async {
+                ImageCache.shared.fetchImageFrom(URL: url) { (image) in
                     DispatchQueue.main.async {
-                        self.artworkImage.image = image
+                        if let image = image {
+                            self.artworkImage.image = image
+                        } else {
+                            // todo: display failed image
+                        }
                     }
-                } else {
-                    // todo: display failed image
                 }
             }
         } else {

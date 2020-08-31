@@ -52,7 +52,7 @@
 		8B7497C624FB5EC2003C7DAA /* Geomanist-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7497C224FB5EC2003C7DAA /* Geomanist-Medium.otf */; };
 		8B7497C824FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497C724FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift */; };
 		8B7497CA24FB7EA8003C7DAA /* DateFormatter+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497C924FB7EA8003C7DAA /* DateFormatter+extensions.swift */; };
-		8B7497CD24FBA1FD003C7DAA /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497CC24FBA1FD003C7DAA /* Cache.swift */; };
+		8B7497CD24FBA1FD003C7DAA /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497CC24FBA1FD003C7DAA /* ImageCache.swift */; };
 		8B7497D024FBA227003C7DAA /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497CF24FBA227003C7DAA /* PendingOperations.swift */; };
 		8B7497D424FBA589003C7DAA /* AlbumImageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497D324FBA589003C7DAA /* AlbumImageStatus.swift */; };
 		8B7497D824FC3474003C7DAA /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497D724FC3474003C7DAA /* UIViewController+extensions.swift */; };
@@ -134,7 +134,7 @@
 		8B7497C224FB5EC2003C7DAA /* Geomanist-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Medium.otf"; sourceTree = "<group>"; };
 		8B7497C724FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+TopMusicAdditions.swift"; sourceTree = "<group>"; };
 		8B7497C924FB7EA8003C7DAA /* DateFormatter+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+extensions.swift"; sourceTree = "<group>"; };
-		8B7497CC24FBA1FD003C7DAA /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		8B7497CC24FBA1FD003C7DAA /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		8B7497CF24FBA227003C7DAA /* PendingOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
 		8B7497D324FBA589003C7DAA /* AlbumImageStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumImageStatus.swift; path = "Top Music/Classes/Enums/AlbumImageStatus.swift"; sourceTree = SOURCE_ROOT; };
 		8B7497D724FC3474003C7DAA /* UIViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
@@ -377,7 +377,7 @@
 		8B7497D924FC3733003C7DAA /* ImageLoading */ = {
 			isa = PBXGroup;
 			children = (
-				8B7497CC24FBA1FD003C7DAA /* Cache.swift */,
+				8B7497CC24FBA1FD003C7DAA /* ImageCache.swift */,
 				8B7497DA24FC3746003C7DAA /* ImageLoader.swift */,
 				8B7497CF24FBA227003C7DAA /* PendingOperations.swift */,
 			);
@@ -546,7 +546,7 @@
 				8B7497DB24FC3746003C7DAA /* ImageLoader.swift in Sources */,
 				8B74977C24F640CF003C7DAA /* URLSessionProtocol.swift in Sources */,
 				8B74978524F6E9E8003C7DAA /* ApiError.swift in Sources */,
-				8B7497CD24FBA1FD003C7DAA /* Cache.swift in Sources */,
+				8B7497CD24FBA1FD003C7DAA /* ImageCache.swift in Sources */,
 				8B74979524F71E8D003C7DAA /* Codable+extensions.swift in Sources */,
 				8B74978B24F6F42A003C7DAA /* GenreModel.swift in Sources */,
 				8B74978324F6E86D003C7DAA /* ParameterEncoding.swift in Sources */,

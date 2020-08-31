@@ -8,8 +8,8 @@
 
 import UIKit
 
-open class Cache: NSCache<NSURL, UIImage> {
-    static var shared = Cache()
+open class ImageCache: NSCache<NSURL, UIImage> {
+    static var shared = ImageCache()
     
     func fetchImageFrom(URL: URL, completion: @escaping (UIImage?) -> Void) {
         guard let imageNSURL = NSURL.init(string: URL.absoluteString) else { return }

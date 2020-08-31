@@ -23,6 +23,7 @@ class ImageLoader {
 
 class ImageLoadOperation: Operation {
     var image: UIImage?
+    var hasFadedIn: Bool = false
     var loadingCompleteHandler: ((UIImage?) -> ())?
     private var model: AlbumModel
     
@@ -35,7 +36,7 @@ class ImageLoadOperation: Operation {
         guard let url = model.artworkUrl.toURL else { return }
     
         DispatchQueue.main.async() { [weak self] in
-            Cache.shared.fetchImageFrom(URL: url) { (image) in
+            ImageCache.shared.fetchImageFrom(URL: url) { (image) in
                 guard let self = self else { return }
                 if self.isCancelled { return }
                 if let image = image {

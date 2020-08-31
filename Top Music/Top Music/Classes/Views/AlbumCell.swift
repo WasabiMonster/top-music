@@ -76,9 +76,7 @@ class AlbumCell: UITableViewCell {
         self.albumLabel.text = album
     }
     
-    func updateImage(_ image: UIImage?, forIndex: Int, shouldFade: Bool) {
-        // Sanity check to avoid updating incorrect cells with wrong image
-        if forIndex != self.index { return }
+    func updateImage(_ image: UIImage?, shouldFade: Bool) {
         DispatchQueue.main.async { [unowned self] in
             self.displayImage(image)
             if shouldFade {

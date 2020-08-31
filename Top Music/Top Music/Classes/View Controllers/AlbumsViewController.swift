@@ -61,9 +61,7 @@ final class AlbumsViewController: UITableViewController {
     }
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell:AlbumCell = self.tableView.cellForRow(at: indexPath) as! AlbumCell
-        print("*083020* Pressed: \(type(of: self)), \(#function) |> \(cell.index) \(cell.artistLabel.text)")
-        // albumsViewControllerDelegate?.albumsViewController(self, didSelectAlbumAt: indexPath.row)
+        albumsViewControllerDelegate?.albumsViewController(self, didSelectAlbumAt: indexPath.row)
     }
     
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
