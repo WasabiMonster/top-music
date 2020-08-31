@@ -7,27 +7,50 @@
 //
 
 import XCTest
+@testable import Top_Music
 
 class AlbumDetailViewModelTests: XCTestCase {
+    var mockURLSession: MockURLSession!
+    var mockApiManager: ApiManager!
 
+    var viewModel: AlbumDetailViewModel!
+    var data: Data!
+        
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.mockURLSession = MockURLSession()
+        self.mockApiManager = MockApiManager(urlSession: self.mockURLSession)
+
+        data = loadTestData(fromFile: "feed", fileExtension: ".json")
+        let response = try data.decoded(ofType: AlbumFeedResponse.self)
+
+        viewModel = AlbumDetailViewModel()
+    }
+    
+    func testDefaults() {
+        XCTAssertEqual("", viewModel.id)
+        XCTAssertEqual("", viewModel.albumText)
+        XCTAssertEqual("", viewModel.artistText)
+        XCTAssertEqual("", viewModel.artworkUrl)
+        XCTAssertEqual("", viewModel.genreText)
+        XCTAssertEqual("", viewModel.copyrightText)
+        XCTAssertEqual("", viewModel.releaseDateText)
+        XCTAssertEqual("http://www.apple.com", viewModel.iTunesUrl)
+        XCTAssertNil(viewModel.detail)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testProperties() {
+        let response = try? data.decoded(ofType: AlbumFeedResponse.self)
+        viewModel.detail = response?.results?[1]
+        
+        XCTAssertEqual("Imploding the Mirage", viewModel.albumText)
+        XCTAssertEqual("The Killers", viewModel.artistText)
+        XCTAssertEqual("Imploding the Mirage", viewModel.albumText)
+        XCTAssertEqual("1502453888", viewModel.id)
+        XCTAssertEqual("https://is4-ssl.mzstatic.com/image/thumb/Music113/v4/df/ad/d9/dfadd9a6-a54c-cffa-7312-0705b0c22a4b/20UMGIM16911.rgb.jpg/200x200bb.png", viewModel.artworkUrl)
+        XCTAssertEqual("Released: August 20, 2020", viewModel.releaseDateText)
+        XCTAssertEqual("℗ 2020 Island Records, a division of UMG Recordings, Inc.", viewModel.copyrightText)
+        XCTAssertEqual("Alternative, Music", viewModel.genreText)
+        XCTAssertEqual("https://music.apple.com/us/album/imploding-the-mirage/1502453888?app=itunes", viewModel.iTunesUrl)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
 }
