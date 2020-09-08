@@ -12,6 +12,7 @@ extension UITableView {
     
     func showActivityIndicator() {
         DispatchQueue.main.async {
+            self.separatorColor = UIColor.clear
             let activityView = UIActivityIndicatorView(style: .large)
             activityView.backgroundColor = .almostBlack
             self.backgroundView = activityView
@@ -21,6 +22,7 @@ extension UITableView {
 
     func hideActivityIndicator() {
         DispatchQueue.main.async {
+            self.separatorColor = UIColor.darkGray
             self.backgroundView = nil
         }
     }
