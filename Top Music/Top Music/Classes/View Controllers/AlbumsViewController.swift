@@ -23,7 +23,7 @@ final class AlbumsViewController: UITableViewController {
         self.view.backgroundColor = UIColor.nikeFootball
         configureTableView()
         viewModel?.fetchAlbums()
-        
+        self.refreshControl = UIRefreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
