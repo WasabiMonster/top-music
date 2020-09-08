@@ -13,7 +13,7 @@ extension UITableView {
     func showActivityIndicator() {
         DispatchQueue.main.async {
             let activityView = UIActivityIndicatorView(style: .large)
-            activityView.backgroundColor = .offWhite
+            activityView.backgroundColor = .almostBlack
             self.backgroundView = activityView
             activityView.startAnimating()
         }
