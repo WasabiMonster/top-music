@@ -63,6 +63,8 @@
 		8B7497E724FCB239003C7DAA /* AlbumDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497E624FCB239003C7DAA /* AlbumDetailViewModelTests.swift */; };
 		8B7497EB24FCE8E8003C7DAA /* UITableView+TopMusicAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497EA24FCE8E8003C7DAA /* UITableView+TopMusicAdditions.swift */; };
 		8B7497ED24FCEAE8003C7DAA /* ActivityImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497EC24FCEAE8003C7DAA /* ActivityImageView.swift */; };
+		8BC2E102250C5D9B003FB4DC /* TiledFlipRetroTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC2E101250C5D9B003FB4DC /* TiledFlipRetroTransition.swift */; };
+		8BC2E104250C5DFC003FB4DC /* RetroTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC2E103250C5DFC003FB4DC /* RetroTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +147,8 @@
 		8B7497E624FCB239003C7DAA /* AlbumDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewModelTests.swift; sourceTree = "<group>"; };
 		8B7497EA24FCE8E8003C7DAA /* UITableView+TopMusicAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+TopMusicAdditions.swift"; sourceTree = "<group>"; };
 		8B7497EC24FCEAE8003C7DAA /* ActivityImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityImageView.swift; sourceTree = "<group>"; };
+		8BC2E101250C5D9B003FB4DC /* TiledFlipRetroTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiledFlipRetroTransition.swift; sourceTree = "<group>"; };
+		8BC2E103250C5DFC003FB4DC /* RetroTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +234,7 @@
 		8B74976124F592EC003C7DAA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8BC2E100250C40F1003FB4DC /* Animators */,
 				8B74976E24F59E33003C7DAA /* API */,
 				8B74976524F59841003C7DAA /* Coordinators */,
 				8B74976224F59503003C7DAA /* Enums */,
@@ -384,6 +389,15 @@
 			path = ImageLoading;
 			sourceTree = "<group>";
 		};
+		8BC2E100250C40F1003FB4DC /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				8BC2E101250C5D9B003FB4DC /* TiledFlipRetroTransition.swift */,
+				8BC2E103250C5DFC003FB4DC /* RetroTransition.swift */,
+			);
+			path = Animators;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -532,6 +546,7 @@
 				8B74973224F59048003C7DAA /* AppDelegate.swift in Sources */,
 				8B74973424F59048003C7DAA /* SceneDelegate.swift in Sources */,
 				8B74979324F703B9003C7DAA /* EmptyServerResponse.swift in Sources */,
+				8BC2E104250C5DFC003FB4DC /* RetroTransition.swift in Sources */,
 				8B7497ED24FCEAE8003C7DAA /* ActivityImageView.swift in Sources */,
 				8B7497DD24FC386B003C7DAA /* String+extensions.swift in Sources */,
 				8B7497D424FBA589003C7DAA /* AlbumImageStatus.swift in Sources */,
@@ -552,6 +567,7 @@
 				8B74978324F6E86D003C7DAA /* ParameterEncoding.swift in Sources */,
 				8B74977624F63A9D003C7DAA /* MusicServerRequest.swift in Sources */,
 				8B74979A24F73D8F003C7DAA /* AlbumDetailCoordinator.swift in Sources */,
+				8BC2E102250C5D9B003FB4DC /* TiledFlipRetroTransition.swift in Sources */,
 				8B74976D24F59D57003C7DAA /* HTTPMethod.swift in Sources */,
 				8B74977424F5F0D3003C7DAA /* Requests.swift in Sources */,
 				8B74976B24F59C23003C7DAA /* BaseCoordinator.swift in Sources */,

@@ -14,7 +14,7 @@ protocol AlbumsViewControllerDelegate: class {
 }
 
 final class AlbumsViewController: UITableViewController {
-    
+        
     weak var albumsViewControllerDelegate: AlbumsViewControllerDelegate?
     weak var tableViewDelegate: AlbumsTableViewDelegate?
 
