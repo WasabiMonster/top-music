@@ -120,11 +120,11 @@ final class AlbumDetailViewController: UIViewController {
         ])
     }
     
-    func configureActions() {
+    private func configureActions() {
         ctaButton.addTarget(self, action: #selector(openExternalLink), for: .touchUpInside)
     }
     
-    @objc func openExternalLink() {
+    @objc private func openExternalLink() {
         guard let link = viewModel?.iTunesUrl else { return }
         self.albumDetailViewControllerDelegate?.albumDetailViewController(self, didSelectExternalLink: link, id: viewModel?.id ?? "")
     }
