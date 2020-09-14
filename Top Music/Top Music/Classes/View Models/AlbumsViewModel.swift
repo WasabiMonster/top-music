@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol AlbumsViewModelDelegate: class {
-    func didGetError(_ error: Error)
+    func didReceiveError(_ error: Error)
     func doneRequestingAlbums()
 }
 
@@ -46,7 +46,7 @@ final class AlbumsViewModel: NSObject {
             switch result {
             case .success(let response):
                 guard let albums = response.results else {
-                    self.delegate?.didGetError(ApiError.responseDecodingFailed)
+                    self.delegate?.didReceiveError(ApiError.responseDecodingFailed)
                     return
                 }
                 self.feedResponse = response
@@ -57,7 +57,7 @@ final class AlbumsViewModel: NSObject {
                 self.imageStore.imagesData = self.albums
                 self.delegate?.doneRequestingAlbums()
             case .failure(let error):
-                self.delegate?.didGetError(error)
+                self.delegate?.didReceiveError(error)
                 break
             }
         }

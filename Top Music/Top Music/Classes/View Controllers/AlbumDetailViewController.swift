@@ -133,7 +133,7 @@ final class AlbumDetailViewController: UIViewController {
 
 extension AlbumDetailViewController: AlbumDetailViewModelDelegate {
 
-    func didGetError(_ error: Error) {
+    func didReceiveError(_ error: Error) {
         //
     }
 

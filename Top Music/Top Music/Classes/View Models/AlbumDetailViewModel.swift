@@ -9,7 +9,7 @@
 import Foundation
 
 protocol AlbumDetailViewModelDelegate: class {
-    func didGetError(_ error: Error)
+    func didReceiveError(_ error: Error)
     func detailDidChange(viewModel: AlbumDetailViewModel)
 }
 

@@ -85,7 +85,7 @@ final class AlbumsViewController: UITableViewController {
 }
 
 extension AlbumsViewController: AlbumsViewModelDelegate {
-    func didGetError(_ error: Error) {
+    func didReceiveError(_ error: Error) {
         self.albumsViewControllerDelegate?.albumsViewController(self, didReceiveError: error)
     }
     
