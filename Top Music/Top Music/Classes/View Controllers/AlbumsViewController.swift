@@ -63,7 +63,7 @@ final class AlbumsViewController: UITableViewController {
     }
     
     @objc private func refreshData(_ sender: Any) {
-        print("*091420* \(type(of: self)), \(#function) |> Refreshing...")
+        self.viewModel?.fetchAlbums()
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -90,9 +90,13 @@ extension AlbumsViewController: AlbumsViewModelDelegate {
     }
     
     func doneRequestingAlbums() {
-        self.tableView.hideActivityIndicator()
-        self.title = viewModel?.feedTitle
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.hideActivityIndicator()
+            self.title = self.viewModel?.feedTitle
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+            // self.activityIndicatorView.stopAnimating()
+        }
     }
         
 }
