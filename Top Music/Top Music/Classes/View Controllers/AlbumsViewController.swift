@@ -14,16 +14,17 @@ protocol AlbumsViewControllerDelegate: class {
 }
 
 final class AlbumsViewController: UITableViewController {
-    
+        
     weak var albumsViewControllerDelegate: AlbumsViewControllerDelegate?
     weak var tableViewDelegate: AlbumsTableViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.nikeFootball
+        self.refreshControl = UIRefreshControl()
         configureTableView()
+        configureActions()
         viewModel?.fetchAlbums()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +58,14 @@ final class AlbumsViewController: UITableViewController {
         self.tableView.showActivityIndicator()
     }
     
+    private func configureActions() {
+        self.refreshControl?.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+    }
+    
+    @objc private func refreshData(_ sender: Any) {
+        self.viewModel?.fetchAlbums()
+    }
+    
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         tableViewDelegate?.albumsTableView(tableView, willDisplay: cell, forRowAt: indexPath)
     }
@@ -76,14 +85,18 @@ final class AlbumsViewController: UITableViewController {
 }
 
 extension AlbumsViewController: AlbumsViewModelDelegate {
-    func didGetError(_ error: Error) {
+    func didReceiveError(_ error: Error) {
         self.albumsViewControllerDelegate?.albumsViewController(self, didReceiveError: error)
     }
     
     func doneRequestingAlbums() {
-        self.tableView.hideActivityIndicator()
-        self.title = viewModel?.feedTitle
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.hideActivityIndicator()
+            self.title = self.viewModel?.feedTitle
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+            // self.activityIndicatorView.stopAnimating()
+        }
     }
         
 }
