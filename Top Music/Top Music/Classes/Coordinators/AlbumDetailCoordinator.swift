@@ -11,7 +11,6 @@ import UIKit
 
 class AlbumDetailCoordinator: BaseCoordinator {
     
-    let transitionClass = TiledFlipRetroTransition.self
     private var viewModel: AlbumDetailViewModel
     
     init(presenter: UINavigationController, viewModel: AlbumDetailViewModel) {
@@ -23,7 +22,7 @@ class AlbumDetailCoordinator: BaseCoordinator {
         let albumDetailViewController = AlbumDetailViewController()
         albumDetailViewController.albumDetailViewControllerDelegate = self
         albumDetailViewController.viewModel = self.viewModel
-        presenter.pushViewController(albumDetailViewController, withRetroTransition: transitionClass.init())
+        presenter.pushViewController(albumDetailViewController, animated: true)
     }
     
 }
