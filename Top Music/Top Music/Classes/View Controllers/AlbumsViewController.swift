@@ -21,9 +21,10 @@ final class AlbumsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.nikeFootball
-        configureTableView()
-        viewModel?.fetchAlbums()
         self.refreshControl = UIRefreshControl()
+        configureTableView()
+        configureActions()
+        viewModel?.fetchAlbums()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +56,14 @@ final class AlbumsViewController: UITableViewController {
         self.tableView.register(AlbumCell.self, forCellReuseIdentifier: AlbumCell.reusableId)
         
         self.tableView.showActivityIndicator()
+    }
+    
+    private func configureActions() {
+        self.refreshControl?.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+    }
+    
+    @objc private func refreshData(_ sender: Any) {
+        print("*091420* \(type(of: self)), \(#function) |> Refreshing...")
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
