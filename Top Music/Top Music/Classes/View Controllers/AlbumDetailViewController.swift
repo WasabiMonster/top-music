@@ -120,7 +120,7 @@ final class AlbumDetailViewController: UIViewController {
         ])
     }
     
-    func configureActions() {
+    private func configureActions() {
         ctaButton.addTarget(self, action: #selector(openExternalLink), for: .touchUpInside)
     }
     
