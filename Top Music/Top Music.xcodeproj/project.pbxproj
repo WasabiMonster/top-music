@@ -209,7 +209,6 @@
 			children = (
 				8B74976324F59532003C7DAA /* Helpers */,
 				8B74977F24F6E76F003C7DAA /* JSON */,
-				8B7497B524F9DC70003C7DAA /* Mocks */,
 				8B7497E424FC8B11003C7DAA /* AlbumFeedRequestTests.swift */,
 				8B7497E624FCB239003C7DAA /* AlbumDetailViewModelTests.swift */,
 				8B7497B624F9F17F003C7DAA /* AlbumsViewModelTests.swift */,
@@ -354,13 +353,6 @@
 				8B74979024F6F8A6003C7DAA /* genre.json */,
 			);
 			path = JSON;
-			sourceTree = "<group>";
-		};
-		8B7497B524F9DC70003C7DAA /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 		8B7497BE24FB5EA0003C7DAA /* Fonts */ = {
