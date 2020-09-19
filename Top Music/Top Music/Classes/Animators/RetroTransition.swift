@@ -24,32 +24,32 @@ class RetroBasicAnimation: CABasicAnimation, CAAnimationDelegate {
         if let onFinish = onFinish {
             onFinish()
         }
-    }
+    }   
 }
 
 public class RetroTransition: NSObject {
-    public var duration: TimeInterval = 3.33
+    public var duration: TimeInterval = 0.33
     required public init(duration: TimeInterval? = nil) {
         super.init()
         self.duration = duration ?? defaultDuration()
     }
     
     func defaultDuration() -> TimeInterval {
-        return 3.33
+        return 0.33
     }
     
     internal static func rectMovedIn(_ rect: CGRect, magnitude: CGFloat) -> CGRect {
         return CGRect.init(x: rect.origin.x + magnitude, y: rect.origin.y + magnitude, width: rect.size.width - magnitude * 2, height: rect.size.height - magnitude * 2)
     }
     
-    internal func snapshot(_ view: UIView) -> UIImage? {
+    /* internal func snapshot(_ view: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, UIScreen.main.scale)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return img
-    }
+    } */
 }
 
 extension RetroTransition: UIViewControllerAnimatedTransitioning {

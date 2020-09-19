@@ -11,7 +11,7 @@ import UIKit
 
 class AlbumDetailCoordinator: BaseCoordinator {
     
-    let transitionClass = TiledFlipRetroTransition.self
+    let transitionClass = StraightLineRetroTransition.self
     private var viewModel: AlbumDetailViewModel
     
     init(presenter: UINavigationController, viewModel: AlbumDetailViewModel) {

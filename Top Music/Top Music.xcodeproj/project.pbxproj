@@ -64,7 +64,7 @@
 		8B7497EB24FCE8E8003C7DAA /* UITableView+TopMusicAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497EA24FCE8E8003C7DAA /* UITableView+TopMusicAdditions.swift */; };
 		8B7497ED24FCEAE8003C7DAA /* ActivityImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497EC24FCEAE8003C7DAA /* ActivityImageView.swift */; };
 		8BE7EE35251596E5005E20DD /* RetroTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE34251596E5005E20DD /* RetroTransition.swift */; };
-		8BE7EE3A25159706005E20DD /* TiledFlipRetroTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE3925159706005E20DD /* TiledFlipRetroTransition.swift */; };
+		8BE7EE432515D9E3005E20DD /* StraightLineRetroTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE422515D9E3005E20DD /* StraightLineRetroTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,7 +148,7 @@
 		8B7497EA24FCE8E8003C7DAA /* UITableView+TopMusicAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+TopMusicAdditions.swift"; sourceTree = "<group>"; };
 		8B7497EC24FCEAE8003C7DAA /* ActivityImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityImageView.swift; sourceTree = "<group>"; };
 		8BE7EE34251596E5005E20DD /* RetroTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroTransition.swift; sourceTree = "<group>"; };
-		8BE7EE3925159706005E20DD /* TiledFlipRetroTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiledFlipRetroTransition.swift; sourceTree = "<group>"; };
+		8BE7EE422515D9E3005E20DD /* StraightLineRetroTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightLineRetroTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,7 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				8BE7EE34251596E5005E20DD /* RetroTransition.swift */,
-				8BE7EE3925159706005E20DD /* TiledFlipRetroTransition.swift */,
+				8BE7EE422515D9E3005E20DD /* StraightLineRetroTransition.swift */,
 			);
 			path = Animators;
 			sourceTree = "<group>";
@@ -555,12 +555,12 @@
 				8B74978524F6E9E8003C7DAA /* ApiError.swift in Sources */,
 				8B7497CD24FBA1FD003C7DAA /* ImageCache.swift in Sources */,
 				8B74979524F71E8D003C7DAA /* Codable+extensions.swift in Sources */,
-				8BE7EE3A25159706005E20DD /* TiledFlipRetroTransition.swift in Sources */,
 				8B74978B24F6F42A003C7DAA /* GenreModel.swift in Sources */,
 				8B74978324F6E86D003C7DAA /* ParameterEncoding.swift in Sources */,
 				8B74977624F63A9D003C7DAA /* MusicServerRequest.swift in Sources */,
 				8B74979A24F73D8F003C7DAA /* AlbumDetailCoordinator.swift in Sources */,
 				8B74976D24F59D57003C7DAA /* HTTPMethod.swift in Sources */,
+				8BE7EE432515D9E3005E20DD /* StraightLineRetroTransition.swift in Sources */,
 				8B74977424F5F0D3003C7DAA /* Requests.swift in Sources */,
 				8B74976B24F59C23003C7DAA /* BaseCoordinator.swift in Sources */,
 				8B7497BD24FB1A6F003C7DAA /* UITableViewController+extensions.swift in Sources */,
