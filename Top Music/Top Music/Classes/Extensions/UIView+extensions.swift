@@ -10,6 +10,12 @@ import UIKit
 
 extension UIView {
     
+    var allSubViews: [UIView] {
+            var array = [self.subviews].flatMap {$0}
+            array.forEach { array.append(contentsOf: $0.allSubViews) }
+            return array
+    }
+    
     func addSubviews(_ svArr:[UIView], manualConstraints: Bool = true) {
         for vw in svArr {
             self.addSubview(vw)
