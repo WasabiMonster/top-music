@@ -14,50 +14,51 @@ protocol AlbumDetailViewModelDelegate: class {
 }
 
 final class AlbumDetailViewModel: NSObject {
+    let detail: AlbumModel
     weak var delegate: AlbumDetailViewModelDelegate?
     
-    var detail: AlbumModel? {
-        didSet {
-            delegate?.detailDidChange(viewModel: self)
-        }
+    init(detail: AlbumModel) {
+        self.detail = detail
+        super.init()
+        delegate?.detailDidChange(viewModel: self)
     }
-    
+        
     var id: String {
-        return detail?.id ?? ""
+        return detail.id
     }
     
     var albumText: String {
-        return detail?.name ?? ""
+        return detail.name
     }
     
     var artistText: String {
-        return detail?.artistName ?? ""
+        return detail.artistName
     }
     
     var artworkUrl: String {
-        return detail?.artworkUrl ?? ""
+        return detail.artworkUrl
     }
     
     var genreText: String {
-        return detail?.genres.map{$0.name}.joined(separator: ", ") ?? ""
+        return detail.genres.map{$0.name}.joined(separator: ", ")
     }
 
     var releaseDateText: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
-        if let date = detail?.releaseDate {
+        if let date = detail.releaseDate {
             return "Released: \(dateFormatter.string(from: date))"
         }
         return ""
     }
     
     var copyrightText: String {
-        return detail?.copyright ?? ""
+        return detail.copyright
     }
     
     var iTunesUrl: String {
-        return detail?.url ?? "http://www.apple.com"
+        return detail.url ?? "http://www.apple.com"
     }
     
 }

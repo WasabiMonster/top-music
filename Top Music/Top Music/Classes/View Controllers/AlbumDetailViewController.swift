@@ -14,6 +14,7 @@ protocol AlbumDetailViewControllerDelegate: class {
 
 final class AlbumDetailViewController: UIViewController {
     
+    let viewModel: AlbumDetailViewModel
     weak var albumDetailViewControllerDelegate: AlbumDetailViewControllerDelegate?
     
     private var textStackView: UIStackView?
@@ -26,7 +27,19 @@ final class AlbumDetailViewController: UIViewController {
     private var ctaButton: UIButton = UIButton.callToAction(text: "VIEW IN ITUNES")
     
     let marginPadding: CGFloat = 20
+    
+    init(viewModel: AlbumDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        
+        viewModel.delegate = self
+        // updateDisplay()
+    }
 
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.middleDark
@@ -36,7 +49,7 @@ final class AlbumDetailViewController: UIViewController {
         updateDisplay()
     }
     
-    var viewModel: AlbumDetailViewModel? {
+    /* var viewModel: AlbumDetailViewModel? {
         willSet {
             viewModel?.delegate = nil
         }
@@ -44,11 +57,11 @@ final class AlbumDetailViewController: UIViewController {
             viewModel?.delegate = self
             updateDisplay()
         }
-    }
+    } */
     
     fileprivate func updateDisplay() {
         self.artworkImage.showActivityIndicator()
-        if let viewModel = viewModel {
+        
             albumLabel.text = viewModel.albumText
             artistLabel.text = viewModel.artistText
             genreLabel.text = viewModel.genreText
@@ -70,10 +83,6 @@ final class AlbumDetailViewController: UIViewController {
                     }
                 }
             }
-        } else {
-            genreLabel.text = ""
-            releaseDateLabel.text = ""
-        }
         
     }
     
@@ -125,8 +134,7 @@ final class AlbumDetailViewController: UIViewController {
     }
     
     @objc private func openExternalLink() {
-        guard let link = viewModel?.iTunesUrl else { return }
-        self.albumDetailViewControllerDelegate?.albumDetailViewController(self, didSelectExternalLink: link, id: viewModel?.id ?? "")
+        self.albumDetailViewControllerDelegate?.albumDetailViewController(self, didSelectExternalLink: viewModel.iTunesUrl, id: viewModel.id)
     }
     
 }

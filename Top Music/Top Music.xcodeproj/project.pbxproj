@@ -13,7 +13,6 @@
 		8B74973B24F5904B003C7DAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B74973A24F5904B003C7DAA /* Assets.xcassets */; };
 		8B74973E24F5904B003C7DAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B74973C24F5904B003C7DAA /* LaunchScreen.storyboard */; };
 		8B74975424F5904B003C7DAA /* Top_MusicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74975324F5904B003C7DAA /* Top_MusicUITests.swift */; };
-		8B74976B24F59C23003C7DAA /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74976A24F59C23003C7DAA /* BaseCoordinator.swift */; };
 		8B74976D24F59D57003C7DAA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74976C24F59D57003C7DAA /* HTTPMethod.swift */; };
 		8B74977024F59F8A003C7DAA /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74976F24F59F8A003C7DAA /* AppCoordinator.swift */; };
 		8B74977424F5F0D3003C7DAA /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74977324F5F0D3003C7DAA /* Requests.swift */; };
@@ -65,6 +64,10 @@
 		8B7497ED24FCEAE8003C7DAA /* ActivityImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497EC24FCEAE8003C7DAA /* ActivityImageView.swift */; };
 		8BE7EE35251596E5005E20DD /* RetroTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE34251596E5005E20DD /* RetroTransition.swift */; };
 		8BE7EE432515D9E3005E20DD /* StraightLineRetroTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE422515D9E3005E20DD /* StraightLineRetroTransition.swift */; };
+		8BE7EE522515FAEF005E20DD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE512515FAEF005E20DD /* Coordinator.swift */; };
+		8BE7EE572515FB42005E20DD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE562515FB42005E20DD /* Router.swift */; };
+		8BE7EE5C2515FBE8005E20DD /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE5B2515FBE8005E20DD /* Presentable.swift */; };
+		8BE7EE682515FD7C005E20DD /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE672515FD7C005E20DD /* DeepLink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +100,6 @@
 		8B74974F24F5904B003C7DAA /* Top MusicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Top MusicUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B74975324F5904B003C7DAA /* Top_MusicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top_MusicUITests.swift; sourceTree = "<group>"; };
 		8B74975524F5904B003C7DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B74976A24F59C23003C7DAA /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		8B74976C24F59D57003C7DAA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		8B74976F24F59F8A003C7DAA /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8B74977324F5F0D3003C7DAA /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
@@ -149,6 +151,10 @@
 		8B7497EC24FCEAE8003C7DAA /* ActivityImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityImageView.swift; sourceTree = "<group>"; };
 		8BE7EE34251596E5005E20DD /* RetroTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroTransition.swift; sourceTree = "<group>"; };
 		8BE7EE422515D9E3005E20DD /* StraightLineRetroTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightLineRetroTransition.swift; sourceTree = "<group>"; };
+		8BE7EE512515FAEF005E20DD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8BE7EE562515FB42005E20DD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		8BE7EE5B2515FBE8005E20DD /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		8BE7EE672515FD7C005E20DD /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,10 +287,11 @@
 		8B74976524F59841003C7DAA /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				8B74976A24F59C23003C7DAA /* BaseCoordinator.swift */,
-				8B74976F24F59F8A003C7DAA /* AppCoordinator.swift */,
+				8BE7EE662515FD0A005E20DD /* Base */,
 				8B74979924F73D8F003C7DAA /* AlbumDetailCoordinator.swift */,
 				8B74979724F73D56003C7DAA /* AlbumsCoordinator.swift */,
+				8B74976F24F59F8A003C7DAA /* AppCoordinator.swift */,
+				8BE7EE672515FD7C005E20DD /* DeepLink.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -388,6 +395,16 @@
 				8BE7EE422515D9E3005E20DD /* StraightLineRetroTransition.swift */,
 			);
 			path = Animators;
+			sourceTree = "<group>";
+		};
+		8BE7EE662515FD0A005E20DD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8BE7EE512515FAEF005E20DD /* Coordinator.swift */,
+				8BE7EE5B2515FBE8005E20DD /* Presentable.swift */,
+				8BE7EE562515FB42005E20DD /* Router.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,12 +544,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE7EE572515FB42005E20DD /* Router.swift in Sources */,
 				8B74977024F59F8A003C7DAA /* AppCoordinator.swift in Sources */,
 				8B7497AC24F75BE8003C7DAA /* UILabel+TopMusicAdditions.swift in Sources */,
+				8BE7EE522515FAEF005E20DD /* Coordinator.swift in Sources */,
 				8B74977E24F6414F003C7DAA /* Environment.swift in Sources */,
 				8B7497D024FBA227003C7DAA /* PendingOperations.swift in Sources */,
 				8BE7EE35251596E5005E20DD /* RetroTransition.swift in Sources */,
 				8B74979F24F74E5E003C7DAA /* AlbumsViewModel.swift in Sources */,
+				8BE7EE5C2515FBE8005E20DD /* Presentable.swift in Sources */,
 				8B7497A124F74E6F003C7DAA /* AlbumDetailViewModel.swift in Sources */,
 				8B74973624F59048003C7DAA /* AlbumsViewController.swift in Sources */,
 				8B74977A24F64032003C7DAA /* ApiManager.swift in Sources */,
@@ -562,11 +582,11 @@
 				8B74976D24F59D57003C7DAA /* HTTPMethod.swift in Sources */,
 				8BE7EE432515D9E3005E20DD /* StraightLineRetroTransition.swift in Sources */,
 				8B74977424F5F0D3003C7DAA /* Requests.swift in Sources */,
-				8B74976B24F59C23003C7DAA /* BaseCoordinator.swift in Sources */,
 				8B7497BD24FB1A6F003C7DAA /* UITableViewController+extensions.swift in Sources */,
 				8B7497EB24FCE8E8003C7DAA /* UITableView+TopMusicAdditions.swift in Sources */,
 				8B7497BB24FA073C003C7DAA /* UIView+extensions.swift in Sources */,
 				8B74979824F73D56003C7DAA /* AlbumsCoordinator.swift in Sources */,
+				8BE7EE682515FD7C005E20DD /* DeepLink.swift in Sources */,
 				8B74977824F63ACA003C7DAA /* AlbumFeedRequest.swift in Sources */,
 				8B7497C824FB64CB003C7DAA /* UIButton+TopMusicAdditions.swift in Sources */,
 			);

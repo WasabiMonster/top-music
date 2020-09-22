@@ -9,22 +9,34 @@
 import Foundation
 import UIKit
 
-class AlbumDetailCoordinator: BaseCoordinator {
+class AlbumDetailCoordinator: Coordinator<DeepLink> {
     
     let transitionClass = StraightLineRetroTransition.self
     private var viewModel: AlbumDetailViewModel
     
-    init(presenter: UINavigationController, viewModel: AlbumDetailViewModel) {
+    lazy var albumDetailViewController: AlbumDetailViewController = {
+        let vc = AlbumDetailViewController(viewModel: self.viewModel)
+        vc.albumDetailViewControllerDelegate = self
+        return vc
+    }()
+    
+    init(router: RouterProtocol, viewModel: AlbumDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(router: router)
+        router.setRootModule(albumDetailViewController, hideBar: false)
+    }
+    
+    /* init(presenter: UINavigationController, viewModel: AlbumDetailViewModel) {
         self.viewModel = viewModel
         super.init(presenter: presenter)
-    }
+    } */
         
-    override func start() {
+    /* override func start() {
         let albumDetailViewController = AlbumDetailViewController()
         albumDetailViewController.albumDetailViewControllerDelegate = self
         albumDetailViewController.viewModel = self.viewModel
         presenter.pushViewController(albumDetailViewController, withRetroTransition: transitionClass.init())
-    }
+    } */
     
 }
 

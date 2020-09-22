@@ -87,6 +87,7 @@ public extension UINavigationController {
     func pushViewController(_ viewController: UIViewController, withRetroTransition transition: RetroTransition) {
         RetroTransitionNavigationDelegate.shared.pushTransition(transition, forNavigationController: self)
         pushViewController(viewController, animated: true)
+        print("*091920* \(type(of: self)), \(#function) || PUSH")
     }
     
     func popViewControllerRetroTransition(_ transition: RetroTransition) -> UIViewController? {
