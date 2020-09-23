@@ -42,7 +42,6 @@ final class AlbumsViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.deselectSelectedRow()
     }
         
     /* var viewModel: AlbumsViewModel? {
