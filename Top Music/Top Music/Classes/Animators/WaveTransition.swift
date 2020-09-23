@@ -1,5 +1,5 @@
 //
-//  RetroTransition.swift
+//  WaveTransition.swift
 //  Top Music
 //
 //  Created by Patrick Wilson on 9/11/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RetroBasicAnimation: CABasicAnimation, CAAnimationDelegate {
+class WaveBasicAnimation: CABasicAnimation, CAAnimationDelegate {
     public var onFinish: (() -> (Void))?
     
     override init() {
@@ -27,7 +27,7 @@ class RetroBasicAnimation: CABasicAnimation, CAAnimationDelegate {
     }   
 }
 
-public class RetroTransition: NSObject {
+public class WaveTransition: NSObject {
     public var duration: TimeInterval = 0.33
     required public init(duration: TimeInterval? = nil) {
         super.init()
@@ -52,7 +52,7 @@ public class RetroTransition: NSObject {
     } */
 }
 
-extension RetroTransition: UIViewControllerAnimatedTransitioning {
+extension WaveTransition: UIViewControllerAnimatedTransitioning {
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return self.duration
     }
@@ -62,16 +62,16 @@ extension RetroTransition: UIViewControllerAnimatedTransitioning {
     }
 }
 
-internal class RetroTransitionNavigationDelegate: NSObject, UINavigationControllerDelegate {
-    static let shared = RetroTransitionNavigationDelegate()
-    var transitions: [RetroTransition] = []
+internal class WaveTransitionNavigationDelegate: NSObject, UINavigationControllerDelegate {
+    static let shared = WaveTransitionNavigationDelegate()
+    var transitions: [WaveTransition] = []
     var oldNavigationDelegate: UINavigationControllerDelegate?
     
-    func pushTransition(_ transition: RetroTransition, forNavigationController navigationController: UINavigationController) {
+    func pushTransition(_ transition: WaveTransition, forNavigationController navigationController: UINavigationController) {
         transitions.append(transition)
         oldNavigationDelegate = navigationController.delegate
         
-        navigationController.delegate = RetroTransitionNavigationDelegate.shared
+        navigationController.delegate = WaveTransitionNavigationDelegate.shared
     }
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -84,14 +84,14 @@ internal class RetroTransitionNavigationDelegate: NSObject, UINavigationControll
 }
 
 public extension UINavigationController {
-    func pushViewController(_ viewController: UIViewController, withRetroTransition transition: RetroTransition) {
-        RetroTransitionNavigationDelegate.shared.pushTransition(transition, forNavigationController: self)
+    func pushViewController(_ viewController: UIViewController, withWaveTransition transition: WaveTransition) {
+        WaveTransitionNavigationDelegate.shared.pushTransition(transition, forNavigationController: self)
         pushViewController(viewController, animated: true)
         print("*091920* \(type(of: self)), \(#function) || PUSH")
     }
     
-    func popViewControllerRetroTransition(_ transition: RetroTransition) -> UIViewController? {
-        RetroTransitionNavigationDelegate.shared.pushTransition(transition, forNavigationController: self)
+    func popViewControllerWaveTransition(_ transition: WaveTransition) -> UIViewController? {
+        WaveTransitionNavigationDelegate.shared.pushTransition(transition, forNavigationController: self)
         return popViewController(animated: true)
     }
 }

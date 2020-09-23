@@ -1,5 +1,5 @@
 //
-//  StraightLineRetroTransition.swift
+//  StraightLineWaveTransition.swift
 //  Top Music
 //
 //  Created by Patrick Wilson on 9/18/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class StraightLineRetroTransition : RetroTransition {
+public class StraightLineWaveTransition : WaveTransition {
     public var sideToSlideFrom: UIRectEdge = .left
     
     override public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -45,7 +45,7 @@ public class StraightLineRetroTransition : RetroTransition {
         
         fromVC.view.layer.mask = shapeLayer
         
-        let animation : RetroBasicAnimation = RetroBasicAnimation()
+        let animation : WaveBasicAnimation = WaveBasicAnimation()
         animation.keyPath = "path"
         animation.fillMode = .forwards
         animation.isRemovedOnCompletion = false

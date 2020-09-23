@@ -11,7 +11,7 @@ import UIKit
 
 class AlbumDetailCoordinator: Coordinator<DeepLink> {
     
-    let transitionClass = StraightLineRetroTransition.self
+    let transitionClass = StraightLineWaveTransition.self
     private var viewModel: AlbumDetailViewModel
     
     lazy var albumDetailViewController: AlbumDetailViewController = {
@@ -35,7 +35,7 @@ class AlbumDetailCoordinator: Coordinator<DeepLink> {
         let albumDetailViewController = AlbumDetailViewController()
         albumDetailViewController.albumDetailViewControllerDelegate = self
         albumDetailViewController.viewModel = self.viewModel
-        presenter.pushViewController(albumDetailViewController, withRetroTransition: transitionClass.init())
+        presenter.pushViewController(albumDetailViewController, withWaveTransition: transitionClass.init())
     } */
     
 }
