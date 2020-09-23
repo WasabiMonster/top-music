@@ -15,6 +15,7 @@ final class AppCoordinator: Coordinator<DeepLink> {
     lazy var albumsCoordinator: AlbumsCoordinator = {
         let router = Router(navigationController: navigationController)
         let coordinator = AlbumsCoordinator(router: router)
+        coordinator.albumsViewController.albumsViewControllerDelegate = self
         return coordinator
     }()
     
@@ -40,12 +41,53 @@ final class AppCoordinator: Coordinator<DeepLink> {
         navigationController.navigationBar.tintColor = UIColor.groovyPink
     }
     
-    override func start() {
-        showHome()
+    override func start(with link: DeepLink?) {
+        if let link = link {
+            switch link {
+            case .home:
+                showHome()
+            case .detail:
+                showDetail(at: 0)
+            }
+        } else {
+            showHome()
+        }
     }
     
     func showHome() {
         albumsCoordinator.start()
+    }
+    
+    func showDetail(at index: Int) {
+        let detailViewModel = AlbumDetailViewModel(detail: albumsCoordinator.albumsViewModel.album(at: index))
+        let coordinator = AlbumDetailCoordinator(router: router, viewModel: detailViewModel)
+        
+        // Maintain a strong reference to avoid deallocation
+        addChild(coordinator)
+        coordinator.start()
+        
+        // Avoid retain cycles and don't forget to remove the child when popped
+        router.push(coordinator, animated: true) { [weak self, weak coordinator] in
+            self?.removeChild(coordinator)
+        }
+        
+        /* let detailViewModel = AlbumDetailViewModel()
+        detailViewModel.detail = albumsViewController?.viewModel?.album(at: index)
+        let albumDC = AlbumDetailCoordinator(presenter: presenter, viewModel: detailViewModel)
+        self.albumDetailCoordinator = albumDC
+        albumDC.start() */
+    }
+    
+}
+
+extension AppCoordinator: AlbumsViewControllerDelegate {
+
+    func albumsViewController(_ controller: AlbumsViewController, didSelectAlbumAt index: Int) {
+        showDetail(at: index)
+    }
+    
+    func albumsViewController(_ viewController: AlbumsViewController, didReceiveError error: Error) {
+        viewController.presentErrorAlert(error)
     }
     
 }
