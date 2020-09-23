@@ -21,8 +21,9 @@ final class AppCoordinator: Coordinator<DeepLink> {
     override init(router: RouterProtocol) {
         navigationController = router.navigationController
         super.init(router: router)
-        
-        // router.setRootModule(navigationController, hideBar: true)
+
+        // router.setRootModule(albumsCoordinator.albumsViewController, hideBar: true)
+        configureNavBar()
     }
     
     private func configureNavBar() {
