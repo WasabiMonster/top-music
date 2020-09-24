@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "B994B959-CDE4-4EE5-86CE-C4FBF4892250",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Top Music.xcodeproj",
+        "identifier" : "8B74974324F5904B003C7DAA",
+        "name" : "Top MusicTests"
+      }
+    }
+  ],
+  "version" : 1
+}

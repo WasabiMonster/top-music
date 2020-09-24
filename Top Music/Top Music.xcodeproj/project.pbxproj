@@ -155,6 +155,7 @@
 		8BE7EE562515FB42005E20DD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8BE7EE5B2515FBE8005E20DD /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		8BE7EE672515FD7C005E20DD /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
+		8BE7EE82251D2EE8005E20DD /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +218,7 @@
 		8B74974724F5904B003C7DAA /* Top MusicTests */ = {
 			isa = PBXGroup;
 			children = (
+				8BE7EE82251D2EE8005E20DD /* TestPlan.xctestplan */,
 				8B74976324F59532003C7DAA /* Helpers */,
 				8B74977F24F6E76F003C7DAA /* JSON */,
 				8B7497E424FC8B11003C7DAA /* AlbumFeedRequestTests.swift */,
