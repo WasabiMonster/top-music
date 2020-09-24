@@ -44,17 +44,6 @@ final class AlbumsViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
         
-    /* var viewModel: AlbumsViewModel? {
-        willSet {
-            viewModel?.delegate = nil
-            self.tableViewDelegate = nil
-        }
-        didSet {
-            viewModel?.delegate = self
-            self.tableViewDelegate = viewModel
-        }
-    } */
-        
     private func configureTableView() {
         self.tableView.estimatedRowHeight = UITableView.automaticDimension
         self.tableView.rowHeight = UITableView.automaticDimension

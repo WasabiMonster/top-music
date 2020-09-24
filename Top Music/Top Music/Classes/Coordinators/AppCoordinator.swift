@@ -70,12 +70,6 @@ final class AppCoordinator: Coordinator<DeepLink> {
         router.push(coordinator, animated: true) { [weak self, weak coordinator] in
             self?.removeChild(coordinator)
         }
-        
-        /* let detailViewModel = AlbumDetailViewModel()
-        detailViewModel.detail = albumsViewController?.viewModel?.album(at: index)
-        let albumDC = AlbumDetailCoordinator(presenter: presenter, viewModel: detailViewModel)
-        self.albumDetailCoordinator = albumDC
-        albumDC.start() */
     }
     
 }
