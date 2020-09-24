@@ -23,20 +23,21 @@ class AlbumDetailCoordinator: Coordinator<DeepLink> {
     init(router: RouterProtocol, viewModel: AlbumDetailViewModel) {
         self.viewModel = viewModel
         super.init(router: router)
-        router.setRootModule(albumDetailViewController, hideBar: false)
+        // router.setRootModule(albumDetailViewController, hideBar: false)
     }
     
-    /* init(presenter: UINavigationController, viewModel: AlbumDetailViewModel) {
-        self.viewModel = viewModel
-        super.init(presenter: presenter)
-    } */
-        
     /* override func start() {
         let albumDetailViewController = AlbumDetailViewController()
         albumDetailViewController.albumDetailViewControllerDelegate = self
         albumDetailViewController.viewModel = self.viewModel
         presenter.pushViewController(albumDetailViewController, withWaveTransition: transitionClass.init())
     } */
+    
+    // We must override toPresentable() so it doesn't
+    // default to the router's navigationController
+    override func toPresentable() -> UIViewController {
+        return albumDetailViewController
+    }
     
 }
 

@@ -88,6 +88,7 @@ final class AlbumsViewController: UITableViewController {
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         albumsViewControllerDelegate?.albumsViewController(self, didSelectAlbumAt: indexPath.row)
+        self.tableView.deselectRow(at: indexPath, animated: false)
     }
     
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
