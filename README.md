@@ -14,3 +14,4 @@ This architecture is useful for an application that scales and has seperation of
 
 # Coming soon:
 - Custom UIViewController transitions between screens
+- Deep linking into specified views
