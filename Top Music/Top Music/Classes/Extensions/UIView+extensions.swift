@@ -10,10 +10,31 @@ import UIKit
 
 extension UIView {
     
+    /* public enum ScreenEdge {
+        case top
+        case left
+        case bottom
+        case right
+    } */
+    
     var allSubViews: [UIView] {
-            var array = [self.subviews].flatMap {$0}
-            array.forEach { array.append(contentsOf: $0.allSubViews) }
-            return array
+        var array = [self.subviews].flatMap {$0}
+        array.forEach { array.append(contentsOf: $0.allSubViews) }
+        return array
+    }
+    
+    func animateFromEdge(_ side:NSLayoutConstraint, duration: Double = 0.5, delay: Double = 0.0) {
+        self.topAnchor
+        self.leftAnchor
+        
+        self.topConstraint.constant += 100
+        UIView.animate(withDuration: duration,
+                       delay: delay,
+                       options: .curveEaseIn,
+                       animations: {
+                        
+                        self.layoutIfNeeded()
+        }, completion: nil)
     }
     
     func addSubviews(_ svArr:[UIView], manualConstraints: Bool = true) {
