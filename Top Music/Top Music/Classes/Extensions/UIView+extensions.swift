@@ -24,10 +24,10 @@ extension UIView {
     }
     
     func animateFromEdge(_ side:NSLayoutConstraint, duration: Double = 0.5, delay: Double = 0.0) {
-        self.topAnchor
-        self.leftAnchor
+        // self.topAnchor
+        // self.leftAnchor
         
-        self.topConstraint.constant += 100
+        // self.topConstraint.constant += 100
         UIView.animate(withDuration: duration,
                        delay: delay,
                        options: .curveEaseIn,
@@ -35,6 +35,40 @@ extension UIView {
                         
                         self.layoutIfNeeded()
         }, completion: nil)
+    }
+    
+    var originX: CGFloat {
+        set {
+            var frame:CGRect = self.frame
+            frame.origin.x = newValue
+            self.frame = frame
+        }
+        get {
+            return self.frame.origin.x
+        }
+    }
+
+    var originY: CGFloat {
+        set {
+            var frame:CGRect = self.frame
+            frame.origin.y = newValue
+            self.frame = frame
+        }
+        get {
+            return self.frame.origin.y
+        }
+    }
+
+    func setWidth(_ width:CGFloat) {
+        var frame:CGRect = self.frame
+        frame.size.width = width
+        self.frame = frame
+    }
+
+    func setHeight(_ height:CGFloat) {
+        var frame:CGRect = self.frame
+        frame.size.height = height
+        self.frame = frame
     }
     
     func addSubviews(_ svArr:[UIView], manualConstraints: Bool = true) {

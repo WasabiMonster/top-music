@@ -10,8 +10,7 @@ import Foundation
 import UIKit
 
 class AlbumDetailCoordinator: Coordinator<DeepLink> {
-    
-    let transitionClass = StraightLineWaveTransition.self
+
     private var viewModel: AlbumDetailViewModel
     
     lazy var albumDetailViewController: AlbumDetailViewController = {

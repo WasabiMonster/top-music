@@ -42,14 +42,14 @@ public class WaveTransition: NSObject {
         return CGRect.init(x: rect.origin.x + magnitude, y: rect.origin.y + magnitude, width: rect.size.width - magnitude * 2, height: rect.size.height - magnitude * 2)
     }
     
-    /* internal func snapshot(_ view: UIView) -> UIImage? {
+    internal func snapshot(_ view: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, UIScreen.main.scale)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return img
-    } */
+    }
 }
 
 extension WaveTransition: UIViewControllerAnimatedTransitioning {

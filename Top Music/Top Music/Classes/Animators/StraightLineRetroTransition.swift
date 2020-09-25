@@ -45,7 +45,7 @@ public class StraightLineWaveTransition : WaveTransition {
         
         fromVC.view.layer.mask = shapeLayer
         
-        let animation : WaveBasicAnimation = WaveBasicAnimation()
+        let animation: WaveBasicAnimation = WaveBasicAnimation()
         animation.keyPath = "path"
         animation.fillMode = .forwards
         animation.isRemovedOnCompletion = false
