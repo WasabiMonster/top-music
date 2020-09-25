@@ -47,8 +47,6 @@ final class AlbumDetailViewController: UIViewController {
         configureLayout()
         configureActions()
         updateDisplay()
-        
-        albumLabel.animateInFromEdge(side: .right, duration: 0.75, delay: 0.0)
     }
     
     override func viewWillAppear(_ animated: Bool) {

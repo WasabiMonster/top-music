@@ -10,13 +10,6 @@ import UIKit
 
 extension UIView {
     
-    public enum ScreenEdge {
-        case top
-        case left
-        case bottom
-        case right
-    }
-    
     var allSubViews: [UIView] {
         var array = [self.subviews].flatMap {$0}
         array.forEach { array.append(contentsOf: $0.allSubViews) }
@@ -24,7 +17,7 @@ extension UIView {
     }
     
     // Works best when elements are embedded inside a UIStackView
-    func animateInFromEdge(side: ScreenEdge, duration: Double = 0.5, delay: Double = 0.0, options: AnimationOptions = .curveEaseIn) {
+    func animateInFromEdge(side: UIRectEdge, duration: Double = 0.5, delay: Double = 0.0, options: AnimationOptions = .curveEaseIn) {
         let orgXPos = self.originX
         let orgYPos = self.originY
         
@@ -37,6 +30,9 @@ extension UIView {
             self.originY = -(self.frame.height)
         case .bottom:
             self.originY = (self.superview?.frame.height ?? 0) + self.frame.height
+        default:
+            // no-op
+            return
         }
         
         UIView.animate(withDuration: duration,

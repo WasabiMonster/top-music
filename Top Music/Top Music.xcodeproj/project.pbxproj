@@ -62,8 +62,8 @@
 		8B7497E724FCB239003C7DAA /* AlbumDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497E624FCB239003C7DAA /* AlbumDetailViewModelTests.swift */; };
 		8B7497EB24FCE8E8003C7DAA /* UITableView+TopMusicAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497EA24FCE8E8003C7DAA /* UITableView+TopMusicAdditions.swift */; };
 		8B7497ED24FCEAE8003C7DAA /* ActivityImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7497EC24FCEAE8003C7DAA /* ActivityImageView.swift */; };
-		8BE7EE35251596E5005E20DD /* WaveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE34251596E5005E20DD /* WaveTransition.swift */; };
-		8BE7EE432515D9E3005E20DD /* StraightLineRetroTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE422515D9E3005E20DD /* StraightLineRetroTransition.swift */; };
+		8BE7EE35251596E5005E20DD /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE34251596E5005E20DD /* CustomTransition.swift */; };
+		8BE7EE432515D9E3005E20DD /* WaveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE422515D9E3005E20DD /* WaveTransition.swift */; };
 		8BE7EE522515FAEF005E20DD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE512515FAEF005E20DD /* Coordinator.swift */; };
 		8BE7EE572515FB42005E20DD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE562515FB42005E20DD /* Router.swift */; };
 		8BE7EE5C2515FBE8005E20DD /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7EE5B2515FBE8005E20DD /* Presentable.swift */; };
@@ -149,8 +149,8 @@
 		8B7497E624FCB239003C7DAA /* AlbumDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewModelTests.swift; sourceTree = "<group>"; };
 		8B7497EA24FCE8E8003C7DAA /* UITableView+TopMusicAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+TopMusicAdditions.swift"; sourceTree = "<group>"; };
 		8B7497EC24FCEAE8003C7DAA /* ActivityImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityImageView.swift; sourceTree = "<group>"; };
-		8BE7EE34251596E5005E20DD /* WaveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveTransition.swift; sourceTree = "<group>"; };
-		8BE7EE422515D9E3005E20DD /* StraightLineRetroTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightLineRetroTransition.swift; sourceTree = "<group>"; };
+		8BE7EE34251596E5005E20DD /* CustomTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
+		8BE7EE422515D9E3005E20DD /* WaveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveTransition.swift; sourceTree = "<group>"; };
 		8BE7EE512515FAEF005E20DD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8BE7EE562515FB42005E20DD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8BE7EE5B2515FBE8005E20DD /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
@@ -393,8 +393,8 @@
 		8BC2E100250C40F1003FB4DC /* Animators */ = {
 			isa = PBXGroup;
 			children = (
-				8BE7EE34251596E5005E20DD /* WaveTransition.swift */,
-				8BE7EE422515D9E3005E20DD /* StraightLineRetroTransition.swift */,
+				8BE7EE34251596E5005E20DD /* CustomTransition.swift */,
+				8BE7EE422515D9E3005E20DD /* WaveTransition.swift */,
 			);
 			path = Animators;
 			sourceTree = "<group>";
@@ -552,7 +552,7 @@
 				8BE7EE522515FAEF005E20DD /* Coordinator.swift in Sources */,
 				8B74977E24F6414F003C7DAA /* Environment.swift in Sources */,
 				8B7497D024FBA227003C7DAA /* PendingOperations.swift in Sources */,
-				8BE7EE35251596E5005E20DD /* WaveTransition.swift in Sources */,
+				8BE7EE35251596E5005E20DD /* CustomTransition.swift in Sources */,
 				8B74979F24F74E5E003C7DAA /* AlbumsViewModel.swift in Sources */,
 				8BE7EE5C2515FBE8005E20DD /* Presentable.swift in Sources */,
 				8B7497A124F74E6F003C7DAA /* AlbumDetailViewModel.swift in Sources */,
@@ -582,7 +582,7 @@
 				8B74977624F63A9D003C7DAA /* MusicServerRequest.swift in Sources */,
 				8B74979A24F73D8F003C7DAA /* AlbumDetailCoordinator.swift in Sources */,
 				8B74976D24F59D57003C7DAA /* HTTPMethod.swift in Sources */,
-				8BE7EE432515D9E3005E20DD /* StraightLineRetroTransition.swift in Sources */,
+				8BE7EE432515D9E3005E20DD /* WaveTransition.swift in Sources */,
 				8B74977424F5F0D3003C7DAA /* Requests.swift in Sources */,
 				8B7497BD24FB1A6F003C7DAA /* UITableViewController+extensions.swift in Sources */,
 				8B7497EB24FCE8E8003C7DAA /* UITableView+TopMusicAdditions.swift in Sources */,

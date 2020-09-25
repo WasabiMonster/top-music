@@ -62,10 +62,10 @@ final public class Router: NSObject, RouterProtocol, UINavigationControllerDeleg
             completions[controller] = completion
         }
         
-        /// let transitionClass = StraightLineWaveTransition.self
-        /// navigationController.pushViewController(controller, withWaveTransition: transitionClass.init())
+        let transitionClass = WaveTransition.self
+        navigationController.pushViewController(controller, withCustomTransition: transitionClass.init())
 
-        navigationController.pushViewController(controller, animated: animated)
+        /// navigationController.pushViewController(controller, animated: animated)
     }
     
     public func popModule(animated: Bool = true)  {
