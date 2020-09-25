@@ -24,8 +24,4 @@ class AlbumsCoordinator: Coordinator<DeepLink> {
         router.setRootModule(albumsViewController, hideBar: false)
     }
         
-    /* override func start() {
-        presenter.pushViewController(albumsVC, animated: true)
-    } */
-    
 }

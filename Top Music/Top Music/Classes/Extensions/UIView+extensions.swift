@@ -10,12 +10,12 @@ import UIKit
 
 extension UIView {
     
-    /* public enum ScreenEdge {
+    public enum ScreenEdge {
         case top
         case left
         case bottom
         case right
-    } */
+    }
     
     var allSubViews: [UIView] {
         var array = [self.subviews].flatMap {$0}
@@ -23,17 +23,28 @@ extension UIView {
         return array
     }
     
-    func animateFromEdge(_ side:NSLayoutConstraint, duration: Double = 0.5, delay: Double = 0.0) {
-        // self.topAnchor
-        // self.leftAnchor
+    // Works best when elements are embedded inside a UIStackView
+    func animateInFromEdge(side: ScreenEdge, duration: Double = 0.5, delay: Double = 0.0, options: AnimationOptions = .curveEaseIn) {
+        let orgXPos = self.originX
+        let orgYPos = self.originY
         
-        // self.topConstraint.constant += 100
+        switch side {
+        case .right:
+            self.originX = self.frame.width + (self.superview?.frame.width ?? 0)
+        case .left:
+            self.originX = -(self.frame.width)
+        case .top:
+            self.originY = -(self.frame.height)
+        case .bottom:
+            self.originY = (self.superview?.frame.height ?? 0) + self.frame.height
+        }
+        
         UIView.animate(withDuration: duration,
                        delay: delay,
-                       options: .curveEaseIn,
+                       options: options,
                        animations: {
-                        
-                        self.layoutIfNeeded()
+                        self.originX = orgXPos
+                        self.originY = orgYPos
         }, completion: nil)
     }
     

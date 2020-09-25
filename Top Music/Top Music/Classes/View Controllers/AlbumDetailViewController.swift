@@ -47,17 +47,22 @@ final class AlbumDetailViewController: UIViewController {
         configureLayout()
         configureActions()
         updateDisplay()
+        
+        albumLabel.animateInFromEdge(side: .right, duration: 0.75, delay: 0.0)
     }
     
-    /* var viewModel: AlbumDetailViewModel? {
-        willSet {
-            viewModel?.delegate = nil
-        }
-        didSet {
-            viewModel?.delegate = self
-            updateDisplay()
-        }
-    } */
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateOnScreen()
+    }
+    
+    func animateOnScreen() {
+        albumLabel.animateInFromEdge(side: .right, duration: 0.5, delay: 0.0)
+    }
     
     fileprivate func updateDisplay() {
         self.artworkImage.showActivityIndicator()
