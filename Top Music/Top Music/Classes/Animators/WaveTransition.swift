@@ -18,14 +18,20 @@ public class WaveTransition: CustomTransition {
                 return
         }
         
-        let screen = UIScreen.main.bounds
-        
         let containerView = transitionContext.containerView
         containerView.addSubview(toVC.view)
         containerView.addSubview(fromVC.view)
-                
-        let size: CGSize = fromVC.view.frame.size
         
+        let screen = containerView.bounds
+        let size: CGSize = containerView.frame.size
+                
+        UIView.animate(withDuration: duration,
+                       delay: 0.0,
+                       options: .curveLinear,
+                       animations: {
+                        fromVC.view.originX = fromVC.view.originX - (fromVC.view.frame.width * 0.1)
+        }, completion: nil)
+                
         var toPath = UIBezierPath()
         let fromPath = UIBezierPath(rect: screen)
         

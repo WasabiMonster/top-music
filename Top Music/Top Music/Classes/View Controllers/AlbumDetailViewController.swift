@@ -33,7 +33,6 @@ final class AlbumDetailViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         viewModel.delegate = self
-        // updateDisplay()
     }
 
     required init?(coder: NSCoder) {
