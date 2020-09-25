@@ -28,14 +28,14 @@ class CustomBasicAnimation: CABasicAnimation, CAAnimationDelegate {
 }
 
 public class CustomTransition: NSObject {
-    public var duration: TimeInterval = 0.3
+    public var duration: TimeInterval = 0.2
     required public init(duration: TimeInterval? = nil) {
         super.init()
         self.duration = duration ?? defaultDuration()
     }
     
     func defaultDuration() -> TimeInterval {
-        return 0.3
+        return 0.2
     }
     
     internal static func rectMovedIn(_ rect: CGRect, magnitude: CGFloat) -> CGRect {
@@ -86,12 +86,10 @@ public extension UINavigationController {
     func pushViewController(_ viewController: UIViewController, withCustomTransition transition: CustomTransition) {
         CustomTransitionNavigationDelegate.shared.pushTransition(transition, forNavigationController: self)
         pushViewController(viewController, animated: true)
-        print("*091920* \(type(of: self)), \(#function) || PUSH")
     }
     
     func popViewControllerCustomTransition(_ transition: CustomTransition) -> UIViewController? {
         CustomTransitionNavigationDelegate.shared.pushTransition(transition, forNavigationController: self)
-        print("*091920* \(type(of: self)), \(#function) || POP")
         return popViewController(animated: true)
     }
 }

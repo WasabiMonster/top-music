@@ -63,7 +63,7 @@ final class AlbumDetailViewController: UIViewController {
     func animateOnScreen() {
         // artworkImage.slideInFromEdge(side: .right, delay: 0.0)
         textStackView?.staggerSlideInContents(side: .right, duration: 0.5, delay: 0.1)
-        ctaButton.fadeInFromOut(speed: 0.25, delay: 0.8)
+        ctaButton.fadeInFromOut(speed: 0.25, delay: 1.1)
     }
     
     fileprivate func updateDisplay() {
