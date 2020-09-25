@@ -65,6 +65,7 @@ final public class Router: NSObject, RouterProtocol, UINavigationControllerDeleg
         let transitionClass = WaveTransition.self
         navigationController.pushViewController(controller, withCustomTransition: transitionClass.init())
 
+        // Without custom transition
         /// navigationController.pushViewController(controller, animated: animated)
     }
     

@@ -23,9 +23,7 @@ public class WaveTransition: CustomTransition {
         let containerView = transitionContext.containerView
         containerView.addSubview(toVC.view)
         containerView.addSubview(fromVC.view)
-        
-        // toVC.view.alpha = 0.5
-        
+                
         let size: CGSize = fromVC.view.frame.size
         
         var toPath = UIBezierPath()
@@ -44,7 +42,7 @@ public class WaveTransition: CustomTransition {
         let shapeLayer = CAShapeLayer.init()
         shapeLayer.path = fromPath.cgPath
         shapeLayer.bounds = CGRect.init(x: 0, y: 0, width: screen.size.width, height: screen.size.height)
-        shapeLayer.position = CGPoint(x: screen.size.width / 2, y: screen.size.height / 2)
+        shapeLayer.position = CGPoint(x: screen.size.width * 0.5, y: screen.size.height * 0.5)
         
         fromVC.view.layer.mask = shapeLayer
         
@@ -61,8 +59,6 @@ public class WaveTransition: CustomTransition {
             fromVC.view.layer.mask = nil
         }
         shapeLayer.add(animation, forKey: "path")
-        
-        // transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
     }
 
 }

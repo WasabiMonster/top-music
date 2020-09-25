@@ -51,17 +51,19 @@ final class AlbumDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.view.hideSubviews(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateOnScreen()
+        self.view.hideSubviews(false)
     }
     
     func animateOnScreen() {
-        artworkImage.slideInFromEdge(side: .right, delay: 0.0)
+        // artworkImage.slideInFromEdge(side: .right, delay: 0.0)
         textStackView?.staggerSlideInContents(side: .right, duration: 0.5, delay: 0.1)
-        ctaButton.fadeInFromOut(delay: 0.5)
+        ctaButton.fadeInFromOut(speed: 0.25, delay: 0.8)
     }
     
     fileprivate func updateDisplay() {

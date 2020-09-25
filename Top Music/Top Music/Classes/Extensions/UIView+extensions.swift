@@ -16,7 +16,11 @@ extension UIView {
         return array
     }
     
-    func staggerSlideInContents(side: UIRectEdge, duration: Double = 0.5, delay: Double = 0.0, options: AnimationOptions = .curveEaseIn) {
+    func hideSubviews(_ flag: Bool) {
+        self.subviews.forEach { $0.isHidden = flag }
+    }
+    
+    func staggerSlideInContents(side: UIRectEdge, duration: Double = 0.25, delay: Double = 0.0, options: AnimationOptions = .curveEaseIn) {
         if side != .left && side != .right {
             return
         }
@@ -95,9 +99,9 @@ extension UIView {
         }
     }
     
-    func fadeInFromOut(delay: Double = 0.3) {
+    func fadeInFromOut(speed: Double = 0.35, delay: Double = 0.3) {
         self.alpha = 0
-        UIView.animate(withDuration: 0.35, delay: delay, options: .curveEaseOut, animations: {() -> Void in
+        UIView.animate(withDuration: speed, delay: delay, options: .curveEaseOut, animations: {() -> Void in
             self.alpha = 1.0
         }, completion: nil)
     }

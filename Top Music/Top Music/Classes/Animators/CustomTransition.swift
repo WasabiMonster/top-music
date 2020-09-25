@@ -28,14 +28,14 @@ class CustomBasicAnimation: CABasicAnimation, CAAnimationDelegate {
 }
 
 public class CustomTransition: NSObject {
-    public var duration: TimeInterval = 0.33
+    public var duration: TimeInterval = 0.3
     required public init(duration: TimeInterval? = nil) {
         super.init()
         self.duration = duration ?? defaultDuration()
     }
     
     func defaultDuration() -> TimeInterval {
-        return 0.33
+        return 0.3
     }
     
     internal static func rectMovedIn(_ rect: CGRect, magnitude: CGFloat) -> CGRect {
