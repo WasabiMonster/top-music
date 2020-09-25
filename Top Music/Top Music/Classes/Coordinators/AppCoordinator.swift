@@ -9,41 +9,79 @@
 import Foundation
 import UIKit
 
-final class AppCoordinator: BaseCoordinator {
-    private let window: UIWindow
-    private let rootViewController: UINavigationController
-    private var albumsCoordinator: AlbumsCoordinator?
+final class AppCoordinator: Coordinator<DeepLink> {
+    private let navigationController: UINavigationController
     
-    init(window: UIWindow) {
-        self.window = window
-        rootViewController = UINavigationController()
-        super.init(presenter: rootViewController)
+    lazy var albumsCoordinator: AlbumsCoordinator = {
+        let router = Router(navigationController: navigationController)
+        let coordinator = AlbumsCoordinator(router: router)
+        coordinator.albumsViewController.albumsViewControllerDelegate = self
+        return coordinator
+    }()
+    
+    override init(router: RouterProtocol) {
+        navigationController = router.navigationController
+        super.init(router: router)
+
+        // router.setRootModule(albumsCoordinator.albumsViewController, hideBar: true)
         configureNavBar()
     }
     
     private func configureNavBar() {
-        rootViewController.navigationBar.isHidden = false
-        rootViewController.navigationBar.prefersLargeTitles = true
-        rootViewController.navigationBar.largeTitleTextAttributes = [
+        navigationController.navigationBar.isHidden = false
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 28)
         ]
-        rootViewController.navigationBar.titleTextAttributes = [
+        navigationController.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
-        rootViewController.navigationBar.barTintColor = UIColor.nikeFootball
-        rootViewController.navigationBar.tintColor = UIColor.groovyPink
+        navigationController.navigationBar.barTintColor = UIColor.nikeFootball
+        navigationController.navigationBar.tintColor = UIColor.groovyPink
     }
     
-    override func start() {
-        window.rootViewController = rootViewController
-        window.makeKeyAndVisible()
-        albumsCoordinator = AlbumsCoordinator(presenter: rootViewController)
-        showHome()
+    override func start(with link: DeepLink?) {
+        if let link = link {
+            switch link {
+            case .home:
+                showHome()
+            case .detail:
+                showDetail(at: 0)
+            }
+        } else {
+            showHome()
+        }
     }
     
     func showHome() {
-        albumsCoordinator?.start()
+        albumsCoordinator.start()
+    }
+    
+    func showDetail(at index: Int) {
+        let detailViewModel = AlbumDetailViewModel(detail: albumsCoordinator.albumsViewModel.album(at: index))
+        let coordinator = AlbumDetailCoordinator(router: router, viewModel: detailViewModel)
+        
+        // Maintain a strong reference to avoid deallocation
+        addChild(coordinator)
+        coordinator.start()
+        
+        // Avoid retain cycles and don't forget to remove the child when popped
+        router.push(coordinator, animated: true) { [weak self, weak coordinator] in
+            self?.removeChild(coordinator)
+        }
+    }
+    
+}
+
+extension AppCoordinator: AlbumsViewControllerDelegate {
+
+    func albumsViewController(_ controller: AlbumsViewController, didSelectAlbumAt index: Int) {
+        showDetail(at: index)
+    }
+    
+    func albumsViewController(_ viewController: AlbumsViewController, didReceiveError error: Error) {
+        viewController.presentErrorAlert(error)
     }
     
 }

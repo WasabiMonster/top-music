@@ -9,44 +9,23 @@
 import Foundation
 import UIKit
 
-class AlbumsCoordinator: BaseCoordinator {
+class AlbumsCoordinator: Coordinator<DeepLink> {
     
     private var albumDetailCoordinator: AlbumDetailCoordinator?
-    private var albumsViewController: AlbumsViewController?
-
-    override init(presenter: UINavigationController) {
-        super.init(presenter: presenter)
-        
+    let albumsViewModel: AlbumsViewModel = AlbumsViewModel()
+    
+    lazy var albumsViewController: AlbumsViewController = {
+        let vc = AlbumsViewController(viewModel: albumsViewModel)
+        return vc
+    }()
+    
+    override init(router: RouterProtocol) {
+        super.init(router: router)
+        router.setRootModule(albumsViewController, hideBar: false)
     }
         
-    override func start() {
-        // These can eventually be created using a Factory pattern for
-        // cleaner creation and lighter coordinators
-        let albumsVC = AlbumsViewController()
-        albumsVC.viewModel = AlbumsViewModel()
-        albumsVC.albumsViewControllerDelegate = self
-        self.albumsViewController = albumsVC
+    /* override func start() {
         presenter.pushViewController(albumsVC, animated: true)
-    }
-    
-    func showDetail(at index: Int) {
-        let detailViewModel = AlbumDetailViewModel()
-        detailViewModel.detail = albumsViewController?.viewModel?.album(at: index)
-        let albumDC = AlbumDetailCoordinator(presenter: presenter, viewModel: detailViewModel)
-        self.albumDetailCoordinator = albumDC
-        albumDC.start()
-    }
-        
-}
-
-extension AlbumsCoordinator: AlbumsViewControllerDelegate {
-
-    func albumsViewController(_ controller: AlbumsViewController, didSelectAlbumAt index: Int) {
-        showDetail(at: index)
-    }
-    
-    func albumsViewController(_ viewController: AlbumsViewController, didReceiveError error: Error) {
-        albumsViewController?.presentErrorAlert(error)
-    }
+    } */
     
 }

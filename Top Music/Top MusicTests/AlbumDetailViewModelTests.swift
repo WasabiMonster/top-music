@@ -21,26 +21,11 @@ class AlbumDetailViewModelTests: XCTestCase {
         self.mockApiManager = MockApiManager(urlSession: self.mockURLSession)
 
         data = loadTestData(fromFile: "feed", fileExtension: ".json")
-        viewModel = AlbumDetailViewModel()
+        let response = try? data.decoded(ofType: AlbumFeedResponse.self)
+        viewModel = AlbumDetailViewModel(detail: (response?.results?[1])!)
     }
     
-    func testDefaults() {
-        XCTAssertEqual("", viewModel.id)
-        XCTAssertEqual("", viewModel.albumText)
-        XCTAssertEqual("", viewModel.artistText)
-        XCTAssertEqual("", viewModel.artworkUrl)
-        XCTAssertEqual("", viewModel.genreText)
-        XCTAssertEqual("", viewModel.copyrightText)
-        XCTAssertEqual("", viewModel.releaseDateText)
-        XCTAssertEqual("http://www.apple.com", viewModel.iTunesUrl)
-        XCTAssertNil(viewModel.detail)
-        XCTAssertNil(viewModel.delegate)
-    }
-
     func testProperties() {
-        let response = try? data.decoded(ofType: AlbumFeedResponse.self)
-        viewModel.detail = response?.results?[1]
-        
         XCTAssertEqual("Imploding the Mirage", viewModel.albumText)
         XCTAssertEqual("The Killers", viewModel.artistText)
         XCTAssertEqual("Imploding the Mirage", viewModel.albumText)

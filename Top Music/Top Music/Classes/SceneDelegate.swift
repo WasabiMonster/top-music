@@ -9,7 +9,11 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    private var appCoordinator: AppCoordinator!
+
+    lazy var appNavigationController: UINavigationController = UINavigationController()
+    lazy var appRouter: RouterProtocol = Router(navigationController: self.appNavigationController)
+    lazy var appCoordinator: AppCoordinator = AppCoordinator(router: self.appRouter)
+
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -20,11 +24,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func launchCoordinator() {
-        DispatchQueue.main.async { [weak self] in
-            let appCoordinator = AppCoordinator(window: self?.window ?? UIWindow())
+        window?.rootViewController = appCoordinator.toPresentable()
+        window?.backgroundColor = .systemBlue
+        window?.makeKeyAndVisible()
+        
+        // or get notification from launch options and convert it to a deep link
+        appCoordinator.start()
+        
+        /* DispatchQueue.main.async { [weak self] in
+            appCoordinator = AppCoordinator(window: self?.window ?? UIWindow())
             appCoordinator.start()
             self?.appCoordinator = appCoordinator
-        }
+        } */
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

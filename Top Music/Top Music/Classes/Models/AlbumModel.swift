@@ -17,7 +17,7 @@ struct AlbumModel: Decodable {
     let releaseDate: Date?
     let copyright: String
     let genres:[GenreModel]
-    let url: String
+    let url: String?
     var imageLoadStatus: AlbumImageStatus = .start
     
     enum CodingKeys: String, CodingKey {
