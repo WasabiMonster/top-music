@@ -16,8 +16,18 @@ extension UIView {
         return array
     }
     
-    // Works best when elements are embedded inside a UIStackView
-    func animateInFromEdge(side: UIRectEdge, duration: Double = 0.5, delay: Double = 0.0, options: AnimationOptions = .curveEaseIn) {
+    func staggerSlideInContents(side: UIRectEdge, duration: Double = 0.5, delay: Double = 0.0, options: AnimationOptions = .curveEaseIn) {
+        if side != .left && side != .right {
+            return
+        }
+        var sDelay: Double = delay
+        for vw in allSubViews {
+            vw.slideInFromEdge(side: side, duration: duration, delay: delay + sDelay, options: options)
+            sDelay = sDelay + 0.1
+        }
+    }
+    
+    func slideInFromEdge(side: UIRectEdge, duration: Double = 0.5, delay: Double = 0.0, options: AnimationOptions = .curveEaseIn) {
         let orgXPos = self.originX
         let orgYPos = self.originY
         
@@ -85,9 +95,9 @@ extension UIView {
         }
     }
     
-    func fadeInFromOut() {
+    func fadeInFromOut(delay: Double = 0.3) {
         self.alpha = 0
-        UIView.animate(withDuration: 0.35, delay: 0.3, options: .curveEaseOut, animations: {() -> Void in
+        UIView.animate(withDuration: 0.35, delay: delay, options: .curveEaseOut, animations: {() -> Void in
             self.alpha = 1.0
         }, completion: nil)
     }

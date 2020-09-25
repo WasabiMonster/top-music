@@ -59,7 +59,9 @@ final class AlbumDetailViewController: UIViewController {
     }
     
     func animateOnScreen() {
-        albumLabel.animateInFromEdge(side: .right, duration: 0.5, delay: 0.0)
+        artworkImage.slideInFromEdge(side: .right, delay: 0.0)
+        textStackView?.staggerSlideInContents(side: .right, duration: 0.5, delay: 0.1)
+        ctaButton.fadeInFromOut(delay: 0.5)
     }
     
     fileprivate func updateDisplay() {

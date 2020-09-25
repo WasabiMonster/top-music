@@ -24,6 +24,8 @@ public class WaveTransition: CustomTransition {
         containerView.addSubview(toVC.view)
         containerView.addSubview(fromVC.view)
         
+        // toVC.view.alpha = 0.5
+        
         let size: CGSize = fromVC.view.frame.size
         
         var toPath = UIBezierPath()
